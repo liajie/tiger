@@ -17,9 +17,11 @@
 
 
 
+
+
 //首页路由
 Route::get('/', 'Index@index');
 Route::get('index/index', 'Index@index');
 
-
+//视频列表
 Route::get('live/live_list', 'Live@live_list');
