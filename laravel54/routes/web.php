@@ -20,3 +20,6 @@
 //首页路由
 Route::get('/', 'Index@index');
 Route::get('index/index', 'Index@index');
+
+
+Route::get('live/live_list', 'Live@live_list');
