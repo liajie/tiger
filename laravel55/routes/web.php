@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+
+
 //首页路由
-Route::get('/index/index', 'Index@index');
+Route::get('/', 'Index@index');
+Route::get('index/index', 'Index@index');

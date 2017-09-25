@@ -9,8 +9,11 @@ class Index extends Controller
     //首页
     public function index()
     {
-        echo '123';die;
+
+        return view('index/index');
     }
+
+
 }
 
 
