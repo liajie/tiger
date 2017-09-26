@@ -16,6 +16,20 @@
 });*/
 
 
+<<<<<<< HEAD
+
+
+
+//首页路由
+Route::get('/', 'Index@index');
+Route::get('index/index', 'Index@index');
+
+//视频列表
+Route::get('live/live_list', 'Live@live_list');
+
+//登录验证页面
+Route::get('login/disanfang','Login@disanfang');
+=======
 $ROUTES = isset($_GET['r'])?$_GET['r']:false;
 if($ROUTES)
 {
@@ -46,3 +60,4 @@ if($ROUTES)
     Route::get('live/live_list', 'Live@live_list');
 
 }
+>>>>>>> refs/remotes/origin/master
