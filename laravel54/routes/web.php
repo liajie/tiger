@@ -25,3 +25,6 @@ Route::get('index/index', 'Index@index');
 
 //视频列表
 Route::get('live/live_list', 'Live@live_list');
+
+//登录验证页面
+Route::get('login/disanfang','Login@disanfang');

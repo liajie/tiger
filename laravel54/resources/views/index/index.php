@@ -21,11 +21,16 @@
     <link rel='canonical' href='http://www.huya.com/'>
     <link type="text/css" rel="stylesheet" href="/css/pages_modules_796de8d.css">
     <link type="text/css" rel="stylesheet" href="/css/auto_combine_a7d45_999daed.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!--HEAD_END-->
     <style type="text/css">
         .w-1000 .left-banner,.w-1000 .right-banner{
             background-image: url("/images/huya_1506047436_content.jpg");
+
         }
+        .login-box{display: none;}
+        #tab-unit{display:block;}
+        #qq{display:none;}
     </style>
     <script data-fixed="true">
         var flashTime = new Date().getTime();
@@ -98,10 +103,10 @@
                     </a>
                     <div class="nav-expand-list">
                         <i class="arrow"></i>
-                        <div class="subscribe-hd clearfix" style="display:none;">
+                        <div class="subscribe-hd clearfix" style="display:block;">
                             <h5>我订阅的有<em class="subscribe-key">0</em>个正在直播</h5>
                         </div>
-                        <div class="subscribe-bd" style="display:none;">
+                        <div class="subscribe-bd" style="display:block;">
                             <ul class="subscribe-list"></ul>
                             <a class="subscribe-all" href="/http://i.huya.com/index.php?m=Subscribe" target="_blank">全部订阅</a>
                         </div>
@@ -132,19 +137,150 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/http://i.huya.com/index.php?m=Subscribe&watch=1" class="nav-expand-history-more J_gNavLogin" style="display:none" target="_blank">更多&gt;</a>
+                        <a href="/http://i.huya.com/index.php?m=Subscribe&watch=1" class="nav-expand-history-more J_gNavLogin" style="display:block" target="_blank">更多&gt;</a>
                     </div>
                 </div>
-                <div class="hy-nav-right un-login">
+                <div class="hy-nav-right un-login" style="display: block;">
                     <div class="hy-nav-title">
                         <i class="hy-nav-icon hy-nav-login-icon"></i>
                         <div class="un-login-btn">
-                            <a class="clickstat" id="nav-login" href="/#" eid="click/navi/sign" eid_desc="点击/导航/登录">登录</a>
+                            <a class="clickstat" id="login" href="#"  eid_desc="点击/导航/登录">登录</a>
                             <i>|</i>
-                            <a class="clickstat" id="nav-regiest" href="/#" eid="click/navi/login" eid_desc="点击/导航/注册">注册</a>
+                            <a class="clickstat" id="add_login" href="#" eid="click/navi/login" eid_desc="点击/导航/注册">注册</a>
                         </div>
                     </div>
                 </div>
+
+<!-- 登录注册遮罩层 Start-->
+<div class="login-box">
+        <div class="login">
+            <div class="login-main">
+                <div class="login-hd">
+                    <a class="tab-btn" id="btn_active">登录</a>
+                    <a class="tab-btn" id="btn_zhuce">注册</a>
+                    <a class="tab-btn" id="disanfang">第三方</a>
+                    <i class="line J_line" style="left: 0px;"></i>
+                </div>
+                <div class="login-bd">
+                    <div class="login-content">
+                        <div class="tab-unit" id="tab-unit">
+                            <div id="login-tab">
+                                <h3>帐号登录</h3>
+
+                                <div class="login-view" id="J_loginView">
+                                   <form>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">用户名</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="手机号/邮箱/手机号" style="width:300px">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">密码</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码"
+                                style="width:300px" >
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox">记住密码
+                                </label>
+                              </div>
+                              <button type="submit" class="btn btn-default">登录</button>
+                            </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-unit" id="zhuce">
+                        <h3>注册</h3>
+                           
+                              <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="用户名" style="width:300px">
+                              </div>
+                              <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="邮箱" style="width:300px">
+                              </div>
+                               <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="手机号" style="width:300px">
+                              </div>
+                              <div class="form-group">
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码"
+                                style="width:300px" >
+                              </div>
+                              <button type="submit" class="btn btn-default">注册</button>
+                        </div>
+                        <!-- 第三方 -->
+                        <div class="tab-unit" id="qq">
+                        <h3>第三方登录</h3>
+                          其他账号登陆：<span id="hzy_fast_login"></span>
+                        </div>
+                        <!-- end -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <a class="login-close" id="js-login-close" title="关闭"></a>
+        <p class="login-wran-tip">使用即为同意《<a class="warn-link" href="http://blog.huya.com/product/90" target="_blank" title="虎牙软件用户协议">虎牙软件用户协议</a>》</p>
+    </div>
+<!-- 李超飞 -->
+<script type="text/javascript" src="http://open.51094.com/user/myscript/159c9c90857808.html"></script>
+<script>
+
+    $(function(){
+        $(document).on("click","#login",function(){
+            $(".login-box").show();
+            $("#tab-unit").show();
+            $("#qq").hide();
+            $("#zhuce").hide();
+
+        })
+
+        $(document).on("click","#add_login",function(){
+            $(".login-box").show();
+            $("#tab-unit").hide();
+            $("#qq").hide();
+            $("#zhuce").show();
+        })
+
+        $(document).on("click",".login-close",function(){
+            $(".login-box").hide();
+        })
+        $(document).on("click","#btn_active",function(){
+            $("#tab-unit").show();
+            $("#zhuce").hide();
+            $("#qq").hide();
+            
+        })
+        $(document).on("click","#btn_zhuce",function(){
+            $("#zhuce").show();
+            $("#tab-unit").hide();
+            $("#qq").hide();
+        })
+        $(document).on("click","#disanfang",function(){
+            $("#zhuce").hide();
+            $("#tab-unit").hide();
+            $("#qq").show();
+        })
+    })
+   
+
+     
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 遮罩层end -->
+
+
                 <div class="hy-nav-right nav-user success-login">
                     <a class="nav-user-title" href="/http://i.huya.com/" target="_blank">
                         <img id="login-userAvatar" src="/images/10001.jpg" alt="头像" />
