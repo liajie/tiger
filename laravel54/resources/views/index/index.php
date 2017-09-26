@@ -55,8 +55,32 @@
                 <span class="hy-nav-link"><a href="/index.php/live/live_list" class="hy-nav-title hiido_stat clickstat"  hiido_code="10004221" eid="click/navi/zhibo" eid_desc="点击/导航/直播">直播</a></span>
                 <div class="hy-nav-expand">
                     <div class="hy-nav-title nav-main" id="nav-main"><a href="/http://www.huya.com/g">分类</a><i class="icon-arrow"></i></div>
+
                     <div class="nav-expand-list nav-expand-game">
                         <i class="arrow"></i>
+                        <dl class="clearfix">
+                            <dt>热门分类</dt>
+                            <dd><a target="_blank" href="http://www.huya.com/g/lol" title="英雄联盟" eid_desc="点击/导航/游戏/游戏1" eid="click/navi/game/game1" class="clickstat">英雄联盟</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/wzry" title="王者荣耀" eid_desc="点击/导航/游戏/游戏2" eid="click/navi/game/game2" class="clickstat">王者荣耀</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/xingxiu" title="星秀" eid_desc="点击/导航/游戏/游戏3" eid="click/navi/game/game3" class="clickstat">星秀</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/100032" title="主机游戏" eid_desc="点击/导航/游戏/游戏4" eid="click/navi/game/game4" class="clickstat">主机游戏</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2836" title="户外" eid_desc="点击/导航/游戏/游戏5" eid="click/navi/game/game5" class="clickstat">户外</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/cf" title="穿越火线" eid_desc="点击/导航/游戏/游戏6" eid="click/navi/game/game6" class="clickstat">穿越火线</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2793" title="绝地求生" eid_desc="点击/导航/游戏/游戏7" eid="click/navi/game/game7" class="clickstat">绝地求生</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/MC" title="我的世界" eid_desc="点击/导航/游戏/游戏8" eid="click/navi/game/game8" class="clickstat">我的世界</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/dnf" title="地下城与勇士" eid_desc="点击/导航/游戏/游戏9" eid="click/navi/game/game9" class="clickstat">地下城与勇士</a></dd>
+                        </dl><dl class="clearfix"><dt>玩家推荐</dt><dd><a target="_blank" href="http://www.huya.com/g/2683" title="迷你世界" eid_desc="点击/导航/游戏/游戏10" eid="click/navi/game/game10" class="clickstat">迷你世界</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/overwatch" title="守望先锋" eid_desc="点击/导航/游戏/游戏11" eid="click/navi/game/game11" class="clickstat">守望先锋</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/qiuqiu" title="球球大作战" eid_desc="点击/导航/游戏/游戏12" eid="click/navi/game/game12" class="clickstat">球球大作战</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2839" title="昆特牌" eid_desc="点击/导航/游戏/游戏13" eid="click/navi/game/game13" class="clickstat">昆特牌</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/ttkp" title="天天酷跑" eid_desc="点击/导航/游戏/游戏14" eid="click/navi/game/game14" class="clickstat">天天酷跑</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2350" title="冒险岛2" eid_desc="点击/导航/游戏/游戏15" eid="click/navi/game/game15" class="clickstat">冒险岛2</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2168" title="颜值" eid_desc="点击/导航/游戏/游戏16" eid="click/navi/game/game16" class="clickstat">颜值</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2752" title="美食" eid_desc="点击/导航/游戏/游戏17" eid="click/navi/game/game17" class="clickstat">美食</a></dd>
+                            <dd><a target="_blank" href="http://www.huya.com/g/2633" title="二次元" eid_desc="点击/导航/游戏/游戏18" eid="click/navi/game/game18" class="clickstat">二次元</a></dd>
+                        </dl>
+                        <a target="_blank" class="nav-expand-game-more" href="http://www.huya.com/g">更多 <span>&gt;</span></a>
+                        <a target="_blank" eid_desc="点击/推荐/导航游戏下拉图" eid="click/push/navigame" data-thirdview="" data-thirdstat="" class="clickstat third-clickstat" id="J_adCategory" href="http://www.huya.com/s7"><img width="250" height="60" alt="S7全球总决赛" src="//livewebbs2.msstatic.com/huya_1506408249_content.jpg"></a>
                     </div>
                 </div>
                 <!-- <span class="hy-nav-link"><a href="/http://v.huya.com" class="hy-nav-title hiido_stat clickstat" hiido_code="10004227" target="_blank" eid="click/navi/video" eid_desc="点击/导航/视频">视频</a></span> -->
