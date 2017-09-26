@@ -35,6 +35,8 @@ class Live extends Controller
     {
 
         $data = $request->input();
+        DB::table('live_channel')
+            ->insert(['']);
     }
 
     //主播注册页完毕跳转页
