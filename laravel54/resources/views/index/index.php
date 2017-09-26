@@ -42,9 +42,9 @@
 </head>
 <body>
 <script data-fixed="true">var w=document.body.clientWidth;1480>w&&(document.body.className+=" w-1000");</script>
-
 <!-- S 通用头部 -->
 <div class="duya-header" id="duya-header">
+<<<<<<< HEAD
     <div class="duya-header-wrap clearfix">
         <div class="duya-header-bd clearfix">
             <h1 id="duya-header-logo" title="虎牙直播-虎牙TV-中国领先的互动直播平台">
@@ -368,8 +368,16 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> refs/remotes/origin/master
 </div>
 <script data-fixed="true">
+    $.ajax({
+        url:'index.php/index/header',
+        success:function (e) {
+            $('#duya-header').html(e);
+        }
+    })
     var UDB_SDK_SWTICH = true;
 </script>
 <!-- E 通用头部 -->
