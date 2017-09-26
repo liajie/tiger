@@ -63,7 +63,7 @@
                 </div>
                 <div class="page-item-2-ft p-ft">
                     <a class="statistics" href="http://blog.huya.com/product/66" target="_blank" stat-name="Click/zhubo/identification" stat-desc="点击/成为主播/认证教程">认证教程<i></i></a>
-                    <a class="second statistics" href="/index.php/live/live_sign" target="_blank" stat-name="Click/zhubo/goidentify" stat-desc="点击/成为主播/去认证">去认证<i></i></a>
+                    <a class="second statistics" href="/index.php?r=live/live_sign" target="_blank" stat-name="Click/zhubo/goidentify" stat-desc="点击/成为主播/去认证">去认证<i></i></a>
                 </div>
                 <div class="anchor-arrow"></div>
             </div>
