@@ -293,11 +293,11 @@
                         <p>4、认证教程：<a href="http://blog.huya.com/product/70" target="_blank">http://blog.huya.com/product/70</a></p>
                     </li>
                 </ul>
-                <img class="qr_code" src="images/QR_code.png" alt="虎牙App">
+                <img class="qr_code" src="/images/QR_code.png" alt="虎牙App">
                 <div class="h5_head">
                     <span>示意图</span>
                 </div>
-                <img src="images/sign_page_2.jpg" alt="认证方式">
+                <img src="/images/sign_page_2.jpg" alt="认证方式">
                 <p class="point_p">· 备用认证方式：必须完成高级实名认证，并且完善主播资料后才算完成虎牙认证</p>
                 <!-- 虎牙认证操作提示end -->
                 <div class="h5_head">
@@ -325,7 +325,7 @@
 
 
 
-                <p class="ques_head">常见问题解决<span><img src="images/ques_icon.png" /></span></p>
+                <p class="ques_head">常见问题解决<span><img src="/images/ques_icon.png" /></span></p>
                 <ul class="ques_wrap">
                     <li>
                         <p class="p_1">1、什么是虎牙认证？</p>
