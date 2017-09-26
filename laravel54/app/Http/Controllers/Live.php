@@ -33,6 +33,7 @@ class Live extends Controller
     //主播注册信息获取
     public function ProfileAuth(Request $request)
     {
+
         $data = $request->input();
     }
 
