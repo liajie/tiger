@@ -20,7 +20,6 @@ class LoginController extends Controller
     //析构
     public function __destruct()
     {
-        // TODO: Implement __destruct() method.
         if(isset($this->data['callback']))
         {
             echo $this->data['callback'].'('.json_encode($this->return).')';
