@@ -270,10 +270,10 @@
 								</li>
 
 								<li>
-									<router-link to="/login" class="router-item">
+									<a href="javascript:" v-on:click="login_out">
 										<i class="icon-double-angle-right"></i>
 										登录 &amp; 注册
-									</router-link>
+									</a>
 								</li>
 							</ul>
 						</li>
@@ -342,6 +342,31 @@ export default {
     return {
       message: ''
     }
+  },
+  methods:
+  {
+  	login_out:function()
+  	{
+  		$.ajax({
+  			dataType:'jsonp',
+  			url:host+'?r=login/login_out',
+  			success:function(e)
+  			{
+  				switch (e.error)
+  				{
+  					case '200':
+  					alert(e.msg);
+  					$('#sidebar').hide();
+  					$('#navbar').hide();
+  					location.href='/#/login';
+  					break;
+  					default:
+  					alert(e.msg);
+  					break;
+  				}
+  			}
+  		})
+  	}
   }
 }
 try{ace.settings.check('sidebar' , 'fixed')}catch(e){}

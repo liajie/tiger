@@ -62,7 +62,7 @@ class LoginController extends Controller
     }
 
     //用户退出
-    public function login_out()
+    public function actionLogin_out()
     {
         $this->session_del('user');
         $this->return = ['error'=>'200','msg'=>'退出成功'];

@@ -327,7 +327,9 @@ export default {
   				{
   					case '200':
   					alert(e.msg);
-  					location.href='/';
+  					$('#navbar').show();
+  					$('#sidebar').show();
+  					location.href='/#/';
   					break;
   					default:
   					alert(e.msg);
