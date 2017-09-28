@@ -6,7 +6,11 @@ namespace frontend\controllers;
 
 class IndexController extends CommonController
 {
-
+    //首页获取系统参数
+    public function actionIndex()
+    {
+        echo '13';die;
+    }
 }
 
 

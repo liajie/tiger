@@ -18,9 +18,9 @@ class CommonController extends Controller
     {
         parent::__construct($id, $module, $config);
         $user = $this->session_find('user');
-        if($user)
+        if(!$user)
         {
-            echo 123;die;
+            $this->return = ['error'=>'404','msg'=>'请先登录'];die;
         }
         $this->data = \Yii::$app->request->get();
     }
