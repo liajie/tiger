@@ -318,10 +318,23 @@ export default {
   	login:function(val)
   	{
   		$.ajax({
+  			url:host+'?r=login/login',
   			dataType:'jsonp',
-  			data:{username:this.username,password:this.password}
+  			data:{username:this.username,password:this.password},
+  			success:function(e)
+  			{
+  				switch (e.error)
+  				{
+  					case '200':
+  					alert(e.msg);
+  					location.href='/';
+  					break;
+  					default:
+  					alert(e.msg);
+  					break;
+  				}
+  			}
   		})
-  		alert(this.username)
   	}
   }
 }
