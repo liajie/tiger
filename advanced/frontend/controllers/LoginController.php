@@ -46,6 +46,7 @@ class LoginController extends Controller
             {
                 if($db['password']==$this->data['password'])
                 {
+                    $this->session_set('user',$db);
                     $this->return = ['error'=>'200','msg'=>'ok'];
                 }else
                 {
@@ -58,6 +59,48 @@ class LoginController extends Controller
         }else
         {
             $this->return = ['error'=>'404','msg'=>'参数错误'];
+        }
+    }
+
+    //用户退出
+    public function login_out()
+    {
+        $this->session_del('user');
+        $this->return = ['error'=>'200','msg'=>'退出成功'];
+    }
+
+    //session设置操作
+    public function session_set($key = '',$val = false)
+    {
+        if(!$val){ return false; }else
+        {
+            $session = \Yii::$app->session;
+            $session->set($key,$val);
+            return true;
+        }
+    }
+
+    //session 查询
+    public function session_find($key = false)
+    {
+        if($key)
+        {
+            return \Yii::$app->session->get($key);
+        }else
+        {
+            return false;
+        }
+    }
+
+    //session 销毁
+    public function session_del($key = false)
+    {
+        if($key)
+        {
+            return \Yii::$app->session->remove($key);
+        }else
+        {
+            return false;
         }
     }
 }
