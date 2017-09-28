@@ -30,7 +30,6 @@ class LoginController extends Controller
         }
     }
 
-
     //用户登录
     public function actionLogin()
     {

@@ -1016,7 +1016,7 @@
 				</div>
 </template>
 
-<script src="/static/assets/js/"></script>
+
 <script>
 export default {
   name: 'show',
@@ -1024,27 +1024,15 @@ export default {
     return {
       message: ''
     }
+  },
+  methods:
+  {
+  	
   }
 }
+
 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-$.ajax({
-	dataType:'jsonp',
-	url:host+'?r=index/index',
-	success:function(e)
-	{
-		if(e.error=='200')
-		{
-			
-		}else if(e.error=='404')
-		{
-			alert(e.msg);
-			location.href='/#/login';
-		}else
-		{
-			alert(e.msg);
-		}
-	}
-})
+
 </script>
 
 <style>
