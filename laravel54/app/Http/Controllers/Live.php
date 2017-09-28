@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 
 class Live extends Controller
@@ -33,10 +32,22 @@ class Live extends Controller
     //主播注册信息获取
     public function ProfileAuth(Request $request)
     {
-
+        $user_id = 1;
         $data = $request->input();
-        DB::table('live_channel')
-            ->insert(['']);
+        $reg = DB::table('live_channel')
+            ->insert([
+                'channel_name'=>$data['channel_username'],
+                'channel_username'=>$data['channel_username'],
+                'class_id'=>$data['class_id'],
+                'user_id'=>$user_id,
+                ]);
+        if($reg)
+        {
+            echo "<script>alert('等待审核');location.href='/index.php?r=live/live_sign_d'</script>";
+        }else
+        {
+            echo "<script>alert('提交失败');window.history(-1)</script>";
+        }
     }
 
     //主播注册页完毕跳转页
@@ -44,6 +55,8 @@ class Live extends Controller
     {
         return view('live/live_sign_d');
     }
+
+
 }
 
 

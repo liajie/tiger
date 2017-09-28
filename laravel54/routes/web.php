@@ -15,6 +15,7 @@
     return view('welcome');
 });*/
 
+
 $ROUTES= isset($_GET['r' ])?$_GET['r' ]:false;
 if($ROUTES)
 {
@@ -45,8 +46,6 @@ if($ROUTES)
 	Route::post('login/add','Login@add');
 
 }
-
-
 
 
 

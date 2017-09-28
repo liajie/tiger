@@ -9,7 +9,7 @@ class Index extends Controller
     //首页
     public function index()
     {
-        //print_r($_GET);die;
+        //$game_classify = DB::select();
         return view('index/index');
     }
 

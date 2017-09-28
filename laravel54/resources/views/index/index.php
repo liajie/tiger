@@ -57,6 +57,7 @@
                 <span class="hy-nav-link"><a href="/index.php/live/live_list" class="hy-nav-title hiido_stat clickstat"  hiido_code="10004221" eid="click/navi/zhibo" eid_desc="点击/导航/直播">直播</a></span>
                 <div class="hy-nav-expand">
                     <div class="hy-nav-title nav-main" id="nav-main"><a href="/http://www.huya.com/g">分类</a><i class="icon-arrow"></i></div>
+
                     <div class="nav-expand-list nav-expand-game">
                         <i class="arrow"></i>
                     </div>
