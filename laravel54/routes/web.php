@@ -15,49 +15,39 @@
     return view('welcome');
 });*/
 
-
-<<<<<<< HEAD
-
-
-
-//首页路由
-Route::get('/', 'Index@index');
-Route::get('index/index', 'Index@index');
-
-//视频列表
-Route::get('live/live_list', 'Live@live_list');
-
-//登录验证页面
-Route::get('login/disanfang','Login@disanfang');
-=======
-$ROUTES = isset($_GET['r'])?$_GET['r']:false;
+$ROUTES= isset($_GET['r' ])?$_GET['r' ]:false;
 if($ROUTES)
 {
-    $ROUTES = explode('/',$ROUTES);
-    if(empty($_POST))
-    {
-        Route::get('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
-    }else
-    {
-        Route::post('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
-    }
-}else
-{
+	$ROUTES = explode('/',$ROUTES);
+	if(empty($_POST))
+	{
+	Route::get('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
+	}else
+	{
+	Route::post('/',ucfirst($R0UTES[0]).'@'.$ROUTES[1]);
+	}
 
-    //首页路由
-    Route::get('/', 'Index@index');
-    Route::get('index/index', 'Index@index');
-    //header头部
-    Route::get('index/header', 'Index@header');
+}else{
+	//首页路由
+	Route::get('/', 'Index@index');
+	Route::get('index/index', 'Index@index');
 
-    //视频列表
-    Route::get('live/live_list', 'Live@live_list');
-    //成为主播
-    Route::get('live/live_add', 'Live@live_add');
-    //主播注册成功跳转页面
-    Route::get('live/live_sign', 'Live@live_sign');
-    //直播列表
-    Route::get('live/live_list', 'Live@live_list');
+	//视频列表
+	Route::get('live/live_list', 'Live@live_list');
+
+	//登录验证页面
+	Route::get('login/disanfang','Login@disanfang');
+	//登录页面
+	Route::post('login/login','Login@login');
+	//退出登录页面
+	Route::get('login/loginout','Login@loginout');
+	//注册功能
+	Route::post('login/add','Login@add');
 
 }
->>>>>>> refs/remotes/origin/master
+
+
+
+
+
+

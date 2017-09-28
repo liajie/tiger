@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="ie6" lang="zh-cmn-Hans"> <![endif]-->
 <!--[if IE 7]>         <html class="ie7" lang="zh-cmn-Hans"> <![endif]-->
@@ -31,6 +32,8 @@
         .login-box{display: none;}
         #tab-unit{display:block;}
         #qq{display:none;}
+        #login_un{display: block;}
+        #touxiang{display: block;}
     </style>
     <script data-fixed="true">
         var flashTime = new Date().getTime();
@@ -44,7 +47,6 @@
 <script data-fixed="true">var w=document.body.clientWidth;1480>w&&(document.body.className+=" w-1000");</script>
 <!-- S 通用头部 -->
 <div class="duya-header" id="duya-header">
-<<<<<<< HEAD
     <div class="duya-header-wrap clearfix">
         <div class="duya-header-bd clearfix">
             <h1 id="duya-header-logo" title="虎牙直播-虎牙TV-中国领先的互动直播平台">
@@ -140,7 +142,7 @@
                         <a href="/http://i.huya.com/index.php?m=Subscribe&watch=1" class="nav-expand-history-more J_gNavLogin" style="display:block" target="_blank">更多&gt;</a>
                     </div>
                 </div>
-                <div class="hy-nav-right un-login" style="display: block;">
+                <div class="hy-nav-right un-login"  id="login_un">
                     <div class="hy-nav-title">
                         <i class="hy-nav-icon hy-nav-login-icon"></i>
                         <div class="un-login-btn">
@@ -166,27 +168,27 @@
                         <div class="tab-unit" id="tab-unit">
                             <div id="login-tab">
                                 <h3>帐号登录</h3>
-
-                                <div class="login-view" id="J_loginView">
-                                   <form>
+                
+                                <div class="login-view" id="J_loginView">  
+                             <form method="post" action='index.php?r=login/login' id="login_sub">
                               <div class="form-group">
                                 <label for="exampleInputEmail1">用户名</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="手机号/邮箱/手机号" style="width:300px">
+                                <input type="email" class="form-control" placeholder="手机号/邮箱/手机号" style="width:300px" id="username">
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputPassword1">密码</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码"
-                                style="width:300px" >
+                                <input type="password" class="form-control"  placeholder="密码"
+                                style="width:300px" id="pwd" >
+                                <input type="hidden" value="<?= csrf_token()?>" id='_token'>
                               </div>
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox">记住密码
+                                  <input type="checkbox" value="1" id="check">记住密码
                                 </label>
                               </div>
-                              <button type="submit" class="btn btn-default">登录</button>
-                            </form>
-
+                              <input type="submit" class="btn btn-default" value="登录" id="subm">
                                 </div>
+                                </form>
 
                             </div>
                         </div>
@@ -194,19 +196,18 @@
                         <h3>注册</h3>
                            
                               <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="用户名" style="width:300px">
-                              </div>
-                              <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="邮箱" style="width:300px">
+                                <input type="email" class="form-control"  placeholder="用户名" style="width:300px" id="zhuce_user">
                               </div>
                                <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="手机号" style="width:300px">
+                                <input type="email" class="form-control"  placeholder="手机号" style="width:300px" id="zhuce_tel">
                               </div>
                               <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码"
-                                style="width:300px" >
+                                <input type="password" class="form-control"  placeholder="密码"
+                                style="width:300px" id="zhuce_pwd" >
+                                <input type="hidden" value="<?= csrf_token()?>" id='zhuce_token'>
                               </div>
-                              <button type="submit" class="btn btn-default">注册</button>
+                              <button  class="btn btn-default"
+                              id="zhuce_btn">注册</button>
                         </div>
                         <!-- 第三方 -->
                         <div class="tab-unit" id="qq">
@@ -220,13 +221,89 @@
             
         </div>
         <a class="login-close" id="js-login-close" title="关闭"></a>
-        <p class="login-wran-tip">使用即为同意《<a class="warn-link" href="http://blog.huya.com/product/90" target="_blank" title="虎牙软件用户协议">虎牙软件用户协议</a>》</p>
+        <p class="login-wran-tip">使用即为同意</p>
     </div>
 <!-- 李超飞 -->
 <script type="text/javascript" src="http://open.51094.com/user/myscript/159c9c90857808.html"></script>
 <script>
-
+<?php 
+if (!empty($_COOKIE['nickname'])) {?>
+    $("#login_un").hide();
+    $("#touxiang").show();  
+   
+<?php
+}else
+{?>
+  
+<?php
+}
+?>
+//-------------登录ajax
     $(function(){
+        $(document).on("click","#subm",function(){
+            var username =$("#username").val();
+            var pwd =$("#pwd").val();
+            var check =$("#check").val();
+            var _token =$("#_token").val();
+            $.ajax({
+                headers: {
+                    'X-XSRF-TOKEN':_token
+                 },
+                   type: "POST",
+                   url: "login/login",
+                   data: {
+                    username:username,
+                    pwd:pwd,
+                    check:check,
+                    _token:_token
+                   },
+                   success: function(msg){
+                     if(msg==1){
+                        alert('登录成功');
+                        $("#login_un").hide();
+                        $(".login-box").hide();
+                        $("#touxiang").show();
+                        $("#nickname").html(msg['nickname']);
+                     }else{
+                        alert("登录失败");
+                        $(".login-box").hide();
+                     }
+                   }
+                });
+
+        })
+ //-------------------注册ajax
+ $(document).on("click","#zhuce_btn",function(){
+            var zhuce_user =$("#zhuce_user").val();
+            var zhuce_pwd =$("#zhuce_pwd").val();
+            var zhuce_tel =$("#zhuce_tel").val();
+            var _token =$("#zhuce_token").val();
+            $.ajax({
+                headers: {
+                    'X-XSRF-TOKEN':_token
+                 },
+                   type: "POST",
+                   url: "login/add",
+                   data: {
+                    zhuce_user:zhuce_user,
+                    zhuce_pwd:zhuce_pwd,
+                    zhuce_tel:zhuce_tel,
+                     _token:_token
+                   },
+                   success: function(msg){
+                    if (msg==1) 
+                    {
+                        alert('注册成功');
+                        $(".login-box").hide();
+                    }
+                    else{
+                        alert('注册失败');
+                    }
+                   }
+                });
+
+        })
+ //--------------------------------------------------       
         $(document).on("click","#login",function(){
             $(".login-box").show();
             $("#tab-unit").show();
@@ -280,8 +357,11 @@
 
 <!-- 遮罩层end -->
 
-
-                <div class="hy-nav-right nav-user success-login">
+                <div class="hy-nav-right nav-user success-login" <?php
+                    if (empty($_COOKIE['nickname'])) {
+                        echo "style='display:none;'";
+                    }
+                ?> id="touxiang">
                     <a class="nav-user-title" href="/http://i.huya.com/" target="_blank">
                         <img id="login-userAvatar" src="/images/10001.jpg" alt="头像" />
                         <span id="login-username"></span>
@@ -289,25 +369,33 @@
                     </a>
                     <div class="nav-expand-list">
                         <i class="arrow"></i>
-                        <div class="tt-user-card">
-                            <a class="btn-exit" id="nav-loggout" href="/#"><i class="hy-nav-exit-icon"></i><span>退出</span></a>
+                        <!-- 用户信息 --><div class="tt-user-card">
+                            <a class="btn-exit" id="nav-loggout" href="#"><i class="hy-nav-exit-icon"></i><span><a href="login/loginout">退出</a></span></a>
                             <div class="u-info">
-                                <a class="avatar" id="J_huyaNavUserCardAvatar" href="/http://i.huya.com/" target="_blank">
-                                    <img src="/images/10001.jpg" id="J_huyaNavUserCardAvatarImg" />
+                                <a class="avatar" id="J_huyaNavUserCardAvatar" href="http://i.huya.com/" target="_blank">
+                                    <img src="//huyaimg.msstatic.com/avatar/1010/03/23cfa7994ed4856dd60e476a7bee09_180_135.jpg" id="J_huyaNavUserCardAvatarImg">
                                 </a>
-                                <p class="nick" id="J_huyaNavUserCardNick">...</p>
-                                <p class="user-sign" id="J_huyaNavUserCardSign">...</p>
+                                <p class="nick" id="J_huyaNavUserCardNick"><span id="nickname"><?php
+                                       if (!empty($_COOKIE['nickname'])) {
+                                            echo $_COOKIE['nickname'];
+                                        } else
+                                        {
+                                            echo "未登录";
+                                        }
+
+                                ?></span><i class="gender gender1"></i><i class="level-icon level-icon1"></i></p>
+                                <p class="user-sign" id="J_huyaNavUserCardSign"><a href="http://i.huya.com/?m=UserInfo" target="_blank" class="edit_sign">点击编辑个性签名</a></p>
                                 <div class="exp clearfix">
                                     <div class="between">
-                                        <span class="from" id="J_huyaNavUserCardExpFrom">LV-</span>
+                                        <span class="from" id="J_huyaNavUserCardExpFrom">LV1</span>
                                         <div class="bar-cnt">
-                                            <p id="J_huyaNavUserCardBarInfo"></p>
+                                            <p id="J_huyaNavUserCardBarInfo">今日获得<em>0</em>点经验值，升级还需<em>140</em>点</p>
                                             <p class="bar">
-                                                <i id="J_huyaNavUserCardExpBar"><b class="J_huyaNavUserCardExpText"></b></i>
-                                                <span class="J_huyaNavUserCardExpText"></span>
+                                                <i id="J_huyaNavUserCardExpBar" style="width: 30%;"><b class="J_huyaNavUserCardExpText">60/200</b></i>
+                                                <span class="J_huyaNavUserCardExpText">60/200</span>
                                             </p>
                                         </div>
-                                        <span class="to" id="J_huyaNavUserCardExpTo">LV-</span>
+                                        <span class="to" id="J_huyaNavUserCardExpTo">LV2</span>
                                     </div>
                                 </div>
                             </div>
@@ -315,38 +403,67 @@
                                 <div class="bd">
                                     <span class="type-name">资产</span>
                                     <ul class="type">
-                                        <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">...</em></li>
-                                        <li class="type-ticket"><i class="gold-ticket"></i><em id="J_huyaNavUserCardAssetsTk">...</em></li>
-                                        <li><i class="silver-bean"></i><em id="J_huyaNavUserCardAssetsSb">...</em></li>
+                                        <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">0</em></li>
+                                        <li class="type-ticket"><i class="gold-ticket"></i><em id="J_huyaNavUserCardAssetsTk">0</em></li>
+                                        <li><i class="silver-bean"></i><em id="J_huyaNavUserCardAssetsSb">0</em></li>
                                     </ul>
-                                    <a class="topup new-clickstat" target="_blank" href="/http://i.huya.com/?evt=recharge" report='{"eid":"click/position","position":"header/usercard/recharge"}'>充值</a>
+                                    <a class="topup new-clickstat" target="_blank" href="http://i.huya.com/?evt=recharge" report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/recharge&quot;}">充值</a>
                                 </div>
                             </div>
-                            <div class="u-task loading" id="J_huyaNavUserCardTask">
-                            </div>
+                            <div class="u-task" id="J_huyaNavUserCardTask"><div class="task-mod task-novice">
+    <div class="mod-hd">
+        <p class="mod-tit">新手任务</p>
+    </div>
+    <div class="mod-bd">
+    
+        <ul class="tasks">
+        
+            <li>               
+                <span class="task-icon" title="上传头像"><img src="//img.dwstatic.com/huya/questcenter/icon/xinshou_touxiang.png" alt="icon"></span>
+                <p class="task-name" title="上传头像">设置头像</p>
+                
+                        <a class="task-btn done" href="#">完成</a>
+                    
+            </li>
+        
+            <li>
+                
+                <span class="task-icon" title="对心爱的主播送出虎粮"><img src="//img.dwstatic.com/huya/questcenter/icon/xinshou_songli.png" alt="icon"></span>
+                <p class="task-name" title="对心爱的主播送出虎粮">送出虎粮</p>
+                
+                        <a class="task-btn ing" href="#">0/1</a>
+                
+            </li>
+        
+            <li>
+                
+                <span class="task-icon" title="前三项任务全部完成"><img src="//img.dwstatic.com/huya/questcenter/icon/xinshou_ewai.png" alt="icon"></span>
+                <p class="task-name" title="前三项任务全部完成">额外奖励</p>
+                
+                        <a class="task-btn ing" href="#">1/3</a>
+                
+            </li>
+        
+        </ul>
+    
+    </div>
+</div></div>
                             <div class="u-links">
                                 <ul>
                                     <li class="links-i">
-                                        <a href="/http://i.huya.com/" target="_blank" class="new-clickstat" report='{"eid":"click/position","position":"header/usercard/entrance1"}'>
+                                        <a href="http://i.huya.com/" target="_blank" class="new-clickstat" report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/entrance1&quot;}">                                        
                                             <i></i>
                                             <p>个人中心</p>
                                         </a>
                                     </li>
                                     <li class="links-noble">
-                                        <a href="/http://i.huya.com/index.php?m=NobleSys" target="_blank" report='{"eid":"click/position","position":"header/usercard/entrance2"}'>
+                                        <a href="http://i.huya.com/index.php?m=NobleSys" target="_blank" report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/entrance2&quot;}">
                                             <i></i>
                                             <p>我的贵族</p>
                                         </a>
                                     </li>
-                                    <li class="links-msg" id="J_huyaNavUserMsg">
-                                        <a href="/http://i.huya.com/index.php?m=Msg&do=listMsg" target="_blank" report='{"eid":"click/position","position":"header/usercard/entrance3"}'>
-                                            <i></i>
-                                            <p>我的消息</p>
-                                        </a>
-                                        <b class="dot" id="J_huyaNavUserMsgDot"></b>
-                                    </li>
                                     <li class="links-play">
-                                        <a href="/http://www.huya.com/e/zhubo" target="_blank" report='{"eid":"click/position","position":"header/usercard/entrance4"}'>
+                                        <a href="http://www.huya.com/e/zhubo" target="_blank" report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/entrance4&quot;}">
                                             <i></i>
                                             <p>我要直播</p>
                                         </a>
@@ -354,6 +471,7 @@
                                 </ul>
                             </div>
                         </div>
+                       <!-- end -->
                     </div>
                 </div>
             </div>
@@ -368,8 +486,6 @@
             </div>
         </div>
     </div>
-=======
->>>>>>> refs/remotes/origin/master
 </div>
 <script data-fixed="true">
     $.ajax({
