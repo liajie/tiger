@@ -87,7 +87,7 @@ class CommonController extends Controller
 /**
  * CommonController.php
  *
- * ...
+ * 公共控制器(判断用户状态)
  *
  * Copyright (c)2017 http://note.hanfu8.top
  *
