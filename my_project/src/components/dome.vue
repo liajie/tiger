@@ -1,0 +1,19 @@
+<template>
+</template>
+
+<script>
+export default {
+  name: '',
+  data () {
+    return {
+      message: ''
+    }
+  }
+}
+</script>
+
+<style>
+/*引入css文件
+@import '/static/css/easydialog.min.css';
+@import url("/static/assets/css/bootstrap.min.css");*/
+</style>
