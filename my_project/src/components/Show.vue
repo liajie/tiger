@@ -1018,6 +1018,7 @@
 
 
 <script>
+
 export default {
   name: 'show',
   data () {
@@ -1027,9 +1028,10 @@ export default {
   },
   methods:
   {
-  	
+
   }
 }
+
 
 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 
