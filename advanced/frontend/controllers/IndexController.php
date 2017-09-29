@@ -29,6 +29,12 @@ class IndexController extends CommonController
         $msg['b_money'] = $money['b_money'];
         $this->return = ['error'=>'200','msg'=>$msg];
     }
+
+    //获取用户信息
+    public function user_data()
+    {
+
+    }
 }
 
 
