@@ -59,8 +59,8 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">32</span>
-												<div class="infobox-content">2个评论</div>
+												<span class="infobox-data-number">{{news_count}}</span>
+												<div class="infobox-content">{{news_news}}今日新闻</div>
 											</div>
 											<div class="stat stat-success">8%</div>
 										</div>
@@ -995,10 +995,11 @@
 															<div class="input-group">
 																<input type="text" name="message" class="form-control" placeholder="Type your message here ...">
 																<span class="input-group-btn">
-																	<button type="button" class="btn btn-sm btn-info no-radius">
+																	<button type="button" class="btn btn-sm btn-info no-radius" v-on:click="button">
 																		<i class="icon-share-alt"></i>
 																		发送
 																	</button>
+																	<input type="hidden" id="auto_button" value=""/>
 																</span>
 															</div>
 														</div>
@@ -1014,6 +1015,7 @@
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
 				</div>
+
 </template>
 
 
@@ -1023,16 +1025,46 @@ export default {
   name: 'show',
   data () {
     return {
-      message: ''
+      message: '',
+      news_count:'',
+      news_news:'',
     }
   },
   methods:
   {
-
+      button:function () {
+      	console.log(this.$route.name)
+      	console.dir(this.$children)
+      },
+      /*button:function()({
+      	console.log(this.$route.name)
+      }*/
+  },
+  created(){
+  	
   }
+
 }
 
-
+function load()
+{
+	$.ajax({
+		dataType:'jsonp',
+		url:host+'?r=index/index',
+		success:function (e) {
+			common(e.error);
+			if(e.error=='200')
+			{
+				console.dir(e.msg)
+				this.news_count = e.msg.nwes_count
+				this.news_news = e.msg.news_news
+			}else
+			{
+			    alert(e.msg)
+			}
+        }
+	})
+}
 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 
 </script>

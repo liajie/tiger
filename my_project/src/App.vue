@@ -12,9 +12,8 @@
     </div>
   </div>
 </template>
-
 <!--引入一个js文件-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
 <!--这里写js代码-->
 <script>
 /*加载头部*/
@@ -30,6 +29,8 @@ export default {
   	Iheader,Imeun
   }
 }
+
+
 </script>
 
 <!--这里写css代码-->

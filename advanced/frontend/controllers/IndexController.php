@@ -9,7 +9,11 @@ class IndexController extends CommonController
     //首页获取系统参数
     public function actionIndex()
     {
-        $this->return = ['error'=>'200','msg'=>[]];
+        $date = strtotime(date('Y-m-d',time()));
+        //获取新闻总条数
+        $msg['news_count'] = (new \yii\db\Query())->select(['news_id'])->from('live_news')->count();
+        $msg['news_news'] = (new \yii\db\Query())->select(['*'])->where("new_addTime>$date")->from('live_news')->count();
+        $this->return = ['error'=>'200','msg'=>$msg];
     }
 }
 

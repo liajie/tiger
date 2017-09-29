@@ -31,7 +31,7 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active">
+						<li class="active" v-on:click="router_imeun">
 							<router-link to="/" class="router-item">
 								<i class="icon-dashboard"></i>
 								<span class="menu-text"> 控制台 </span>
@@ -366,9 +366,14 @@ export default {
   				}
   			}
   		})
-  	}
+  	},
+      router_imeun:function () {
+		  //打印路由参数
+		  console.log(this.$route)
+      }
   }
 }
+
 try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
 try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
 </script>
