@@ -62,7 +62,7 @@
 												<span class="infobox-data-number">{{news_count}}</span>
 												<div class="infobox-content">{{news_news}}今日新闻</div>
 											</div>
-											<div class="stat stat-success">8%</div>
+											<div class="stat stat-success">{{news_per}}%</div>
 										</div>
 
 										<div class="infobox infobox-blue  ">
@@ -71,12 +71,12 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">11</span>
+												<span class="infobox-data-number">{{user_new}}</span>
 												<div class="infobox-content">新粉丝</div>
 											</div>
 
 											<div class="badge badge-success">
-												+32%
+												{{user_per}}%
 												<i class="icon-arrow-up"></i>
 											</div>
 										</div>
@@ -87,8 +87,8 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">8</span>
-												<div class="infobox-content">新订单</div>
+												<span class="infobox-data-number">{{noticeUser}}</span>
+												<div class="infobox-content">直播预订量</div>
 											</div>
 											<div class="stat stat-important">4%</div>
 										</div>
@@ -99,8 +99,8 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">7</span>
-												<div class="infobox-content">调查</div>
+												<span class="infobox-data-number">{{live_notice}}</span>
+												<div class="infobox-content">直播量统计</div>
 											</div>
 										</div>
 
@@ -110,12 +110,12 @@
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-data-number">6,251</span>
-												<div class="infobox-content">页面查看次数</div>
+												<span class="infobox-data-number">{{log_new}}</span>
+												<div class="infobox-content">访客统计</div>
 											</div>
 
 											<div class="badge badge-success">
-												7.2%
+												{{log_count}}%
 												<i class="icon-arrow-up"></i>
 											</div>
 										</div>
@@ -123,16 +123,16 @@
 										<div class="infobox infobox-blue2  ">
 											<div class="infobox-progress">
 												<div data-size="46" data-percent="42" class="easy-pie-chart percentage easyPieChart" style="width: 46px; height: 46px; line-height: 46px;">
-													<span class="percent">42</span>%
+													<span class="percent">{{a_money}}金</span>
 												<canvas height="46" width="46"></canvas></div>
 											</div>
 
 											<div class="infobox-data">
-												<span class="infobox-text">交易使用</span>
+												<span class="infobox-text">用户充值</span>
 
 												<div class="infobox-content">
-													<span class="bigger-110">~</span>
-													剩余58GB
+													<span class="bigger-110"></span>
+													{{b_money}}银豆
 												</div>
 											</div>
 										</div>
@@ -1024,9 +1024,23 @@ export default {
   data () {
     return {
       message: '',
+      //新闻
       news_count:'',
       news_news:'',
-      auto_button_val:'111'
+      news_per:'',
+      //用户
+      user_new:'',
+      user_per:'',
+      //节目预订
+      noticeUser:'',
+      //直播量统计
+      live_notice:'',
+      //访客统计
+      log_new:'',
+      log_count:'',
+      //货币
+      b_money:'',
+      a_money:'',
     }
   },
   methods:
@@ -1057,8 +1071,23 @@ function load(obj)
 			common(e.error);
 			if(e.error=='200')
 			{
+				//今日新闻
 				obj.news_news = e.msg.news_news
 				obj.news_count = e.msg.news_count
+				obj.news_per = Math.round(e.msg.news_news/e.msg.news_count*10000/100)
+				//新用户
+				obj.user_new = e.msg.user_new
+				obj.user_per = Math.round(e.msg.user_new/e.msg.user_count*10000/100)
+				//节目预订
+				obj.noticeUser = e.msg.noticeUser
+				//直播量统计
+				obj.live_notice = e.msg.live_notice
+				//访客统计
+				obj.log_new = e.msg.log_new
+				obj.log_count = Math.round(e.msg.log_new/e.msg.log_count*10000/100)
+				//货币
+				obj.b_money = e.msg.b_money
+				obj.a_money = e.msg.a_money
 				console.dir(e.msg)
 			}else
 			{
