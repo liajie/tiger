@@ -1054,6 +1054,7 @@ export default {
       }*/
   },
   mounted(){
+  	
   },
   created(){
   	load(this)
