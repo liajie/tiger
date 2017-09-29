@@ -222,17 +222,17 @@
 						</li>
 
 						<li class="light-blue">
-							<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-								<img alt="Jason's Photo" src="/static/assets/avatars/user.jpg" class="nav-user-photo">
+							<a class="dropdown-toggle" href="javascript:" data-toggle="dropdown" start="0" v-on:click="dropdown">
+								<img alt="Jason's Photo" id="u_img" src="http://admin.live.com/uplod/img/2.jpg" class="nav-user-photo">
 								<span class="user-info">
 									<small>欢迎光临,</small>
-									Jason
+									{{username}}
 								</span>
 
 								<i class="icon-caret-down"></i>
 							</a>
 
-							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close" id="user_data_dropdown">
 								<li>
 									<a href="#">
 										<i class="icon-cog"></i>
@@ -270,7 +270,8 @@ export default {
   name: 'itop',
   data () {
     return {
-      message: ''
+      message: '',
+      username:'',
     }
   },
   methods:
@@ -296,8 +297,45 @@ export default {
   				}
   			}
   		})
+  	},
+  	dropdown:function()
+  	{
+  		if($(this).attr('start')=='0')
+  		{
+  			$('#user_data_dropdown').hide()
+  			$(this).attr('start','1')
+  		}else
+  		{
+  			$('#user_data_dropdown').show()
+  			$(this).attr('start','0')
+  		}
   	}
+  },
+  created()
+  {
+  	user_data(this)
   }
+}
+
+//获取用户信息
+function user_data(obj)
+{
+	$.ajax({
+		dataType:'jsonp',
+		url:host+'?r=index/user_data',
+		success:function(e)
+		{
+			common(e.error)
+			if(e.error=='200')
+			{
+				$('#u_img').attr('img',host+e.msg.u_img)
+				obj.username = e.msg.username
+			}else
+			{
+				alert(e.msg)
+			}
+		}
+	})
 }
 </script>
 

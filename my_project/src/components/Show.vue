@@ -1089,7 +1089,7 @@ function load(obj)
 				//货币
 				obj.b_money = e.msg.b_money
 				obj.a_money = e.msg.a_money
-				console.dir(e.msg)
+				//console.log(e.msg)
 			}else
 			{
 			    alert(e.msg)

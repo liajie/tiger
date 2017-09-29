@@ -36,7 +36,7 @@ class LoginController extends Controller
         if(isset($this->data['username'])&&isset($this->data['password']))
         {
             $db = (new \yii\db\Query())
-                ->select(['u_id','username','password'])
+                ->select(['u_id','username','password','u_img'])
                 ->from('user')
                 ->where(['username'=>$this->data['username']])
                 ->one();

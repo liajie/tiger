@@ -31,9 +31,10 @@ class IndexController extends CommonController
     }
 
     //获取用户信息
-    public function user_data()
+    public function actionUser_data()
     {
-
+        $this->return['msg'] = $this->session_find('user');
+        $this->return['error'] = '200';
     }
 }
 
