@@ -999,7 +999,6 @@
 																		<i class="icon-share-alt"></i>
 																		发送
 																	</button>
-																	<input type="hidden" id="auto_button" value=""/>
 																</span>
 															</div>
 														</div>
@@ -1020,7 +1019,6 @@
 
 
 <script>
-
 export default {
   name: 'show',
   data () {
@@ -1028,6 +1026,7 @@ export default {
       message: '',
       news_count:'',
       news_news:'',
+      auto_button_val:'111'
     }
   },
   methods:
@@ -1035,18 +1034,21 @@ export default {
       button:function () {
       	console.log(this.$route.name)
       	console.dir(this.$children)
-      },
+      }
       /*button:function()({
       	console.log(this.$route.name)
       }*/
   },
+  mounted(){
+  },
   created(){
-  	
+  	load(this)
   }
 
 }
 
-function load()
+//今日新闻
+function load(obj)
 {
 	$.ajax({
 		dataType:'jsonp',
@@ -1055,9 +1057,9 @@ function load()
 			common(e.error);
 			if(e.error=='200')
 			{
+				obj.news_news = e.msg.news_news
+				obj.news_count = e.msg.news_count
 				console.dir(e.msg)
-				this.news_count = e.msg.nwes_count
-				this.news_news = e.msg.news_news
 			}else
 			{
 			    alert(e.msg)
