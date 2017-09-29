@@ -12,6 +12,7 @@
     </div>
   </div>
 </template>
+
 <!--引入一个js文件-->
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
 <!--这里写js代码-->

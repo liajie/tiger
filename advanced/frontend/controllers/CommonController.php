@@ -18,12 +18,13 @@ class CommonController extends Controller
     {
         parent::__construct($id, $module, $config);
         $user = $this->session_find('user');
+        $this->data = \Yii::$app->request->get();
         if(!$user)
         {
             $this->return = ['error'=>'404','msg'=>'请先登录'];die;
         }
-        $this->data = \Yii::$app->request->get();
     }
+
     //析构
     public function __destruct()
     {

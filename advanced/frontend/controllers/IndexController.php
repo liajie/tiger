@@ -36,6 +36,51 @@ class IndexController extends CommonController
         $this->return['msg'] = $this->session_find('user');
         $this->return['error'] = '200';
     }
+
+    //获取频道分类
+    public function actionLive_class()
+    {
+        $class = (new \yii\db\Query())->select(['*'])->from('live_class')->all();
+        foreach ($class as &$v)
+        {
+            $v['class_addTime'] = date('Y-m-d H:i:s',$v['class_addTime']);
+        }
+        $this->return['msg'] = $class;
+    }
+
+    //删除频道分类
+    public function actionLive_classDel()
+    {
+        $ids = explode($this->data['id']);
+        var_dump($ids);die;
+        $reg = \Yii::$app->db->createCommand()->delete('live_class',"class_id in ($ids)")->execute();
+        var_dump($reg);
+    }
+
+    //获取频道列表
+    public function actionLive_channel()
+    {
+        $pa = $this->data['pa'];
+        $num = $this->data['num'];
+        if($pa&&$num)
+        {
+            //计算偏移量
+            $limit = $num*($pa-1);
+            $data = (new \yii\db\Query())
+                ->select(['channel_name','channel_id','channel_images','username','class_name'])
+                ->from('live_channel')
+                ->limit($num,$limit)
+                ->leftJoin('user','live_channel.user_id=user.u_id')
+                ->leftJoin('live_class','live_class.class_id=live_channel.class_id')
+                ->orderBy(['channel_id'=>'desc'])
+                ->all();
+            $sum = (new \yii\db\Query())->select(['channel_id'])->from('live_channel')->count();
+            $this->return = ['error'=>'200','msg'=>$data,'sum'=>$sum];
+        }else
+        {
+            $this->return = ['error'=>'104','msg'=>'参数有误'];
+        }
+    }
 }
 
 

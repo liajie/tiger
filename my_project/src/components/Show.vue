@@ -1069,6 +1069,7 @@ function load(obj)
 		dataType:'jsonp',
 		url:host+'?r=index/index',
 		success:function (e) {
+			console.log(e);
 			common(e.error);
 			if(e.error=='200')
 			{

@@ -137,7 +137,7 @@
 						<li>
 							<a class="dropdown-toggle" href="#">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 表格 </span>
+								<span class="menu-text"> 信息管理统计 </span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
@@ -146,14 +146,14 @@
 								<li>
 									<router-link to="/tables" class="router-item">
 										<i class="icon-double-angle-right"></i>
-										简单 &amp; 动态
+										直播频道 &amp; 分类
 									</router-link>
 								</li>
 
 								<li>
 									<router-link to="/jqgrid" class="router-item">
 										<i class="icon-double-angle-right"></i>
-										jqGrid plugin
+										用户管理
 									</router-link>
 								</li>
 							</ul>
