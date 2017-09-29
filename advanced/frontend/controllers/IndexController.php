@@ -69,7 +69,8 @@ class IndexController extends CommonController
             $data = (new \yii\db\Query())
                 ->select(['channel_name','channel_id','channel_images','username','class_name'])
                 ->from('live_channel')
-                ->limit($num,$limit)
+                ->limit($num)
+                ->offset($limit)//偏移量
                 ->leftJoin('user','live_channel.user_id=user.u_id')
                 ->leftJoin('live_class','live_class.class_id=live_channel.class_id')
                 ->orderBy(['channel_id'=>'desc'])

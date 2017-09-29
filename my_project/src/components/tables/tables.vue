@@ -161,11 +161,12 @@
 												<label>每页 
 													<select name="sample-table-2_length" v-model="num" v-on:change="select_sample" size="1" aria-controls="sample-table-2" id="select_num">
 														<option value="10" selected="selected">10</option>
-														<option value="25">25</option><option value="50">50</option>
+														<option value="25">25</option>
+														<option value="50">50</option>
 														<option value="100">100</option>
 													</select> 条记录</label></div></div>
 													<div class="col-sm-6"><div class="dataTables_filter" id="sample-table-2_filter">
-														<label>查寻: <input type="text" aria-controls="sample-table-2"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable" id="sample-table-2" aria-describedby="sample-table-2_info">
+														<label>查寻: <input type="text" id='live_channel_find' aria-controls="sample-table-2"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable" id="sample-table-2" aria-describedby="sample-table-2_info">
 												<thead>
 													<tr role="row">
 														<th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 61px;" aria-label="">
@@ -287,7 +288,7 @@ export default {
       message: '',
       lis:{},
       liDs:{},
-      num:0,
+      num:10,
       sum:0,
       pa:1,
       disabledClass:'disabled',
@@ -313,7 +314,7 @@ export default {
 	},
 	select_sample()
 	{
-		live_channel(this,this.num)
+		live_channel(this,this.pa)
 	},
 	page_end()
 	{
@@ -322,6 +323,10 @@ export default {
 		{
 			this.disabledClass = 'disabled'
 		}
+		if(this.pa>0)
+		{
+			live_channel(this,this.pa)
+		}
 	},
 	page_out()
 	{
@@ -329,8 +334,9 @@ export default {
 		if(this.pa>1)
 		{
 			this.disabledClass = ''
+			live_channel(this,this.pa)
 		}
-		console.log(this.pa)
+		//console.log(this.pa)
 	}
   }
 }
@@ -349,10 +355,17 @@ function live_class(obj)
 		}
 	})
 }
+
+/*//条件查询
+$('#live_channel_find').blue(function(){
+	console.log('1')
+})
+*/
 //获取频道信息
 function live_channel(obj,pa)
 {
 	var num = $('#select_num').val()
+	if(!num){ num=10 }
 	$.ajax({
 		dataType:'jsonp',
 		url:host+'?r=index/live_channel',
@@ -362,6 +375,7 @@ function live_channel(obj,pa)
 			common(e.error);
 			obj.liDs = e.msg
 			obj.sum = e.sum
+			//console.log(e.msg);
 		}
 	})
 }
