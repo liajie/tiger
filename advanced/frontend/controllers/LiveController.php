@@ -20,6 +20,20 @@ class LiveController extends CommonController
     }
 
     //修改频道分类
+    public function actionLive_class_upd()
+    {
+        $reg = \Yii::$app->db
+            ->createCommand()
+            ->update('live_class',['class_name'=>$this->data['class_name']],['class_id'=>$this->data['class_id']])
+            ->execute();
+        if($reg)
+        {
+            $this->return = ['error'=>'200','msg'=>'修改成功'];
+        }else
+        {
+            $this->return = ['error'=>'104','msg'=>'修改失败'];
+        }
+    }
 }
 
 

@@ -41,11 +41,17 @@ class IndexController extends CommonController
     public function actionLive_class()
     {
         $class = (new \yii\db\Query())->select(['*'])->from('live_class')->all();
-        foreach ($class as &$v)
+        if($class)
         {
-            $v['class_addTime'] = date('Y-m-d H:i:s',$v['class_addTime']);
+            foreach ($class as &$v)
+            {
+                $v['class_addTime'] = date('Y-m-d H:i:s',$v['class_addTime']);
+            }
+            $this->return = ['error'=>'200','msg'=>$class];
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'获取频道分类失败'];
         }
-        $this->return['msg'] = $class;
     }
 
     //删除频道分类

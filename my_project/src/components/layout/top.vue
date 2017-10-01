@@ -328,8 +328,8 @@ function user_data(obj)
 			common(e.error)
 			if(e.error=='200')
 			{
-				$('#u_img').attr('img',host+e.msg.u_img)
 				obj.username = e.msg.username
+				$('#u_img').attr('img',host+e.msg.u_img)
 			}else
 			{
 				alert(e.msg)

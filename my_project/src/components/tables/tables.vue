@@ -76,7 +76,7 @@
 														<td>
 															<a href="#">{{li.class_id}}</a>
 														</td>
-														<td>{{li.class_name}}</td>
+														<td v-on:click='class_upd(li)' v-html="li.class_name">{{li.class_name}}</td>
 														<td class="hidden-480">{{li.class_parent}}</td>
 														<td>{{li.class_addTime}}</td>
 														<td>
@@ -85,7 +85,7 @@
 																	<i class="icon-ok bigger-120"></i>
 																</button>-->
 
-																<button class="btn btn-xs btn-info" @click="class_upd(li.class_id)">
+																<button class="btn btn-xs btn-info" @click="class_upd_d(li)">
 																	<i class="icon-edit bigger-120">修改</i>
 																</button>
 
@@ -307,7 +307,7 @@ export default {
   	//删除频道分类
   	class_del:function(val)
   	{
-  		if(confirm('确认删除ID'+val+'?'))
+  		if(confirm('确认删除ID: '+val+'?'))
   		{
   			$.ajax({
   			dataType:'jsonp',
@@ -341,9 +341,38 @@ export default {
   	//修改频道分类
   	class_upd(val)
   	{
-  		console.dir(val)
+  		if(!val.start)
+  		{
+  			console.dir(val)
+  			val.start = 1
+  			val.class_name = '<input type="tel" value="'+val.class_name+'" id="class_upd_d" />'
+  		}
   	},
-  	ace_a:function()
+  	//修改处理
+  	class_upd_d(val)
+  	{
+  		var name = $('#class_upd_d').val()
+  		//提交更改
+  		$.ajax({
+  			dataType:'jsonp',
+  			data:{class_name:name,class_id:val.class_id},
+  			url:host+'?r=live/live_class_upd',
+  			success:function(e)
+  			{
+  				common(e.error)
+  				if(e.error=='200')
+  				{
+  					val.start = 0
+  					val.class_name = name
+  					alert(e.msg)
+  				}else
+  				{
+  					alert(e.msg)
+  				}
+  			}
+  		})
+  	},
+  	ace_a()
   	{
   		//频道分类反选
 		var ace_a = $('.ace_a')
@@ -380,7 +409,6 @@ export default {
   }
 }
 
-
 //获取频道分类
 function live_class(obj)
 {
@@ -390,7 +418,13 @@ function live_class(obj)
 		success:function(e)
 		{
 			common(e.error);
-			obj.lis = e.msg
+			if(e.error=='200')
+			{
+				obj.lis = e.msg
+			}else
+			{
+				alert(e.msg)
+			}
 			//console.dir(e)
 		}
 	})
