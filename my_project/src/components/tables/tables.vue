@@ -65,7 +65,7 @@
 												</thead>
 
 												<tbody>
-													<tr v-for="li in lis" v-bind:class_id="li.class_id">
+													<tr v-for="li in lis" v-bind:class_id="li.class_id" v-bind:id="'live_class'+li.class_id">
 														<td class="center">
 															<label>
 																<input type="checkbox" class="ace ace_a">
@@ -81,21 +81,21 @@
 														<td>{{li.class_addTime}}</td>
 														<td>
 															<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-																<button class="btn btn-xs btn-success">
+																<!--<button class="btn btn-xs btn-success">
 																	<i class="icon-ok bigger-120"></i>
+																</button>-->
+
+																<button class="btn btn-xs btn-info" @click="class_upd(li.class_id)">
+																	<i class="icon-edit bigger-120">修改</i>
 																</button>
 
-																<button class="btn btn-xs btn-info">
-																	<i class="icon-edit bigger-120"></i>
+																<button class="btn btn-xs btn-danger" v-on:click="class_del(li.class_id)">
+																	<i class="icon-trash bigger-120">删除</i>
 																</button>
 
-																<button class="btn btn-xs btn-danger">
-																	<i class="icon-trash bigger-120"></i>
-																</button>
-
-																<button class="btn btn-xs btn-warning">
+																<!--<button class="btn btn-xs btn-warning">
 																	<i class="icon-flag bigger-120"></i>
-																</button>
+																</button>-->
 															</div>
 
 															<div class="visible-xs visible-sm hidden-md hidden-lg">
@@ -304,6 +304,42 @@ export default {
   },
   methods:
   {
+  	//删除频道分类
+  	class_del:function(val)
+  	{
+  		$.ajax({
+  			dataType:'jsonp',
+  			url:host+'?r=live/live_class_del',
+  			data:{class_id:val},
+  			success:function(e)
+  			{
+  				common(e.error);
+  				if(e.error=='200')
+  				{
+  					console.log(e)
+  					alert(e.msg)
+  					$('#live_class'+val).remove()
+  				}else
+  				{
+  					alert(e.msg)
+  				}
+  			}
+  		})
+  		//内置jsonp 需要装扩展
+/*  		this.$http.jsonp(
+  			host+'?r=live/live_classDel',{class_id:val}
+  			).then(
+  				function(e)
+  				{
+  					console.log(e)
+  				}
+  			)*/
+  	},	
+  	//修改频道分类
+  	class_upd(val)
+  	{
+  		console.dir(val)
+  	},
   	ace_a:function()
   	{
   		//频道分类反选
@@ -340,6 +376,7 @@ export default {
 	}
   }
 }
+
 
 //获取频道分类
 function live_class(obj)
