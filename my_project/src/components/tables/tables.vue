@@ -166,7 +166,10 @@
 														<option value="100">100</option>
 													</select> 条记录</label></div></div>
 													<div class="col-sm-6"><div class="dataTables_filter" id="sample-table-2_filter">
-														<label>查寻: <input type="text" id='live_channel_find' aria-controls="sample-table-2"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable" id="sample-table-2" aria-describedby="sample-table-2_info">
+														<label>查寻: 
+<input type="text" id='live_channel_find' aria-controls="sample-table-2" v-on:blur="live_channel_find">
+														</label></div>
+													</div></div><table class="table table-striped table-bordered table-hover dataTable" id="sample-table-2" aria-describedby="sample-table-2_info">
 												<thead>
 													<tr role="row">
 														<th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 61px;" aria-label="">
@@ -190,7 +193,7 @@
 												
 											<tbody role="alert" aria-live="polite" aria-relevant="all">
 												
-												<tr class="odd" v-for="lib in liDs">
+												<tr class="odd" v-for="lib in liDs" v-bind:id="'channel_'+lib.channel_id">
 														<td class="center  sorting_1">
 															<label>
 																<input type="checkbox" class="ace">
@@ -198,9 +201,7 @@
 															</label>
 														</td>
 
-														<td class=" ">
-															<a href="#">{{lib.channel_id}}</a>
-														</td>
+														<td class=" "><a href="#">{{lib.channel_id}}</a></td>
 														<td class=" "><a v-bind:href="lib.channel_images" target="_blank">{{lib.channel_images}}</a></td>
 														<td class="hidden-480 ">{{lib.channel_name}}</td>
 														<td class=" ">{{lib.username}}</td>
@@ -210,51 +211,51 @@
 														</td>
 
 														<td class=" ">
-															<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-zoom-in bigger-130"></i>
-																</a>
+	<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+		<a href="javascript:" class="blue">
+			<i class="icon-zoom-in bigger-130"></i>
+		</a>
 
-																<a href="#" class="green">
-																	<i class="icon-pencil bigger-130"></i>
-																</a>
+		<a href="javascript:" class="green" v-on:click="channel_start(lib)">
+			<i class="icon-pencil bigger-130">{{lib.channel_start_name}}</i>
+		</a>
 
-																<a href="#" class="red">
-																	<i class="icon-trash bigger-130"></i>
-																</a>
-															</div>
+		<a href="javascript:" class="red" v-on:click="channel_del(lib)">
+			<i class="icon-trash bigger-130">删除</i>
+		</a>
+	</div>
 
 															<div class="visible-xs visible-sm hidden-md hidden-lg">
 																<div class="inline position-relative">
 																	<button data-toggle="dropdown" class="btn btn-minier btn-yellow dropdown-toggle">
-																		<i class="icon-caret-down icon-only bigger-120"></i>
+																		<i class="icon-caret-down icon-only bigger-120">111</i>
 																	</button>
 
-																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-																		<li>
-																			<a title="" data-rel="tooltip" class="tooltip-info" href="#" data-original-title="View">
-																				<span class="blue">
-																					<i class="icon-zoom-in bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
+	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+		<li>
+			<a title="" data-rel="tooltip" class="tooltip-info" href="#" data-original-title="View">
+				<span class="blue">
+					<i class="icon-zoom-in bigger-120"></i>
+				</span>
+			</a>
+		</li>
 
-																		<li>
-																			<a title="" data-rel="tooltip" class="tooltip-success" href="#" data-original-title="Edit">
-																				<span class="green">
-																					<i class="icon-edit bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
+		<li>
+			<a title="" data-rel="tooltip" class="tooltip-success" href="#" data-original-title="Edit">
+				<span class="green">
+					<i class="icon-edit bigger-120"></i>
+				</span>
+			</a>
+		</li>
 
-																		<li>
-																			<a title="" data-rel="tooltip" class="tooltip-error" href="#" data-original-title="Delete">
-																				<span class="red">
-																					<i class="icon-trash bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-																	</ul>
+		<li>
+			<a title="" data-rel="tooltip" class="tooltip-error" href="#" data-original-title="Delete">
+				<span class="red">
+					<i class="icon-trash bigger-120"></i>
+				</span>
+			</a>
+		</li>
+	</ul>
 																</div>
 															</div>
 														</td>
@@ -294,7 +295,6 @@ export default {
       disabledClass:'disabled',
       prevClass:'prev',
       nextClass:'next',
-      
     }
   },
   created()
@@ -304,6 +304,71 @@ export default {
   },
   methods:
   {
+  	//频道查询
+  	live_channel_find()
+  	{
+  		live_channel(this,1)
+
+/*  		$.ajax({
+  			dataType:'jsonp',
+  			url:host+'?r=channel/channel_find',
+  			data:{channel_name:val},
+  			success:function(e)
+  			{
+  				common(e.error)
+  				if(e.error=='200')
+  				{
+  					this.liDs = e.msg
+  				}else
+				{
+					alert(e.msg)
+				}
+  				console.log(e)
+  			}
+  		})*/
+  	},
+  	//删除用户频道
+  	channel_del(val)
+  	{
+  		$.ajax({
+  			dataType:'jsonp',
+  			url:host+'?r=channel/channel_del',
+  			data:{channel_id:val.channel_id},
+  			success:function(e)
+  			{
+  				common(e.error)
+  				if(e.error=='200')
+  				{
+  					$('#channel_'+val.channel_id).remove()
+  				}else
+				{
+					alert(e.msg)
+				}
+  			}
+  		})
+  	},
+  	//修改用户频道状态
+  	channel_start(val)
+  	{
+  		$.ajax({
+  			dataType:'jsonp',
+  			url:host+'?r=channel/channel_start',
+  			data:{channel_start:val.channel_start,channel_id:val.channel_id},
+  			success:function(e)
+  			{
+  				common(e.error)
+  				if(e.error=='200')
+  				{
+  					val.channel_start_name = e.msg.msg
+  					val.channel_start = e.msg.start
+  				}else
+				{
+					alert(e.msg)
+				}
+  				console.dir(e)
+  			}
+  		})
+  	},
   	//删除频道分类
   	class_del:function(val)
   	{
@@ -439,11 +504,12 @@ $('#live_channel_find').blue(function(){
 function live_channel(obj,pa)
 {
 	var num = $('#select_num').val()
+	var val = $('#live_channel_find').val()
 	if(!num){ num=10 }
 	$.ajax({
 		dataType:'jsonp',
 		url:host+'?r=index/live_channel',
-		data:{pa:pa,num:num},
+		data:{pa:pa,num:num,channel_name:val},
 		success:function(e)
 		{
 			common(e.error);

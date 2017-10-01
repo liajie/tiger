@@ -73,8 +73,9 @@ class IndexController extends CommonController
             //计算偏移量
             $limit = $num*($pa-1);
             $data = (new \yii\db\Query())
-                ->select(['channel_name','channel_id','channel_images','username','class_name'])
+                ->select(['channel_name','channel_id','channel_images','username','class_name','channel_start'])
                 ->from('live_channel')
+                ->where(['like','channel_name',isset($this->data['channel_name'])?$this->data['channel_name']:''])
                 ->limit($num)
                 ->offset($limit)//偏移量
                 ->leftJoin('user','live_channel.user_id=user.u_id')
@@ -82,6 +83,21 @@ class IndexController extends CommonController
                 ->orderBy(['channel_id'=>'desc'])
                 ->all();
             $sum = (new \yii\db\Query())->select(['channel_id'])->from('live_channel')->count();
+            foreach ($data as &$v)
+            {
+                switch ($v['channel_start'])
+                {
+                    case 0;
+                        $v['channel_start_name'] = '待审核';
+                    break;
+                    case 1;
+                        $v['channel_start_name'] = '正常';
+                    break;
+                    case 2;
+                        $v['channel_start_name'] = '锁定';
+                    break;
+                }
+            }
             $this->return = ['error'=>'200','msg'=>$data,'sum'=>$sum];
         }else
         {
