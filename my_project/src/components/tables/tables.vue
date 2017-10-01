@@ -307,7 +307,9 @@ export default {
   	//删除频道分类
   	class_del:function(val)
   	{
-  		$.ajax({
+  		if(confirm('确认删除ID'+val+'?'))
+  		{
+  			$.ajax({
   			dataType:'jsonp',
   			url:host+'?r=live/live_class_del',
   			data:{class_id:val},
@@ -325,6 +327,7 @@ export default {
   				}
   			}
   		})
+  		}
   		//内置jsonp 需要装扩展
 /*  		this.$http.jsonp(
   			host+'?r=live/live_classDel',{class_id:val}
