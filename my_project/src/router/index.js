@@ -18,6 +18,8 @@ import form_elements from '@/components/form/form_elements'
 import form_wizard from '@/components/form/form_wizard'
 import wysiwyg from '@/components/form/wysiwyg'
 import dropzone from '@/components/form/dropzone'
+import form_class_add from '@/components/form/form_class_add'
+
 //插件
 import widgets from '@/components/widgets'
 //日历
@@ -47,6 +49,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+  		//频道分类添加
+  		path:'/form_class_add',
+  		name:'form_class_add',
+  		component:form_class_add
+  	},
     {
     	//首页
       path: '/',

@@ -162,12 +162,19 @@
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-edit"></i>
-								<span class="menu-text"> 表单 </span>
+								<span class="menu-text"> 添加管理 </span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 
 							<ul class="submenu">
+								<li>
+									<router-link to="/form_class_add" class="router-item">
+										<i class="icon-double-angle-right"></i>
+										频道分类添加
+									</router-link>
+								</li>
+								
 								<li>
 									<router-link to="/form_elements" class="router-item">
 										<i class="icon-double-angle-right"></i>
