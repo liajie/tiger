@@ -71,13 +71,13 @@ class IndexController extends CommonController
         if($pa&&$num)
         {
             //计算偏移量
-            $limit = $num*($pa-1);
+            $offset = $num*($pa-1);
             $data = (new \yii\db\Query())
                 ->select(['channel_name','channel_id','channel_images','username','class_name','channel_start'])
                 ->from('live_channel')
                 ->where(['like','channel_name',isset($this->data['channel_name'])?$this->data['channel_name']:''])
                 ->limit($num)
-                ->offset($limit)//偏移量
+                ->offset($offset)//偏移量
                 ->leftJoin('user','live_channel.user_id=user.u_id')
                 ->leftJoin('live_class','live_class.class_id=live_channel.class_id')
                 ->orderBy(['channel_id'=>'desc'])
