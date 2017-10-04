@@ -32,6 +32,7 @@ class NewController extends CommonController
                 $this->return = ['error'=>'200','msg'=>'添加成功'];
             }else
             {
+                unlink($file_tmp.$file_name);
                 $this->return = ['error'=>'101','msg'=>'添加失败'];
             }
         }else
