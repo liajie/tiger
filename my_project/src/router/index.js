@@ -19,6 +19,7 @@ import form_wizard from '@/components/form/form_wizard'
 import wysiwyg from '@/components/form/wysiwyg'
 import dropzone from '@/components/form/dropzone'
 import form_class_add from '@/components/form/form_class_add'
+import form_new_add from '@/components/form/form_new_add'
 
 //插件
 import widgets from '@/components/widgets'
@@ -44,11 +45,15 @@ import blank from '@/components/submenu/blank'
 import login from '@/components/login'
 
 
-
 Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+  		path:'/form_new_add',
+		name:'form_new_add',
+		component:form_new_add
+	},
   	{
   		//频道分类添加
   		path:'/form_class_add',

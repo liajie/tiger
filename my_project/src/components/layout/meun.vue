@@ -174,6 +174,13 @@
 										频道分类添加
 									</router-link>
 								</li>
+
+								<li>
+									<router-link to="/form_new_add" class="router-item">
+										<i class="icon-double-angle-right"></i>
+										直播新闻添加
+									</router-link>
+								</li>
 								
 								<li>
 									<router-link to="/form_elements" class="router-item">
