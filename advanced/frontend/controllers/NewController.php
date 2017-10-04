@@ -8,6 +8,7 @@ use yii\db\Query;
 
 class NewController extends CommonController
 {
+
     //添加添加
     public function actionNew_add()
     {
