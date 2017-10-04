@@ -246,6 +246,9 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="btn-group pull-right">
+                            <input type="text" placeholder="新闻标题" id="news_name"/>
+                        </div>
                     </div>
                     <div class="hr hr-double dotted"></div>
                 </div>
@@ -277,14 +280,20 @@
             save_news()
             {
                 var news_text = $('#editor1').html()
-                console.log(news_text)
+                var news_classId = $('#form-field-select-1').val()
+                var news_name = $('#news_name').val()
                 $.ajax({
                     dataType:'jsonp',
                     url:host+'?r=new/new_add',
-                    data:{news_text:news_text},
+                    data:{news_text:news_text,news_classId:news_classId,news_name:news_name},
                     success:function(e)
                     {
-                        console.log(e)
+                        common(e.error)
+                        alert(e.msg)
+                        if(e.error=='200')
+                        {
+                            $('#editor1').html('')
+                        }
                     }
                 })
             }
