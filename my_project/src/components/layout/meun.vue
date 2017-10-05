@@ -151,6 +151,13 @@
 								</li>
 
 								<li>
+									<router-link to="/news_list" class="router-item">
+										<i class="icon-double-angle-right"></i>
+										新闻列表管理
+									</router-link>
+								</li>
+
+								<li>
 									<router-link to="/jqgrid" class="router-item">
 										<i class="icon-double-angle-right"></i>
 										用户管理

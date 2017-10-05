@@ -13,6 +13,7 @@ import nestable_list from '@/components/ui/nestable_list'
 //表格
 import tables from '@/components/tables/tables'
 import jqgrid from '@/components/tables/jqgrid'
+import news_list from '@/components/tables/news_list'
 //表单
 import form_elements from '@/components/form/form_elements'
 import form_wizard from '@/components/form/form_wizard'
@@ -49,6 +50,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+  		path:'/news_list',
+		name:'news_list',
+		component:news_list
+	},
   	{
   		path:'/form_new_add',
 		name:'form_new_add',

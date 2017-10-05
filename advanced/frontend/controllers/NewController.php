@@ -9,6 +9,36 @@ use yii\db\Query;
 class NewController extends CommonController
 {
 
+    //修改新闻分类
+    public function actionClass_upd()
+    {
+        $reg = \Yii::$app->db->createCommand()
+            ->update('live_newsclass',['newsClass_name'=>$this->data['newsClass_name']],['newsClass_id'=>$this->data['newsClass_id']])
+            ->execute();
+        if($reg)
+        {
+            $this->return = ['error'=>'200','msg'=>'修改成功'];
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'修改失败'];
+        }
+    }
+
+    //删除新闻分类
+    public function actionClass_del()
+    {
+        $reg = \Yii::$app->db->createCommand()
+            ->delete('live_newsclass',['newsClass_id'=>$this->data['newsClass_id']])
+            ->execute();
+        if($reg)
+        {
+            $this->return = ['error'=>'200','msg'=>'删除成功'];
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'删除失败'];
+        }
+    }
+
     //添加添加
     public function actionNew_add()
     {
