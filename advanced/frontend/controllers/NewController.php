@@ -8,6 +8,32 @@ use yii\db\Query;
 
 class NewController extends CommonController
 {
+    //获取新闻列表
+    public function actionNew_list()
+    {
+        $pa = isset($this->data['pa'])?$this->data['pa']:1;
+        //计算偏移量
+        $offset = 10*($pa-1);
+        $reg = (new Query())
+            ->select(['newsClass_name','news_id','news_name','new_addTime','new_tmp','new_start'])
+            ->limit(10)
+            ->offset($offset)
+            ->from('live_news')
+            ->leftJoin('live_newsclass','live_news.news_classId=live_newsclass.newsClass_id')
+            ->all();
+        if($reg)
+        {
+            foreach ($reg as &$v)
+            {
+                $v['new_addTime'] = date('Y-m-d H:i:s',$v['new_addTime']);
+                $v['start'] = $v['new_start']==1?'正常':'锁定';
+            }
+            $this->return = ['error'=>'200','msg'=>$reg];
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'没有数据'];
+        }
+    }
 
     //修改新闻分类
     public function actionClass_upd()

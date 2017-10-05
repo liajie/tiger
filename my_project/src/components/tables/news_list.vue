@@ -204,102 +204,28 @@
                                                 aria-label="Status: activate to sort column ascending">状态
                                             </th>
                                             <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1"
-                                                style="width: 174px;" aria-label=""></th>
+                                                style="width: 174px;" aria-label="">操作</th>
                                         </tr>
                                         </thead>
 
 
                                         <tbody role="alert" aria-live="polite" aria-relevant="all">
-                                        <tr class="odd">
+                                        <tr class="odd" v-for="li in news">
                                             <td class="center  sorting_1">
                                                 <label>
                                                     <input type="checkbox" class="ace">
                                                     <span class="lbl"></span>
                                                 </label>
                                             </td>
-
                                             <td class=" ">
-                                                <a href="#">app.com</a>
+                                                <a href="#">{{li.news_name}}</a>
                                             </td>
-                                            <td class=" ">$45</td>
-                                            <td class="hidden-480 ">3,330</td>
-                                            <td class=" ">Feb 12</td>
+                                            <td class=" ">{{li.newsClass_name}}</td>
+                                            <td class="hidden-480 ">{{li.new_addTime}}</td>
+                                            <td class=" ">{{li.new_tmp}}</td>
 
                                             <td class="hidden-480 ">
-                                                <span class="label label-sm label-warning">Expiring</span>
-                                            </td>
-
-                                            <td class=" ">
-                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                                    <a href="#" class="blue">
-                                                        <i class="icon-zoom-in bigger-130"></i>
-                                                    </a>
-
-                                                    <a href="#" class="green">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
-
-                                                    <a href="#" class="red">
-                                                        <i class="icon-trash bigger-130"></i>
-                                                    </a>
-                                                </div>
-
-                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                                    <div class="inline position-relative">
-                                                        <button data-toggle="dropdown"
-                                                                class="btn btn-minier btn-yellow dropdown-toggle">
-                                                            <i class="icon-caret-down icon-only bigger-120"></i>
-                                                        </button>
-
-                                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                            <li>
-                                                                <a title="" data-rel="tooltip" class="tooltip-info"
-                                                                   href="#" data-original-title="View">
-																				<span class="blue">
-																					<i class="icon-zoom-in bigger-120"></i>
-																				</span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a title="" data-rel="tooltip" class="tooltip-success"
-                                                                   href="#" data-original-title="Edit">
-																				<span class="green">
-																					<i class="icon-edit bigger-120"></i>
-																				</span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a title="" data-rel="tooltip" class="tooltip-error"
-                                                                   href="#" data-original-title="Delete">
-																				<span class="red">
-																					<i class="icon-trash bigger-120"></i>
-																				</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="center  sorting_1">
-                                                <label>
-                                                    <input type="checkbox" class="ace">
-                                                    <span class="lbl"></span>
-                                                </label>
-                                            </td>
-
-                                            <td class=" ">
-                                                <a href="#">base.com</a>
-                                            </td>
-                                            <td class=" ">$35</td>
-                                            <td class="hidden-480 ">2,595</td>
-                                            <td class=" ">Feb 18</td>
-
-                                            <td class="hidden-480 ">
-                                                <span class="label label-sm label-success">Registered</span>
+                                                <span class="label label-sm label-warning">{{li.start}}</span>
                                             </td>
 
                                             <td class=" ">
@@ -367,11 +293,16 @@
                                         <div class="col-sm-6">
                                             <div class="dataTables_paginate paging_bootstrap">
                                                 <ul class="pagination">
-                                                    <li class="prev disabled"><a href="#"><i
-                                                            class="icon-double-angle-left"></i></a></li>
-                                                    <li class="active"><a href="#">1</a></li>
-                                                    <li class="next"><a href="#"><i class="icon-double-angle-right"></i></a>
-                                                    </li>
+
+            <li class="prev disabled">
+            <a href="javascript:" v-on:click="news_pageUp"><i class="icon-double-angle-left"></i></a>
+            </li>
+
+            <li class="active"><a href="javascript:">{{pa}}</a></li>
+
+            <li class="next">
+                <a href="javascript:" v-on:click="news_pageDown"><i class="icon-double-angle-right"></i></a>
+            </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -393,14 +324,32 @@
             return {
                 message: '',
                 lis:{},
+                pa:1,
+                news:{}
             }
         },
         created()
         {
             class_find(this)
+            new_list(this)
         },
         methods:
         {
+            //下一页
+            news_pageDown()
+            {
+                this.pa = this.pa+1
+                new_list(this)
+            },
+            //上一页
+            news_pageUp()
+            {
+                if(this.pa>1)
+                {
+                    this.pa = this.pa-1
+                    new_list(this)
+                }
+            },
             //修改
             class_upd(class_id)
             {
@@ -448,6 +397,26 @@
                 }
             }
         }
+    }
+
+    //新闻列表
+    function new_list(thi)
+    {
+        $.ajax({
+            dataType:'jsonp',
+            url:host+'?r=new/new_list',
+            data:{pa:thi.pa},
+            success:function (e) {
+                common(e.error)
+                if(e.error=='200')
+                {
+                    thi.news = e.msg
+                }else
+                {
+                    alert(e.msg)
+                }
+            }
+        })
     }
 
     //加载分类
