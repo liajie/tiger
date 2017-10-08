@@ -27,7 +27,7 @@
 					<div class="page-content">
 						<div class="page-header">
 							<h1>
-								User Profile Page
+								<span v-html='username_top' style='color:red'></span>
 								<small>
 									<i class="icon-double-angle-right"></i>
 									3 styles with inline editable feature
@@ -82,8 +82,8 @@
 									<div class="user-profile row" id="user-profile-1">
 										<div class="col-xs-12 col-sm-3 center">
 											<div>
-												<span class="profile-picture">
-													<img src="/static/assets/avatars/profile-pic.jpg" alt="Alex's Avatar" class="editable img-responsive editable-click editable-empty" id="avatar">Empty</img>
+												<span class="profile-picture" v-html='u_img'>
+													
 												</span>
 
 												<div class="space-4"></div>
@@ -93,7 +93,7 @@
 														<a data-toggle="dropdown" class="user-title-label dropdown-toggle" href="#">
 															<i class="icon-circle light-green middle"></i>
 															&nbsp;
-															<span class="white">Alex M. Doe</span>
+															<span class="white" v-html='nickname'></span>
 														</a>
 
 														<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
@@ -234,10 +234,10 @@
 
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Username </div>
+													<div class="profile-info-name" >username </div>
 
 													<div class="profile-info-value">
-														<span id="username" class="editable editable-click">alexdoe</span>
+														<span id="username" class="editable editable-click" v-html='username'></span>
 													</div>
 												</div>
 
@@ -246,16 +246,16 @@
 
 													<div class="profile-info-value">
 														<i class="icon-map-marker light-orange bigger-110"></i>
-														<span id="country" class="editable editable-click">Netherlands</span>
-														<span id="city" class="editable editable-click">Amsterdam</span>
+														<span id="country" class="editable editable-click" v-html='home'></span>
+														
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Age </div>
+													<div class="profile-info-name"> Num </div>
 
 													<div class="profile-info-value">
-														<span id="age" class="editable editable-click">38</span>
+														<span id="age" class="editable editable-click"v-html='mynum' ></span>
 													</div>
 												</div>
 
@@ -263,23 +263,23 @@
 													<div class="profile-info-name"> Joined </div>
 
 													<div class="profile-info-value">
-														<span id="signup" class="editable editable-click">20/06/2010</span>
+														<span id="signup" class="editable editable-click" v-html='birthday'></span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> Last Online </div>
+													<div class="profile-info-name" > TEL </div>
 
 													<div class="profile-info-value">
-														<span id="login" class="editable editable-click">3 hours ago</span>
+														<span id="login" class="editable editable-click" v-html='tel'></span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> About Me </div>
+													<div class="profile-info-name"> 个性签名： </div>
 
 													<div class="profile-info-value">
-														<span id="about" class="editable editable-click">Editable as WYSIWYG</span>
+														<span id="about" class="editable editable-click" v-html='sign'></span>
 													</div>
 												</div>
 											</div>
@@ -1995,9 +1995,46 @@ export default {
   name: 'dropdown',
   data () {
     return {
-      message: ''
+      message: '',
+      u_img:'<img src="/static/assets/avatars/profile-pic.jpg" alt="Alexs Avatar">未登录</img>',
+      nickname:'未登录',
+      username:'未登录',
+      home:'未登录',
+      mynum:'未登录',
+      birthday:'未登录',
+      tel:'未登录',
+      sign:'未登录',
+      username_top:'未登录'
     }
+  },
+  methods:{
+  
+  },
+  created(){
+  	var _this=this;
+  	var profile='profile';
+  	$.ajax({
+  			url:host+'?r=profile/profile',
+  			dataType:'jsonp',
+  			data:{profile:profile},
+  			success:function(msg)
+  			{
+  				//alert(msg)
+  				//alert(http_img+msg.u_img)
+  				_this.u_img='<img src="'+http_img+msg.u_img+'" alt="Alexs Avatar" style="width:200px;height:200px">'
+  				_this.nickname=msg.nickname
+  				_this.username=msg.username
+  				_this.home=msg.home
+  				_this.mynum=msg.mynum+'&nbsp&nbsp&nbsp(积分)'
+  				_this.birthday=msg.birthday
+  				_this.tel=msg.tel
+  				_this.sign=msg.sign
+  				_this.username_top=msg.username+'的主页'
+
+  			}
+  		})
   }
+  
 }
 
 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
