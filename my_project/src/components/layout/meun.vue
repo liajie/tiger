@@ -38,101 +38,101 @@
 						</router-link>
 						</li>
 
-						<li>
+						<!--<li>
 							<router-link to="/typography" class="router-item">
 								<i class="icon-text-width"></i>
 								<span class="menu-text"> 文字排版 </span>
 							</router-link>
-						</li>
+						</li>-->
 
-						<li>
-							<a class="dropdown-toggle" href="#">
-								<i class="icon-desktop"></i>
-								<span class="menu-text"> UI 组件 </span>
+						<!--<li>-->
+							<!--<a class="dropdown-toggle" href="#">-->
+								<!--<i class="icon-desktop"></i>-->
+								<!--<span class="menu-text"> UI 组件 </span>-->
 
-								<b class="arrow icon-angle-down"></b>
-							</a>
+								<!--<b class="arrow icon-angle-down"></b>-->
+							<!--</a>-->
 
-							<ul class="submenu">
-								<li>
-									<router-link to="/elements" class="router-item">
-										<i class="icon-double-angle-right"></i>
-										组件
-									</router-link>
-								</li>
+							<!--<ul class="submenu">-->
+								<!--<li>-->
+									<!--<router-link to="/elements" class="router-item">-->
+										<!--<i class="icon-double-angle-right"></i>-->
+										<!--组件-->
+									<!--</router-link>-->
+								<!--</li>-->
 
-								<li>
-									<router-link to="/buttons" class="router-item">
-										<i class="icon-double-angle-right"></i>
-										按钮 &amp; 图表
-									</router-link>
-								</li>
+								<!--<li>-->
+									<!--<router-link to="/buttons" class="router-item">-->
+										<!--<i class="icon-double-angle-right"></i>-->
+										<!--按钮 &amp; 图表-->
+									<!--</router-link>-->
+								<!--</li>-->
 
-								<li>
-									<router-link to="/treeview" class="router-item">
-										<i class="icon-double-angle-right"></i>
-										树菜单
-									</router-link>
-								</li>
+								<!--<li>-->
+									<!--<router-link to="/treeview" class="router-item">-->
+										<!--<i class="icon-double-angle-right"></i>-->
+										<!--树菜单-->
+									<!--</router-link>-->
+								<!--</li>-->
 
-								<li>
-									<router-link to="/jquery_ui" class="router-item">
-										<i class="icon-double-angle-right"></i>
-										jQuery UI
-									</router-link>
-								</li>
+								<!--<li>-->
+									<!--<router-link to="/jquery_ui" class="router-item">-->
+										<!--<i class="icon-double-angle-right"></i>-->
+										<!--jQuery UI-->
+									<!--</router-link>-->
+								<!--</li>-->
 
-								<li>
-									<router-link to="/nestable_list" class="router-item">
-										<i class="icon-double-angle-right"></i>
-										可拖拽列表
-									</router-link>
-								</li>
+								<!--<li>-->
+									<!--<router-link to="/nestable_list" class="router-item">-->
+										<!--<i class="icon-double-angle-right"></i>-->
+										<!--可拖拽列表-->
+									<!--</router-link>-->
+								<!--</li>-->
 
-								<li>
-									<a class="dropdown-toggle" href="#">
-										<i class="icon-double-angle-right"></i>
+								<!--<li>-->
+									<!--<a class="dropdown-toggle" href="#">-->
+										<!--<i class="icon-double-angle-right"></i>-->
 
-										三级菜单
-										<b class="arrow icon-angle-down"></b>
-									</a>
+										<!--三级菜单-->
+										<!--<b class="arrow icon-angle-down"></b>-->
+									<!--</a>-->
 
-									<ul class="submenu">
-										<li>
-											<a href="#">
-												<i class="icon-leaf"></i>
-												第一级
-											</a>
-										</li>
+									<!--<ul class="submenu">-->
+										<!--<li>-->
+											<!--<a href="#">-->
+												<!--<i class="icon-leaf"></i>-->
+												<!--第一级-->
+											<!--</a>-->
+										<!--</li>-->
 
-										<li>
-											<a class="dropdown-toggle" href="#">
-												<i class="icon-pencil"></i>
+										<!--<li>-->
+											<!--<a class="dropdown-toggle" href="#">-->
+												<!--<i class="icon-pencil"></i>-->
 
-												第四级
-												<b class="arrow icon-angle-down"></b>
-											</a>
+												<!--第四级-->
+												<!--<b class="arrow icon-angle-down"></b>-->
+											<!--</a>-->
 
-											<ul class="submenu">
-												<li>
-													<a href="#">
-														<i class="icon-plus"></i>
-														添加产品
-													</a>
-												</li>
+											<!--<ul class="submenu">-->
+												<!--<li>-->
+													<!--<a href="#">-->
+														<!--<i class="icon-plus"></i>-->
+														<!--添加产品-->
+													<!--</a>-->
+												<!--</li>-->
 
-												<li>
-													<a href="#">
-														<i class="icon-eye-open"></i>
-														查看商品
-													</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
+												<!--<li>-->
+													<!--<a href="#">-->
+														<!--<i class="icon-eye-open"></i>-->
+														<!--查看商品-->
+													<!--</a>-->
+												<!--</li>-->
+											<!--</ul>-->
+										<!--</li>-->
+									<!--</ul>-->
+								<!--</li>-->
+							<!--</ul>-->
+						<!--</li>-->
 
 						<li>
 							<a class="dropdown-toggle" href="#">
