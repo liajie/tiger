@@ -13,6 +13,8 @@ class Index extends Controller
         return view('index/index');
     }
 
+
+
     //header头部
     public function header()
     {
