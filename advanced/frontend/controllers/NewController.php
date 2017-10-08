@@ -20,6 +20,7 @@ class NewController extends CommonController
             ->offset($offset)
             ->from('live_news')
             ->leftJoin('live_newsclass','live_news.news_classId=live_newsclass.newsClass_id')
+            ->orderBy(['new_addTime'=>'desc'])
             ->all();
         if($reg)
         {
