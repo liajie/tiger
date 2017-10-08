@@ -22,9 +22,10 @@ class News extends Controller
     public function news_list($num = 20)
     {
         $pa = isset($this->data['pa'])?$this->data['pa']:1;
+        $newsClass_id = isset($this->data['newsClass_id'])?$this->data['newsClass_id']:1;
         //计算偏移量
         $offset = $pa*($pa-1);
-        $reg = DB::select("select news_id,news_name from live_news");
+        $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id limit {$offset},{$num}");
         print_r($reg);
         print_r($this->data);
     }

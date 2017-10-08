@@ -16,7 +16,6 @@ class Live extends Controller
         return view('live/live_list');
     }
 
-
     //成为主播
     public function live_add()
     {

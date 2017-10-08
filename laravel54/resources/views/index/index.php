@@ -2032,13 +2032,11 @@
         <h2 class="news-title ellipsis"><a target="_blank" class="J_g_resource clickstat" data-pos="index/news/tit" data-rsc="322" eid="click/push/indexnews/topnews" eid_desc="点击/活动/首页新闻/头条" href="/http://www.huya.com/s7" title="英雄联盟全球总决赛 火热开战">英雄联盟全球总决赛 火热开战</a></h2>
         <div class="news-main">
                 <ul class="news-list">
-                                                                <li class="news-item"><em class="news-type"><a class="news-type-link" target="_blank" href="/http://blog.huya.com/policy">政策</a></em>
-                    <a target="_blank" href="/http://blog.huya.com/policy/460" class="J_g_resource news-link clickstat ellipsis" data-pos="index/news/list/0" data-rsc="460" eid="click/push/indexnews/words1" eid_desc="点击/推荐/首页新闻/文字新闻1" title="虎牙直播热点手游商务合作政策">
-                        虎牙直播热点手游商务合作政策                    </a><span class="news-time">09/13</span></li>
-
-                                                        <li class="news-item"><em class="news-type"><a class="news-type-link" target="_blank" href="/http://blog.huya.com/news">新闻</a></em>
-                    <a target="_blank" href="/http://blog.huya.com/news/4578" class="J_g_resource news-link clickstat ellipsis" data-pos="index/news/list/6" data-rsc="4578" eid="click/push/indexnews/words7" eid_desc="点击/推荐/首页新闻/文字新闻7" title="最强NBA手游带你直飞美国 与科比面对面！">
-                        最强NBA手游带你直飞美国 与科比面对面！                    </a><span class="news-time">09/25</span></li>
+                <?php foreach($news_list as $v){ ?>
+                                                                <li class="news-item"><em class="news-type"><a class="news-type-link" target="_blank" href="/?r=news/news_list&newsClass_id=<?= $v->newsClass_id ?>"><?= $v->newsClass_name ?></a></em>
+                    <a target="_blank" href="/http://blog.huya.com/policy/460" class="J_g_resource news-link clickstat ellipsis" data-pos="index/news/list/0" data-rsc="460" eid="click/push/indexnews/words1" eid_desc="点击/推荐/首页新闻/文字新闻1" title="<?= $v->news_name ?>">
+                        <?= $v->news_name ?>                    </a><span class="news-time">09/13</span></li>
+                        <?php } ?>
                         </ul>
             </div>
         <div class="hotTag">

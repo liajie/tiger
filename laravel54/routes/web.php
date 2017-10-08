@@ -29,6 +29,13 @@ if($ROUTES)
 	}
 
 }else{
+
+    /*
+     * 其它路由
+     * Route::any('/login','Login@login')->name('login');
+     * Route::match(['get','post'],'Login/login','Login@login');
+     * */
+
 	//首页路由
 	Route::get('/', 'Index@index');
 	Route::get('index/index', 'Index@index');
