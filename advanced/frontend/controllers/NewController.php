@@ -8,6 +8,7 @@ use yii\db\Query;
 
 class NewController extends CommonController
 {
+
     //新闻详情页
     public function actionNews_details()
     {
