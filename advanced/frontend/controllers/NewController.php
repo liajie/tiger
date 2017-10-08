@@ -8,6 +8,12 @@ use yii\db\Query;
 
 class NewController extends CommonController
 {
+    //新闻详情页
+    public function actionNews_details()
+    {
+        return $this->renderPartial('news_details');
+    }
+
     //获取新闻列表
     public function actionNew_list()
     {
