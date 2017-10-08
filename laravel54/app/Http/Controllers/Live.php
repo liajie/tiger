@@ -31,6 +31,7 @@ class Live extends Controller
     //主播注册信息获取
     public function ProfileAuth(Request $request)
     {
+        echo 1;die;
         $user_id = 1;
         $data = $request->input();
         $reg = DB::table('live_channel')
@@ -40,8 +41,12 @@ class Live extends Controller
                 'class_id'=>$data['class_id'],
                 'user_id'=>$user_id,
                 ]);
+        print_r($reg);die;
         if($reg)
         {
+            DB::table('live_channeluser')->insert([
+
+            ]);
             echo "<script>alert('等待审核');location.href='/index.php?r=live/live_sign_d'</script>";
         }else
         {

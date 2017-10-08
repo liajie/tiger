@@ -25,7 +25,7 @@ if($ROUTES)
 	Route::get('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
 	}else
 	{
-	Route::post('/',ucfirst($R0UTES[0]).'@'.$ROUTES[1]);
+	Route::post('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
 	}
 
 }else{

@@ -205,7 +205,6 @@
 														<td class=" "><a v-bind:href="lib.channel_images" target="_blank">{{lib.channel_images}}</a></td>
 														<td class="hidden-480 ">{{lib.channel_name}}</td>
 														<td class=" ">{{lib.username}}</td>
-
 														<td class="hidden-480 ">
 															<span class="label label-sm label-success">{{lib.class_name}}</span>
 														</td>
@@ -515,7 +514,7 @@ function live_channel(obj,pa)
 			common(e.error);
 			obj.liDs = e.msg
 			obj.sum = e.sum
-			//console.log(e.msg);
+			//console.log(e.sum);
 		}
 	})
 }
