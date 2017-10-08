@@ -1,0 +1,509 @@
+<template>
+<div class="main-content">
+					<div id="breadcrumbs" class="breadcrumbs">
+
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">Home</a>
+							</li>
+
+							<li>
+								<a href="#">More Pages</a>
+							</li>
+							<li class="active">Pricing Tables</li>
+						</ul><!-- .breadcrumb -->
+
+						<div id="nav-search" class="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" autocomplete="off" id="nav-search-input" class="nav-search-input" placeholder="Search ...">
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								Pricing Tables
+								<small>
+									<i class="icon-double-angle-right"></i>
+									Large &amp; Small
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-3 pricing-box">
+										<div class="widget-box">
+											<div class="widget-header header-color-dark">
+												<h5 class="bigger lighter">Basic Package</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<ul class="list-unstyled spaced2">
+														<li>
+															<i class="icon-ok green"></i>
+															10 GB Disk Space
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															200 GB Bandwidth
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															100 Email Accounts
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															10 MySQL Databases
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															$10 Ad Credit
+														</li>
+
+														<li>
+															<i class="icon-remove red"></i>
+															Free Domain
+														</li>
+													</ul>
+
+													<hr>
+													<div class="price">
+														$5
+														<small>/month</small>
+													</div>
+												</div>
+
+												<div>
+													<a class="btn btn-block btn-inverse" href="#">
+														<i class="icon-shopping-cart bigger-110"></i>
+														<span>Buy</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xs-6 col-sm-3 pricing-box">
+										<div class="widget-box">
+											<div class="widget-header header-color-orange">
+												<h5 class="bigger lighter">Starter Package</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<ul class="list-unstyled spaced2">
+														<li>
+															<i class="icon-ok green"></i>
+															50 GB Disk Space
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															1 TB Bandwidth
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															1000 Email Accounts
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															100 MySQL Databases
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															$25 Ad Credit
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Free Domain
+														</li>
+													</ul>
+
+													<hr>
+													<div class="price">
+														$10
+														<small>/month</small>
+													</div>
+												</div>
+
+												<div>
+													<a class="btn btn-block btn-warning" href="#">
+														<i class="icon-shopping-cart bigger-110"></i>
+														<span>Buy</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xs-6 col-sm-3 pricing-box">
+										<div class="widget-box">
+											<div class="widget-header header-color-blue">
+												<h5 class="bigger lighter">Business Package</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<ul class="list-unstyled spaced2">
+														<li>
+															<i class="icon-ok green"></i>
+															200 GB Disk Space
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Unlimited Bandwidth
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															1000 Email Accounts
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															200 MySQL Databases
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															$25 Ad Credit
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Free Domain
+														</li>
+													</ul>
+
+													<hr>
+													<div class="price">
+														$15
+														<small>/month</small>
+													</div>
+												</div>
+
+												<div>
+													<a class="btn btn-block btn-primary" href="#">
+														<i class="icon-shopping-cart bigger-110"></i>
+														<span>Buy</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xs-6 col-sm-3 pricing-box">
+										<div class="widget-box">
+											<div class="widget-header header-color-green">
+												<h5 class="bigger lighter">Ultimate Package</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<ul class="list-unstyled spaced2">
+														<li>
+															<i class="icon-ok green"></i>
+															Unlimited Space
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Unlimited Bandwidth
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Unlimited Email Accounts
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															Unlimited MySQL Databases
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															$50 Ad Credit
+														</li>
+
+														<li>
+															<i class="icon-ok green"></i>
+															2 Free Domains
+														</li>
+													</ul>
+
+													<hr>
+													<div class="price">
+														$25
+														<small>/month</small>
+													</div>
+												</div>
+
+												<div>
+													<a class="btn btn-block btn-success" href="#">
+														<i class="icon-shopping-cart bigger-110"></i>
+														<span>Buy</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="space-24"></div>
+								<h3 class="header smaller red">Small Style</h3>
+
+								<div class="row">
+									<div class="col-xs-4 col-sm-3 pricing-span-header">
+										<div class="widget-box transparent">
+											<div class="widget-header">
+												<h5 class="bigger lighter">Package Name</h5>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<ul class="list-unstyled list-striped pricing-table-header">
+														<li>Disk Space </li>
+														<li>Bandwidth </li>
+														<li>Email Accounts </li>
+														<li>MySQL Databases </li>
+														<li>Ad Credit </li>
+														<li>Free Domain </li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xs-8 col-sm-9 pricing-span-body">
+										<div class="pricing-span">
+											<div class="widget-box pricing-box-small">
+												<div class="widget-header header-color-red3">
+													<h5 class="bigger lighter">Basic</h5>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<ul class="list-unstyled list-striped pricing-table">
+															<li> 10 GB </li>
+															<li> 200 GB </li>
+															<li> 100 </li>
+															<li> 10 </li>
+															<li> $10 </li>
+
+															<li>
+																<i class="icon-remove red"></i>
+															</li>
+														</ul>
+
+														<div class="price">
+															<span class="label label-lg label-inverse arrowed-in arrowed-in-right">
+																$5
+																<small>/month</small>
+															</span>
+														</div>
+													</div>
+
+													<div>
+														<a class="btn btn-block btn-sm btn-danger" href="#">
+															<span>Buy</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="pricing-span">
+											<div class="widget-box pricing-box-small">
+												<div class="widget-header header-color-orange">
+													<h5 class="bigger lighter">Starter</h5>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<ul class="list-unstyled list-striped pricing-table">
+															<li> 50 GB </li>
+															<li> 1 TB </li>
+															<li> 1000 </li>
+															<li> 100 </li>
+															<li> $25 </li>
+
+															<li>
+																<i class="icon-ok green"></i>
+																1
+															</li>
+														</ul>
+
+														<div class="price">
+															<span class="label label-lg label-inverse arrowed-in arrowed-in-right">
+																$10
+																<small>/month</small>
+															</span>
+														</div>
+													</div>
+
+													<div>
+														<a class="btn btn-block btn-sm btn-warning" href="#">
+															<span>Buy</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="pricing-span">
+											<div class="widget-box pricing-box-small">
+												<div class="widget-header header-color-blue">
+													<h5 class="bigger lighter">Business</h5>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<ul class="list-unstyled list-striped pricing-table">
+															<li> 200 GB </li>
+															<li> Unlimited </li>
+															<li> 1000 </li>
+															<li> 200 </li>
+															<li> $25 </li>
+
+															<li>
+																<i class="icon-ok green"></i>
+																1
+															</li>
+														</ul>
+
+														<div class="price">
+															<span class="label label-lg label-inverse arrowed-in arrowed-in-right">
+																$15
+																<small>/month</small>
+															</span>
+														</div>
+													</div>
+
+													<div>
+														<a class="btn btn-block btn-sm btn-primary" href="#">
+															<span>Buy</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="pricing-span">
+											<div class="widget-box pricing-box-small">
+												<div class="widget-header header-color-green">
+													<h5 class="bigger lighter">Unlimited</h5>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<ul class="list-unstyled list-striped pricing-table">
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> $50 </li>
+
+															<li>
+																<i class="icon-ok green"></i>
+																2
+															</li>
+														</ul>
+
+														<div class="price">
+															<span class="label label-lg label-inverse arrowed-in arrowed-in-right">
+																$25
+																<small>/month</small>
+															</span>
+														</div>
+													</div>
+
+													<div>
+														<a class="btn btn-block btn-sm btn-success" href="#">
+															<span>Buy</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="pricing-span">
+											<div class="widget-box pricing-box-small">
+												<div class="widget-header header-color-grey">
+													<h5 class="bigger lighter">Extreme</h5>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<ul class="list-unstyled list-striped pricing-table">
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> Unlimited </li>
+															<li> $100 </li>
+
+															<li>
+																<i class="icon-ok green"></i>
+																3
+															</li>
+														</ul>
+
+														<div class="price">
+															<span class="label label-lg label-inverse arrowed-in arrowed-in-right">
+																$30
+																<small>/month</small>
+															</span>
+														</div>
+													</div>
+
+													<div>
+														<a class="btn btn-block btn-sm btn-grey" href="#">
+															<span>Buy</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div><!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+</template>
+
+<script>
+export default {
+  name: 'pricing',
+  data () {
+    return {
+      message: ''
+    }
+  }
+}
+
+try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+</script>
+
+<style>
+</style>
