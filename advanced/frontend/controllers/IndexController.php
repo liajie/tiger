@@ -82,16 +82,16 @@ class IndexController extends CommonController
                 ->offset($offset)//偏移量
                 ->leftJoin('user','live_channel.user_id=user.u_id')
                 ->leftJoin('live_class','live_class.class_id=live_channel.class_id')
-                ->leftJoin('live_channeluser','live_channel.channel_id=live_channeluser.chidd')
+                ->leftJoin('live_channeluser','live_channel.channel_id=live_channeluser.chid')
                 ->orderBy(['channel_id'=>'desc'])
+                ->groupBy('channel_id')
                 ->all();
             $sum = (new \yii\db\Query())->select(['channel_id'])->from('live_channel')->count();
-            print_r($data);die;
             foreach ($data as &$v)
             {
-                $username = (new Query())->select(['GROUP_CONCAT(username) as username'])->from('user')->where("u_id in ({$v['uids']})")->one();
-                if(isset($username['username']))
+                if($v['uids'])
                 {
+                    $username = (new Query())->select(['GROUP_CONCAT(username) as username'])->from('user')->where("u_id in ({$v['uids']})")->one();
                     $v['username'] .= '->'.$username['username'];
                 }
                 switch ($v['channel_start'])

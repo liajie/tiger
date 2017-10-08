@@ -31,21 +31,36 @@ class Live extends Controller
     //主播注册信息获取
     public function ProfileAuth(Request $request)
     {
-        echo 1;die;
         $user_id = 1;
         $data = $request->input();
-        $reg = DB::table('live_channel')
+        /*$reg = DB::table('live_channel')
             ->insert([
                 'channel_name'=>$data['channel_username'],
                 'channel_username'=>$data['channel_username'],
                 'class_id'=>$data['class_id'],
                 'user_id'=>$user_id,
-                ]);
-        print_r($reg);die;
+                ]);*/
+        //获取一条数据
+        //$id = DB::table('live_channel')->first();
+        //获取全部数据
+        //$id = DB::table('live_channel')->get();
+
+        //返回主键id
+        $reg = DB::table('live_channel')
+            ->insertGetId([
+                'channel_name'=>$data['channel_username'],
+                'channel_username'=>$data['channel_username'],
+                'class_id'=>$data['class_id'],
+                'user_id'=>$user_id,
+            ]);
+        /*$reg = \DB::insert('insert into live_channel(channel_name,channel_username,class_id,user_id) values(?,?,?,?)',[
+            $data['channel_username'],$data['channel_username'],$data['class_id'],$user_id
+        ]);*/
         if($reg)
         {
             DB::table('live_channeluser')->insert([
-
+                'chid'=>$reg,
+                'userid'=>$user_id
             ]);
             echo "<script>alert('等待审核');location.href='/index.php?r=live/live_sign_d'</script>";
         }else
