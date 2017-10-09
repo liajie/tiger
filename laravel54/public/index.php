@@ -8,6 +8,8 @@
 
 //访问域名
 define('HOST','http://www.live.com/');
+
+defined('IS_POST') OR define('IS_POST',strtoupper($_SERVER['REQUEST_METHOD']=='POST')?TRUE:FALSE);
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
