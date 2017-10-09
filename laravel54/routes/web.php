@@ -22,10 +22,10 @@ if($ROUTES)
 	$ROUTES = explode('/',$ROUTES);
 	if(empty($_POST))
 	{
-	Route::get('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
+        Route::post('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
 	}else
 	{
-	Route::post('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
+        Route::get('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
 	}
 
 }else{
