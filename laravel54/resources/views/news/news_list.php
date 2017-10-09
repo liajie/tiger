@@ -47,6 +47,7 @@
 
 <!-- 统一登录头部 -->
 <script src="js/header.js" charset="utf-8"></script>
+
 <div style="height: 50px;"></div>        <!-- /页头 -->
 <div class="small_header clearfix">
     <a href="http://blog.huya.com/news" class="active">新闻</a>
