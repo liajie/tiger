@@ -20,7 +20,7 @@ $ROUTES= isset($_GET['r' ])?$_GET['r' ]:false;
 if($ROUTES)
 {
 	$ROUTES = explode('/',$ROUTES);
-	if(empty($_POST))
+	if(IS_POST)
 	{
         Route::post('/',ucfirst($ROUTES[0]).'@'.$ROUTES[1]);
 	}else
