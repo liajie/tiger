@@ -24,6 +24,7 @@ class Login extends Controller
         setcookie("nickname","",time()-3600,"/");
         setcookie("users","",time()-3600,"/");
         echo "<script>location.href='/'</script>";
+        
     }
 //注册功能
     public function add()

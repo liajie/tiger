@@ -38,6 +38,7 @@ class User extends Controller
         }
 		  // echo "<pre>";
 		  // print_r($arr);die;
+		  // 
 
 		 return view('user/user_list',['users'=>$data,'money'=>$arr]);
 	}

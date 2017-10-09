@@ -2026,7 +2026,7 @@
                         alert('修改头像昵称失败');
                          //$(".nickname1").empty();
                         //$(".uesr_n").empty();
-                          $(".uesr_n").html("<span class='sp'>"+span+"</span>"); 
+                        $(".uesr_n").html("<span class='sp'>"+span+"</span>"); 
                          //$(".nickname1").html(sp);
 
                     }

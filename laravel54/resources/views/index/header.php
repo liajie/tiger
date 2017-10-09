@@ -2,6 +2,7 @@
 if (!empty($_COOKIE['users'])) {
     $users = unserialize($_COOKIE['users']);
 }
+
 ?>
 
 <div class="duya-header-wrap clearfix">
