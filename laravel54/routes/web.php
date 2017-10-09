@@ -51,6 +51,8 @@ if($ROUTES)
 	Route::get('login/loginout','Login@loginout');
 	//注册功能
 	Route::post('login/add','Login@add');
+	//获取用户详细信息
+	Route::get('User/getuser','User@getuser');
 
 }
 
