@@ -150,7 +150,7 @@ if (!empty($_COOKIE['users'])) {
                                                 <form method="post" action='index.php?r=login/login' id="login_sub">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">用户名</label>
-                                                        <input type="email" class="form-control"
+                                                        <input type="text" class="form-control"
                                                                placeholder="手机号/邮箱/手机号" style="width:300px"
                                                                id="username">
                                                     </div>
