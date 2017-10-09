@@ -1562,11 +1562,13 @@
                 <div class="news-box">
         <h2 class="news-title ellipsis"><a target="_blank" class="J_g_resource clickstat" data-pos="index/news/tit" data-rsc="322" eid="click/push/indexnews/topnews" eid_desc="点击/活动/首页新闻/头条" href="/http://www.huya.com/s7" title="英雄联盟全球总决赛 火热开战">英雄联盟全球总决赛 火热开战</a></h2>
         <div class="news-main">
+                <!--新闻开始-->
                 <ul class="news-list">
                 <?php foreach($news_list as $v){ ?>
+
                                                                 <li class="news-item"><em class="news-type"><a class="news-type-link" target="_blank" href="/?r=news/news_list&newsClass_id=<?= $v->newsClass_id ?>"><?= $v->newsClass_name ?></a></em>
-                    <a target="_blank" href="/http://blog.huya.com/policy/460" class="J_g_resource news-link clickstat ellipsis" data-pos="index/news/list/0" data-rsc="460" eid="click/push/indexnews/words1" eid_desc="点击/推荐/首页新闻/文字新闻1" title="<?= $v->news_name ?>">
-                        <?= $v->news_name ?>                    </a><span class="news-time">09/13</span></li>
+                    <a target="_blank" href="http://admin.live.com/<?= $v->new_tmp ?>" class="J_g_resource news-link clickstat ellipsis" data-pos="index/news/list/0" data-rsc="460" eid="click/push/indexnews/words1" eid_desc="点击/推荐/首页新闻/文字新闻1" title="<?= $v->news_name ?>">
+                        <?= $v->news_name ?>                    </a><span class="news-time"><?= date('m/d',$v->new_addTime)?></span></li>
                         <?php } ?>
                         </ul>
             </div>

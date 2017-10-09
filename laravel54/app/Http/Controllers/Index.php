@@ -19,7 +19,7 @@ class Index extends Controller
     //获取新闻列表
     public function news_list($num = 20)
     {
-        return DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id order by news_id desc limit 0,6");
+        return DB::select("select news_id,news_name,newsClass_name,newsClass_id,new_tmp,new_addTime from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id order by news_id desc limit 0,6");
     }
 
     //header头部
