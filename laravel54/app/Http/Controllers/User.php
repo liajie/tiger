@@ -49,10 +49,11 @@ class User extends Controller
 		$arr = array();
 		if ($res) 
 		{
-			$arr['error']=1;
+			$arr['erro']=1;
+			setcookie('nickname',$nickname,time()+3600*7,'/');
 		}else
 		{
-			$arr['error']=0;
+			$arr['erro']=0;
 		}
 		echo json_encode($arr);
 

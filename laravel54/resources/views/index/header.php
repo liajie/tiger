@@ -1,3 +1,9 @@
+<?php
+if (!empty($_COOKIE['users'])) {
+    $users = unserialize($_COOKIE['users']);
+}
+?>
+
 <div class="duya-header-wrap clearfix">
         <div class="duya-header-bd clearfix">
             <h1 id="duya-header-logo" title="虎牙直播-虎牙TV-中国领先的互动直播平台">
@@ -232,13 +238,20 @@
                                     check: check,
                                     _token: _token
                                 },
+                                dataType:"json",
                                 success: function (msg) {
-                                    if (msg == 1) {
+                                    if (msg['error'] == 1) {
                                         alert('登录成功');
                                         $("#login_un").hide();
                                         $(".login-box").hide();
                                         $("#touxiang").show();
                                         $("#nickname").html(msg['nickname']);
+                                        $("#sign").html(msg.sign)
+                                        $("#J_huyaNavUserCardAssetsGb").empty();
+                                        $("#J_huyaNavUserCardAssetsGb").html(msg.jin);
+                                        $("#J_huyaNavUserCardAssetsSb").empty();
+                                        $("#J_huyaNavUserCardAssetsSb").html(msg.yin);
+                                        
                                     } else {
                                         alert("登录失败");
                                         $(".login-box").hide();
@@ -351,8 +364,12 @@
 
                                         ?></span><i class="gender gender1"></i><i class="level-icon level-icon1"></i>
                                 </p>
-                                <p class="user-sign" id="J_huyaNavUserCardSign"><a href="http://i.huya.com/?m=UserInfo"
-                                                                                   target="_blank" class="edit_sign">点击编辑个性签名</a>
+                                <p class="user-sign" id="J_huyaNavUserCardSign"><a href="#" target="_blank" class="edit_sign"><span id="sign">
+                                    <?php if (!empty($_COOKIE['users'])): ?>
+                                        <?php echo $users['sign'] ?>
+                                        
+                                    <?php endif ?>
+                                </span></a>
                                 </p>
                                 <div class="exp clearfix">
                                     <div class="between">
@@ -373,10 +390,18 @@
                                 <div class="bd">
                                     <span class="type-name">资产</span>
                                     <ul class="type">
-                                        <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">0</em></li>
+                                        <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">
+                                            <?php if (!empty($_COOKIE['users'])): ?>
+                                        <?php echo $users['jin'] ?>
+                                        
+                                    <?php endif ?>
+                                        </em></li>
                                         <li class="type-ticket"><i class="gold-ticket"></i><em
-                                                    id="J_huyaNavUserCardAssetsTk">0</em></li>
-                                        <li><i class="silver-bean"></i><em id="J_huyaNavUserCardAssetsSb">0</em></li>
+                                                    id="J_huyaNavUserCardAssetsTk"> <?php if (!empty($_COOKIE['users'])): ?>
+                                        <?php echo $users['yin'] ?>
+                                        
+                                    <?php endif ?></em></li>
+                                        <li><i class="silver-bean"></i><em id="J_huyaNavUserCardAssetsSb"></em></li>
                                     </ul>
                                     <a class="topup new-clickstat" target="_blank"
                                        href="http://i.huya.com/?evt=recharge"

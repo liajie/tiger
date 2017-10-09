@@ -22,6 +22,7 @@ class Login extends Controller
     public function loginout()
     {
         setcookie("nickname","",time()-3600,"/");
+        setcookie("users","",time()-3600,"/");
         echo "<script>location.href='/'</script>";
     }
 //注册功能
@@ -44,28 +45,46 @@ class Login extends Controller
     public function login()
     {
         $data = $_POST;
-        $users = DB::select('select u_id,nickname from user where password= :pwd and username = :username or tel= :tel ', ['pwd'=>$data['pwd'],'username'=>$data['username'],'tel'=>$data['username']]);
-        foreach ($users as $user) {
-             $success =  $user->u_id;
-             $nickname = $user->nickname;
+        $users = DB::select('select * from user where password= :pwd and username = :username or tel= :tel ', ['pwd'=>$data['pwd'],'username'=>$data['username'],'tel'=>$data['username']]);
+        $data =array();
+          foreach ($users as $user) {
+             $data['u_id'] =  $user->u_id;
+             $data['username'] =  $user->username;
+             $data['nickname'] =  $user->nickname;
+             $data['u_img'] =  $user->u_img;
+             $data['sign'] =  $user->sign;
+             $data['sex'] =  $user->sex;
+             $data['birthday'] =  $user->birthday;
+             $data['home'] =  $user->home;
+             $data['mynum'] =  $user->mynum;
+             $data['tel'] =  $user->tel;
+             $data['user_addTime'] =  date("Y-m-d H:i:s",$user->user_addTime);
         }
-        if (!empty($success)) 
+        $money = DB::select('select * from money where u_id= :u_id ', ['u_id'=>$data['u_id']]);
+        foreach ($money as $mon) {
+            $data['jin']=$mon->a_money;
+            $data['yin']=$mon->b_money;
+        }
+
+        if (!empty($data['u_id'])) 
         {
-            if (!empty($nickname)) {
-                setcookie('nickname',$nickname,time()+3600*7,'/');
-                setcookie('u_id',$success,time()+3600*7,'/');
+            $lize_user =serialize($data);       
+            if (!empty($data['nickname'])) {
+                setcookie('nickname',$data['nickname'],time()+3600*7,'/');
+                setcookie('u_id',$data['u_id'],time()+3600*7,'/');
+                setcookie('users',$lize_user,time()+3600*7,'/');
             }
             else
             {
                 setcookie('nickname',$data['username'],time()+3600*7,'/');
             }
             
-            $arr['error']=1;
+            $data['error']=1;
         }else
         {
-            $arr['error']=0;
+            $data['error']=0;
         }
-        echo $arr['error'];
+      echo json_encode($data);
 
     }
 }
