@@ -34,18 +34,17 @@
     <div class="header">
         <h2>官方资讯</h2>
         <ul class="header-nav">
-            <i >
-                <a href="http://blog.huya.com/">首页</a>
-            </i>
-            <i  class="current" >
-                <a href="http://blog.huya.com/news">新闻</a>
-            </i>
-            <i  >
-                <a href="http://blog.huya.com/product">产品</a>
-            </i>
-            <i >
-                <a href="http://blog.huya.com/policy">政策</a>
-            </i>
+            <?php foreach ($class as $v){ ?>
+                <?php if($v['newsClass_id']==$newsClass_id){ ?>
+                    <i class="current">
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=<?= $v['newsClass_id'] ?>"><?= $v['newsClass_name'] ?></a>
+                    </i>
+                <?php }else{ ?>
+                    <i>
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=<?= $v['newsClass_id'] ?>"><?= $v['newsClass_name'] ?></a>
+                    </i>
+                <?php } ?>
+            <?php } ?>
         </ul>
     </div>
     <div class="main clearfix">
@@ -54,15 +53,15 @@
                 <!-- 文章-->
                 <div class="artcle">
                     <div class="artcle-hd">
-                        <a href="http://blog.huya.com/news/" class="back">&lt;&lt;返回新闻列表</a>
-                        <h1>虎牙10.02-10.08一周赛事推荐</h1>
-                        <span class="artcle-date"><i></i>2017-10-03</span>
+                        <a href="http://www.live.com/?r=news/news_list" class="back">&lt;&lt;返回新闻列表</a>
+                        <h1><?= $title ?></h1>
+                        <span class="artcle-date"><i></i><?= date('Y-m-d H:i:s') ?></span>
                     </div>
                     <div class="artcle-bd">
-                        内容
+                        <?= $news_text ?>
                         <div class="pages-prev-next">
-                            <a href="javascript:void(0)" style="color:gray;">上一篇</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="http://blog.huya.com/news/4577">下一篇</a>
+                            <a href="javascript:alert('回列表去访问吧')" style="color:gray;">上一篇</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:alert('没有更多了')">下一篇</a>
                         </div>
                     </div>
                 </div>
@@ -77,16 +76,10 @@
                 </div>
                 <div class="box-bd">
                     <ul class="mod-art">
+                        <?php foreach ($new_list as $v){ ?>
+                            <li><span class="date"> <?= date('Y-m-d',$v['new_addTime']) ?></span><a href="http://admin.live.com/<?= $v['new_tmp'] ?>"><?= $v['news_name'] ?></a></li>
+                        <?php } ?>
 
-                        <li><span class="date"> 2017-10-03</span><a href="http://blog.huya.com/news/4634">《God Lie》第二期预告片抢“鲜”观看</a></li>
-
-                        <li><span class="date"> 2017-10-03</span><a href="http://blog.huya.com/news/4632">虎牙10.02-10.08一周赛事推荐</a></li>
-
-                        <li><span class="date"> 2017-10-03</span><a href="http://blog.huya.com/news/4631">虎牙直播携手网易云音乐寻找少年歌者 60强直通区投票一触即发</a></li>
-
-                        <li><span class="date"> 2017-10-01</span><a href="http://blog.huya.com/news/4630">【单机国庆特别活动】：主播独立游戏大作战</a></li>
-
-                        <li><span class="date"> 2017-09-30</span><a href="http://blog.huya.com/news/4627">户外丨渔乐达人——花落谁家已知晓！</a></li>
                     </ul>
                 </div>
             </div>

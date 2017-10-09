@@ -12,8 +12,60 @@ class NewController extends CommonController
     //新闻详情页
     public function actionNews_details()
     {
-        return $this->renderPartial('news_details');
+        $news_text = '内容';
+        $title= '标题';
+        $news_classId = 1;
+        //获取新闻分类
+        $class = (new Query())->select(['*'])->from('live_newsclass')->all();
+        //最近新闻
+        $new_list = (new Query())->select(['news_name','new_tmp','new_addTime'])
+            ->from('live_news')
+            ->orderBy('new_addTime desc')
+            ->limit(5)
+            ->all();
+        $reg = [
+            'news_text'=>$news_text,
+            'title'=>$title,
+            'class'=>$class,
+            'newsClass_id'=>$news_classId,
+            'new_list'=>$new_list
+        ];
+        return $this->renderPartial('news_details',$reg);
     }
+
+    //添加新闻
+    public function actionNew_add()
+    {
+        if(isset($this->data['news_text']))
+        {
+            $file_tmp = 'public/news/'.date('y/m/d',time()).'/';
+            $file_name = date('H_i_s',time()).str_shuffle('JiangShengXin').'.html';
+            if(!file_exists($file_tmp))
+            {
+                mkdir($file_tmp,0777,true);
+            }
+            file_put_contents($file_tmp.$file_name,$this->data['news_text']);
+            $reg = \Yii::$app->db->createCommand()
+                ->insert('live_news',[
+                    'news_name'=>$this->data['news_name'],
+                    'news_classId'=>$this->data['news_classId'],
+                    'new_tmp'=>$file_tmp.$file_name,
+                    'new_addTime'=>time()])
+                ->execute();
+            if($reg)
+            {
+                $this->return = ['error'=>'200','msg'=>'添加成功'];
+            }else
+            {
+                unlink($file_tmp.$file_name);
+                $this->return = ['error'=>'101','msg'=>'添加失败'];
+            }
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'参数有误'];
+        }
+    }
+
 
     //获取新闻列表
     public function actionNew_list()
@@ -70,39 +122,6 @@ class NewController extends CommonController
         }else
         {
             $this->return = ['error'=>'101','msg'=>'删除失败'];
-        }
-    }
-
-    //添加添加
-    public function actionNew_add()
-    {
-        if(isset($this->data['news_text']))
-        {
-            $file_tmp = 'public/news/'.date('y/m/d',time()).'/';
-            $file_name = date('H_i_s',time()).str_shuffle('JiangShengXin').'.html';
-            if(!file_exists($file_tmp))
-            {
-                mkdir($file_tmp,0777,true);
-            }
-            file_put_contents($file_tmp.$file_name,$this->data['news_text']);
-            $reg = \Yii::$app->db->createCommand()
-                ->insert('live_news',[
-                    'news_name'=>$this->data['news_name'],
-                    'news_classId'=>$this->data['news_classId'],
-                    'new_tmp'=>$file_tmp.$file_name,
-                    'new_addTime'=>time()])
-                ->execute();
-            if($reg)
-            {
-                $this->return = ['error'=>'200','msg'=>'添加成功'];
-            }else
-            {
-                unlink($file_tmp.$file_name);
-                $this->return = ['error'=>'101','msg'=>'添加失败'];
-            }
-        }else
-        {
-            $this->return = ['error'=>'101','msg'=>'参数有误'];
         }
     }
 
