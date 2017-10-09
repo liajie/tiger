@@ -47,6 +47,17 @@
 
 <!-- 统一登录头部 -->
 <script src="js/header.js" charset="utf-8"></script>
+<!--<div class="duya-header" id="duya-header"></div>
+
+<script data-fixed="true">
+    $.ajax({
+        url: 'index.php?r=index/header',
+        success: function (e) {
+            $('#duya-header').html(e);
+        }
+    })
+</script>-->
+<!-- 统一登录头部 结束 -->
 
 <div style="height: 50px;"></div>        <!-- /页头 -->
 <div class="small_header clearfix">
@@ -56,20 +67,19 @@
 </div>
 <div class="wrap">
     <div class="header">
-        <h2>官方资讯</h2>
+        <h2><a href="/">网站首页</a></h2>
         <ul class="header-nav">
-            <i>
-                <a href="http://blog.huya.com/">首页</a>
-            </i>
-            <i class="current">
-                <a href="http://blog.huya.com/news">新闻</a>
-            </i>
-            <i>
-                <a href="http://blog.huya.com/product">产品</a>
-            </i>
-            <i>
-                <a href="http://blog.huya.com/policy">政策</a>
-            </i>
+            <?php foreach ($class as $v){ ?>
+                <?php if($v->newsClass_id==$newsClass_id){ ?>
+                    <i class="current">
+                        <a href="/?r=news/news_list&newsClass_id=<?= $v->newsClass_id ?>"><?= $v->newsClass_name ?></a>
+                    </i>
+                <?php }else{ ?>
+                    <i>
+                        <a href="/?r=news/news_list&newsClass_id=<?= $v->newsClass_id ?>"><?= $v->newsClass_name ?></a>
+                    </i>
+                <?php } ?>
+            <?php } ?>
         </ul>
     </div>
     <div class="main clearfix">
@@ -77,89 +87,12 @@
             <div class="news-block">
                 <!-- 文章列表 -->
                 <ul class="mod-art ">
-                    <li class="is_top_three">
-                        <span class="date">2017-10-03</span>
-                        <a href="http://blog.huya.com/news/4632" class="title">虎牙10.02-10.08一周赛事推荐</a>
-                        <span class="top">置顶</span>
-                    </li>
-                    <li class="is_top_three">
-                        <span class="date">2017-09-23</span>
-                        <a href="http://blog.huya.com/news/4577" class="title">观看S7全球总决赛 赢惠普大奖</a>
-                        <span class="top">置顶</span>
-                    </li>
+                    <?php foreach ($reg as $v){ ?>
                     <li>
-                        <span class="date">2017-10-03</span>
-                        <a href="http://blog.huya.com/news/4634" class="title">《God Lie》第二期预告片抢“鲜”观看</a>
+                        <span class="date"><?= date('Y-m-d H:i:s',$v->new_addTime)?></span>
+                        <a href="http://admin.live.com/<?= $v->new_tmp ?>" class="title"><?=$v->news_name?></a>
                     </li>
-                    <li>
-                        <span class="date">2017-10-03</span>
-                        <a href="http://blog.huya.com/news/4631" class="title">虎牙直播携手网易云音乐寻找少年歌者 60强直通区投票一触即发</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-10-01</span>
-                        <a href="http://blog.huya.com/news/4630" class="title">【单机国庆特别活动】：主播独立游戏大作战</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4627" class="title">户外丨渔乐达人——花落谁家已知晓！</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4626" class="title">十一火影锦标赛火热来袭！</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4625" class="title">国庆漫展连连看，二次元主播带你逛漫展！</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4624" class="title">麻将女神国庆狂欢赛 速来围观</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4623" class="title">QQ飞车手游，国庆欢乐送送送不停！</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4622" class="title">球球大作战最暖战队 虎牙619定制版中秋活动上线</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4621" class="title">《创造与魔法》国庆主播招募活动来袭</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4620" class="title">球球疯子生日庆典——从生存王到逃杀之王！</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4619" class="title">群龙庆双节——老白中秋活动给你好看</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4618" class="title">全军出击！军武游戏国庆好礼战不停</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4617" class="title">第三十二届“汉唐杯”象棋公开赛</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4616" class="title">象棋高手对抗赛：这次王天一又将和谁对战</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-30</span>
-                        <a href="http://blog.huya.com/news/4615" class="title">首届“虎牙杯”象棋女神水友赛</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-29</span>
-                        <a href="http://blog.huya.com/news/4614" class="title">【美食】CP料理|CP美食主播招募</a>
-                    </li>
-                    <li>
-                        <span class="date">2017-09-29</span>
-                        <a href="http://blog.huya.com/news/4613" class="title">美食国庆特别活动| 国庆吃鸡盛宴，嗨足七天</a>
-                    </li>
-
+                    <?php } ?>
                 </ul>
                 <!--/ 文章列表 -->
 
@@ -189,23 +122,23 @@
 
                 <div class="page-nav">
                     <div class="mod-page">
-
-                        <a href="#" title="已经是当前页" class="current" onclick="page_util.gotopage('1');">1</a>
-                        <a href="#" title="第2页" onclick="page_util.gotopage('2');">2</a>
-                        <a href="#" title="第3页" onclick="page_util.gotopage('3');">3</a>
-                        <a href="#" title="第4页" onclick="page_util.gotopage('4');">4</a>
-                        <a href="#" title="第5页" onclick="page_util.gotopage('5');">5</a>
-                        <a href="#" title="第6页" onclick="page_util.gotopage('6');">6</a>
-                        <span>...</span>
-                        <a href="#" title="第176页" onclick="page_util.gotopage('176');">176</a>
-                        <a href="#" rel="next" title="下一页" onclick="page_util.gotopage('2');">下一页</a>
+                        <?php for($i=1;$i<=$page;$i++){ ?>
+                        <?php if($i<6){ ?>
+                            <?php if($i==$pa){ ?>
+                                <a href="javascript:alert('已经是当前页')" title="已经是当前页" class="current"><?= $i ?></a>
+                            <?php }else{ ?>
+                                <a href="/?r=news/news_list&newsClass_id=<?= $newsClass_id ?>&pa=<?= $i ?>" title="第<?= $i ?>页"><?= $i ?></a>
+                            <?php } ?>
+                        <?php }elseif ($i==$page&&$i>=6){ ?>
+                                <span>...</span>
+                                <a href="/?r=news/news_list&newsClass_id=<?= $newsClass_id ?>&pa=<?= $i ?>" title="第176页" ><?= $i ?></a>
+                        <?php }} ?>
                         <ins>
-                            <form action="" method="get" name="pageForm" id="pageForm">
+                            <form action="/" method="get" name="pageForm" id="pageForm">
                                 <span>跳转到</span>
-                                <input type="hidden" name="m" value="Announcement"/>
-                                <input type="hidden" name="do" value="listNews"/>
-                                <input type="text" id="pageForm_page" onblur="page_util.blur()" name="page" value="1"/>
-                                <input type="hidden" name="pageSize" value="20"/>
+                                <input type="hidden" value="news/news_list" name="r">
+                                <input type="hidden" value="<?= $newsClass_id ?>" name="newsClass_id">
+                                <input type="text" id="pageForm_page" name="pa" value="<?= $pa ?>"/>
                                 <span>页</span>
                                 <button type="submit">确定</button>
                             </form>

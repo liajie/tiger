@@ -22,16 +22,16 @@ class News extends Controller
     public function news_list($num = 20)
     {
         $pa = isset($this->data['pa'])?$this->data['pa']:1;
-        $newsClass_id = isset($this->data['newsClass_id'])?$this->data['newsClass_id']:1;
+        $newsClass_id = (int) isset($this->data['newsClass_id'])?$this->data['newsClass_id']:1;
         //计算偏移量
         $offset = $pa*($pa-1);
         //列表
-        $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id limit {$offset},{$num}");
+        $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id,new_addTime,new_tmp from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id where newsClass_id={$newsClass_id} limit {$offset},{$num}");
         //分类
         $class = DB::select("select * from live_newsclass");
-        /*print_r($reg);
-        print_r($this->data);*/
-        return view('news/news_list',['reg'=>$reg,'class'=>$class]);
+        $count = DB::select("select count(news_id) as sum from live_news where news_classId={$newsClass_id}");
+        $page = $count[0]->sum;
+        return view('news/news_list',['reg'=>$reg,'class'=>$class,'page'=>$page,'pa'=>$pa,'newsClass_id'=>$newsClass_id]);
     }
 
 }
