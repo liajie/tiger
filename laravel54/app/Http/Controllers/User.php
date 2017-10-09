@@ -60,6 +60,10 @@ class User extends Controller
 
 	}
 
+	public function profileinfo(){
+		return view('user/profileinfo');
+	}
+
 }
 
 

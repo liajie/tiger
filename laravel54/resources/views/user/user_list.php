@@ -286,7 +286,7 @@
                         <h3 class="header">&nbsp;我是主播</h3>
                         <ul class="anchor-info">
                             <li>
-                                <a menu="profiler" href="<?=url('index/ProfileInfo')?>">
+                                <a menu="profiler" href="?r=user/profileinfo">
                                     <span class="icon icon-anchor"></span>
                                     <span class="title">
                                     主播信息

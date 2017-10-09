@@ -55,6 +55,8 @@ if($ROUTES)
 	Route::get('User/getuser','User@getuser');
 	//ajax修改
 	Route::get('User/nickname','User@nickname');
+	//主播信息
+	Route::get('User/profileinfo','User@ProfileInfo');
 
 }
 
