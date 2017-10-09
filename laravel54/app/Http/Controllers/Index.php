@@ -12,8 +12,17 @@ class Index extends Controller
     public function index()
     {
         $news_list = $this->news_list(6);
+        //预订列表
+        $notice_list = $this->notice_list();
         //$game_classify = DB::select();
-        return view('index/index',['news_list'=>$news_list]);
+        return view('index/index',['news_list'=>$news_list,'notice_list'=>$notice_list]);
+    }
+
+    //预订列表
+    public function notice_list()
+    {
+        $notice_list = DB::table('live_notice')->orderBy('notice_id','desc')->limit(6)->get();
+        return json_decode($notice_list,true);
     }
 
     //获取新闻列表

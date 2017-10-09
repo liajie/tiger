@@ -6,6 +6,8 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+//访问域名
+define('HOST','http://www.live.com/');
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

@@ -50,7 +50,7 @@
         #login_un {
             display: block;
         }
- 
+
         #touxiang {
             display: block;
         }
@@ -176,9 +176,9 @@
     1480 > w && (document.body.className += " w-1000");</script>
 <!-- S 通用头部 -->
 <div class="duya-header" id="duya-header">
-    
-       
-    
+
+
+
 </div>
 <script data-fixed="true">
     $.ajax({
@@ -1596,140 +1596,58 @@
         <div class="preview-wrap">
             <ul class="preview-list">
                 <!--  li 有 normal isOrder isLive 三种类，liveState有三种0，1，2状态,对应未开播,正在开播，停播  -->
+                <?php foreach($notice_list as $v){ ?>
                                                 <li class="preview-item normal  on  preview-item-first  " data-event-id="3030" data-url="http://www.huya.com/1584974370">
                     <i class="preview-line"></i>
                     <i class="preview-circle"></i>
                     <div class="preview-main">
                         <p class="preview-text">
                             <span class="preview-time">
-                                明天14:00                            </span>
-                            <a class="preview-link clickstat"  >科技美学vs魅族杨颜</a>
+                                <?= date('d日 H:i',$v['notice_time']) ?>                            </span>
+                            <a class="preview-link clickstat"  ><?= $v['notice_title'] ?></a>
                         </p>
-                        <div class="preview-pic-box clearfix">
+                        <div class="preview-pic-box clearfix" style="display:none" >
                             <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15063094063363_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="科技美学vs魅族杨颜预告">
+                                <img  src="<?= $v['notice_images']?>" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="<?= $v['notice_title'] ?>">
                             </a>
-                            <a class="preview-btn clickstat"  data-event-id="3030"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
+                            <a class="preview-btn clickstat"  notice_id_d='<?= $v['notice_id'] ?>' title="点击预订"  >
                                 <span class="preview-btn-icon"></span>
                                 <span class="preview-btn-text">预订</span>
                             </a>
                         </div>
                     </div>
-                                        <textarea class="preview-digest-textarea">魅族副总裁杨颜、科技美学那岩、奥运最美女记者熊黎，一起聊聊Flyme背后的故事！</textarea>
+                                        <textarea class="preview-digest-textarea"><?= $v['notice_text'] ?></textarea>
                                     </li>
-                                                <li class="preview-item normal  " data-event-id="3032" data-url="http://www.huya.com/90826100">
-                    <i class="preview-line"></i>
-                    <i class="preview-circle"></i>
-                    <div class="preview-main">
-                        <p class="preview-text">
-                            <span class="preview-time">
-                                27日14:00                            </span>
-                            <a class="preview-link clickstat"  >《异星狂欢节》DAY1</a>
-                        </p>
-                        <div class="preview-pic-box clearfix">
-                            <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15063094617414_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="《异星狂欢节》DAY1预告">
-                            </a>
-                            <a class="preview-btn clickstat"  data-event-id="3032"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
-                                <span class="preview-btn-icon"></span>
-                                <span class="preview-btn-text">预订</span>
-                            </a>
-                        </div>
-                    </div>
-                                        <textarea class="preview-digest-textarea">从9月27日到10月2日，主播巨星-大刘、彩虹、空儿、申屠将从上海、成都自驾到敦煌，带你感受来自地球人和外星人一路向西到敦煌的狂欢，领略《异星狂欢节》的热闹，看直播，一起嗨吧！</textarea>
-                                    </li>
-                                                <li class="preview-item normal  " data-event-id="3035" data-url="http://www.huya.com/1634076823">
-                    <i class="preview-line"></i>
-                    <i class="preview-circle"></i>
-                    <div class="preview-main">
-                        <p class="preview-text">
-                            <span class="preview-time">
-                                27日16:00                            </span>
-                            <a class="preview-link clickstat"  >腾讯大学讲堂 第一期</a>
-                        </p>
-                        <div class="preview-pic-box clearfix">
-                            <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15063283729985_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="腾讯大学讲堂 第一期预告">
-                            </a>
-                            <a class="preview-btn clickstat"  data-event-id="3035"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
-                                <span class="preview-btn-icon"></span>
-                                <span class="preview-btn-text">预订</span>
-                            </a>
-                        </div>
-                    </div>
-                                        <textarea class="preview-digest-textarea">天天P图刷爆朋友圈的运营秘诀与技术实现</textarea>
-                                    </li>
-                                                <li class="preview-item normal  " data-event-id="3018" data-url="http://www.huya.com/bpl">
-                    <i class="preview-line"></i>
-                    <i class="preview-circle"></i>
-                    <div class="preview-main">
-                        <p class="preview-text">
-                            <span class="preview-time">
-                                28日17:30                            </span>
-                            <a class="preview-link clickstat"  >球球BPL秋季赛</a>
-                        </p>
-                        <div class="preview-pic-box clearfix">
-                            <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15046689333753_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="球球BPL秋季赛预告">
-                            </a>
-                            <a class="preview-btn clickstat"  data-event-id="3018"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
-                                <span class="preview-btn-icon"></span>
-                                <span class="preview-btn-text">预订</span>
-                            </a>
-                        </div>
-                    </div>
-                                        <textarea class="preview-digest-textarea">狼烟起申城，烽火传千里。2017年BPL秋季赛于9月7日在上海星球影棚拉开战幕，将于10月22日的决赛日揭开冠军悬念!代表着最强战力的16股势力将在上海星球影棚展开激烈的厮杀！</textarea>
-                                    </li>
-                                                <li class="preview-item normal  " data-event-id="3026" data-url="http://www.huya.com/kpl">
-                    <i class="preview-line"></i>
-                    <i class="preview-circle"></i>
-                    <div class="preview-main">
-                        <p class="preview-text">
-                            <span class="preview-time">
-                                28日18:00                            </span>
-                            <a class="preview-link clickstat"  >王者荣耀KPL秋季赛</a>
-                        </p>
-                        <div class="preview-pic-box clearfix">
-                            <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15057162860344_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="王者荣耀KPL秋季赛预告">
-                            </a>
-                            <a class="preview-btn clickstat"  data-event-id="3026"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
-                                <span class="preview-btn-icon"></span>
-                                <span class="preview-btn-text">预订</span>
-                            </a>
-                        </div>
-                    </div>
-                                        <textarea class="preview-digest-textarea">经历休赛期的人员调整与重组、赛制改变，老牌劲旅，后起新秀，竞技豪门，他们将用怎样的状态与实力来迎接本次比赛，让我们拭目以待！</textarea>
-                                    </li>
-                                                <li class="preview-item normal  " data-event-id="3029" data-url="http://www.huya.com/2172841159">
-                    <i class="preview-line"></i>
-                    <i class="preview-circle"></i>
-                    <div class="preview-main">
-                        <p class="preview-text">
-                            <span class="preview-time">
-                                14日17:00                            </span>
-                            <a class="preview-link clickstat"  >GLORY46格斗冠军赛</a>
-                        </p>
-                        <div class="preview-pic-box clearfix">
-                            <a class="preview-pic-link clickstat" >
-                                <img data-original="//huyaimg.msstatic.com/cdnimage/upcoming/up_15063073555863_pic.jpg" src="/images/195x70.jpg" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="GLORY46格斗冠军赛预告">
-                            </a>
-                            <a class="preview-btn clickstat"  data-event-id="3029"   eid="click/program/book" eid_desc="点击/节目/预约" title="点击预订"  >
-                                <span class="preview-btn-icon"></span>
-                                <span class="preview-btn-text">预订</span>
-                            </a>
-                        </div>
-                    </div>
-                                        <textarea class="preview-digest-textarea">重量级超级战由里科VS大脚，中量级世界冠军战由马库斯VS佩雷拉</textarea>
-                                    </li>
+                                    <?php } ?>
+                                    <script>
+                                    $('.preview-list').delegate('.preview-main','hover',function()
+                                    {
+                                        $('.preview-pic-box').hide();
+                                        $(this).children('.preview-pic-box').show();
+                                    })
+                                    $('.preview-btn').click(function()
+                                    {
+                                        $.ajax({
+                                            url:'/?r=notice/noticeuser_add',
+                                            data:{notice_id_d:$(this).attr('notice_id_d')},
+                                            success:function(e)
+                                            {
+                                                alert(e)
+                                            }
+                                        })
+                                    })
+                                    </script>
                             </ul>
         </div>
     </div>
 </div>
+
                 <!-- E 节目预告 -->
             </div>
-            <!-- E 信息模块 -->
+<script>
 
+</script>
+            <!-- E 信息模块 -->
             <div class="mod-index-list mod-index-recommend clearfix">
                 <!-- S 热门分类 -->
                 <div class="nav-recommend">
