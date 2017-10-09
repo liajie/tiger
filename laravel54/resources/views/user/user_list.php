@@ -140,7 +140,8 @@
                 <div class="hy-nav-right nav-user success-login" style="display: block;">
                     <a class="nav-user-title" href="http://i.huya.com/" target="_blank">
                         <img id="login-userAvatar" src="//huyaimg.msstatic.com/avatar/1036/c9/81b3c8628d849cef72a0a91e26acbf_180_135.jpg?0" alt="头像">
-                        <span id="login-username" title="<?php echo $users['nickname']?>"><?php echo $users['nickname']?></span>
+                        <span id="login-username" class='nickname1'>
+                        <?php echo $users['nickname']?></span>
                         <i></i>
                         <b class="m-reddot" style="display: none;"></b></a>
                     <div class="nav-expand-list">
@@ -151,7 +152,7 @@
                                 <a class="avatar" id="J_huyaNavUserCardAvatar" href="#">
                                     <img src="//a.msstatic.com/huya/main/img/10001.jpg" id="J_huyaNavUserCardAvatarImg">
                                 </a>
-                                <p class="nick" id="J_huyaNavUserCardNick"><?php echo $users['nickname']?></p>
+                                <p class="nick" id="J_huyaNavUserCardNick" ><span class="nickname1"> <?php echo $users['nickname']?></span></p>
                                 <p class="user-sign" id="J_huyaNavUserCardSign"><?php echo $users['sign']?></p>
                                 <div class="exp clearfix">
                                     <div class="between">
@@ -2156,9 +2157,53 @@
 
 </div></body></html>
 <script>
-    $(function(){
-        $(document).on("")
-    })
+
+       // alert(1)
+       // 编辑
+        $(document).on("click","#edit_nick",function(){
+            var span = $(".sp").html();
+            if (span!=null) {
+                $(".uesr_n").empty();
+                $(".uesr_n").html("<input type='text' id='sp' value='"+span+"''>");
+            };
+            
+        })
+        $(document).on("blur","#sp",function(){
+            var sp = $("#sp").val();
+            var nickname1 = $(".nickname1").html();
+            $.ajax({
+               type: "GET",
+               url: "?r=User/nickname",
+               data: {
+                nickname:sp,
+               },
+               success: function(msg){
+                 if (msg.error==1) 
+                    {
+                        alert('修改头像昵称成功');
+                         $(".nickname1").empty();
+                        $(".uesr_n").empty();
+                          $(".uesr_n").html("<span class='sp'>"+sp+"</span>"); 
+                         $(".nickname1").html(sp);
+                                }
+                    else{
+                        alert('修改头像昵称失败');
+                         $(".nickname1").empty();
+                        $(".uesr_n").empty();
+                          $(".uesr_n").html("<span class='sp'>"+sp+"</span>"); 
+                         $(".nickname1").html(sp);
+
+                    }
+               }
+            });
+                     
+            
+
+
+
+        })
+
+   
 </script>
 
 

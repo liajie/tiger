@@ -42,6 +42,22 @@ class User extends Controller
 		 return view('user/user_list',['users'=>$data,'money'=>$arr]);
 	}
 
+	public function nickname(){
+		$nickname = $_GET['nickname'];
+		$u_id = $_COOKIE['u_id'];
+		$res = DB::update('update user set nickname = "'.$nickname.'" where u_id = ?', [$u_id]);
+		$arr = array();
+		if ($res) 
+		{
+			$arr['error']=1;
+		}else
+		{
+			$arr['error']=0;
+		}
+		echo json_encode($arr);
+
+	}
+
 }
 
 

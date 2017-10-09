@@ -53,6 +53,8 @@ if($ROUTES)
 	Route::post('login/add','Login@add');
 	//获取用户详细信息
 	Route::get('User/getuser','User@getuser');
+	//ajax修改
+	Route::get('User/nickname','User@nickname');
 
 }
 
