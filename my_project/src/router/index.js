@@ -45,6 +45,9 @@ import blank from '@/components/submenu/blank'
 //登录页面
 import login from '@/components/login'
 
+//频道贡献榜
+import contribution from '@/components/contribution'
+
 
 Vue.use(Router)
 
@@ -227,6 +230,12 @@ export default new Router({
     	path:'/blank',
     	name:'blank',
     	component:blank
+    },
+    {
+        //空白页面
+        path:'/contribution',
+        name:'contribution',
+        component:contribution
     },
   ]
 })
