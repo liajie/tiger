@@ -28,10 +28,10 @@ class News extends Controller
         //列表
         $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id limit {$offset},{$num}");
         //分类
-        //$class =
+        $class = DB::select("select * from live_newsclass");
         /*print_r($reg);
         print_r($this->data);*/
-        return view('news/news_list',['reg'=>$reg]);
+        return view('news/news_list',['reg'=>$reg,'class'=>$class]);
     }
 
 }

@@ -236,6 +236,6 @@ export default new Router({
         path:'/contribution',
         name:'contribution',
         component:contribution
-    },
+    }
   ]
 })
