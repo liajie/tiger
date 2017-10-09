@@ -34,18 +34,19 @@
     <div class="header">
         <h2><a href="http://www.live.com/">网站首页</a></h2>
         <ul class="header-nav">
-            <?php foreach ($class as $v){ ?>
-                <?php if($v['newsClass_id']==$newsClass_id){ ?>
-                    <i class="current">
-                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=<?= $v['newsClass_id'] ?>"><?= $v['newsClass_name'] ?></a>
+                                                <i class="current">
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=1">首页</a>
                     </i>
-                <?php }else{ ?>
-                    <i>
-                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=<?= $v['newsClass_id'] ?>"><?= $v['newsClass_name'] ?></a>
+                                                                <i>
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=2">新闻</a>
                     </i>
-                <?php } ?>
-            <?php } ?>
-        </ul>
+                                                                <i>
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=3">产品</a>
+                    </i>
+                                                                <i>
+                        <a href="http://www.live.com/?r=news/news_list&newsClass_id=4">政策</a>
+                    </i>
+                                    </ul>
     </div>
     <div class="main clearfix">
         <div class="col-main">
@@ -54,12 +55,41 @@
                 <div class="artcle">
                     <div class="artcle-hd">
                         <a href="http://www.live.com/?r=news/news_list" class="back">&lt;&lt;返回新闻列表</a>
-                        <h1><?= $title ?></h1>
-                        <span class="artcle-date"><i></i><?= date('Y-m-d H:i:s') ?></span>
+                        <h1>历代源流歌新编</h1>
+                        <span class="artcle-date"><i></i>2017-10-09 16:41:55</span>
                     </div>
                     <div class="artcle-bd">
-                        <?= $news_text ?>
-                        <div class="pages-prev-next">
+                        <pre style="display:inline;" class="content">历代源流歌新编
+（清儒贺思兴旧作，山西汉服联盟学术部改编）
+摘要：《历代帝王源流歌》是清儒贺思兴为《三字经》中历史部分所作的勾玄与整理，因当时所处的时间段，具有一定的时代性，因此，山西汉服联盟学术部将其进行整理与改编，并将歌诀延续到一九四九年新中国成立这一时期的历史。
+自从盘古初开世，天地人皇巢燧氏。下乃三皇历数明，伏羲神农与黄帝。
+运临五帝迭相承，少昊颛顼帝喾兴。七十二年尧禅舜，舜年六十享升平。
+夏禹绍舜十七主，四百三十九年纪。周朝三十七主残，历代八百六十七。
+秦吞七雄共二主，五十一年汉入关。两汉四百三十九，二十四帝终三国。
+蜀汉父子四十三，被魏灭来为晋禅。一百五十六年间，南迁怎奈五胡乱。
+当时天下南北分，南朝宋齐与梁陈。共立一百七十春，四朝二十有四君。
+北自五胡归元魏，东魏西魏分于内。东传北齐西后周，附统不须附年纪。
+隋平南北仅三主，三十八年灭于唐。唐朝原来二十主，二百八十九年亡。
+梁唐晋汉周五季，共十三君多寡异。五十三年附列邦，大小总归为宋地。
+宋十八君三百二，内附辽金被元陷。元朝只有十帝君，八十九年天下变。
+天将宝位与洪武，归于大明清海甸。大明一统接胡元，洪武三十零六年。
+永乐二十有三载，洪熙半载不周全。宣德十年群须记，正统十四太平年。
+景泰七年天顺八，龙飞成化二三运。弘治御极十八载，正德江山十六传。
+嘉靖历年四十五，隆庆六年岁不延。万历当年四十八，泰昌一月便登仙。
+天启七年告殂落，四七之数也升天。及至满清一统世，顺治称帝十八年。
+康熙登位六十一，传至雍正十三载。乾隆即位国尚安，六十春秋时日长。
+丙辰禅位嘉庆帝，在位二十五年久。传至道光三十载，清廷国运至此衰。
+咸丰国耻十一载，同治十四国祚乱。光绪末路三十三，宣统穷途止两年。
+（四千八百五十六，封建帝制就此终。）
+中华民国辛亥起，国父孙文奠国基。百日洪宪空复辟，北洋政府扯大旗。
+一九二一建共产，民族光明在眼前。军阀割据局面艰，国共合作北伐战。
+难料蒋氏兵已变，九一八日生事端。不畏牺牲军民兵，抗战志气永不散。
+恰逢西安事变起，国共统一立战线。艰苦抗战得胜利，内部矛盾显争端。
+双十协定终无用，国共翻脸打内战。一九四九共和制，中国人民笑开颜。
+民族共计五十六，国土九百六十万。
+自太昊、伏羲氏，及至共和，中华上下五千年。
+载治乱，知兴衰，鉴史实，国久治。此历史大势也。
+&nbsp;■山西汉服联盟学术部&nbsp;2017.06.06日</pre><p><br></p>                        <div class="pages-prev-next">
                             <a href="javascript:alert('回列表去访问吧')" style="color:gray;">上一篇</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="javascript:alert('没有更多了')">下一篇</a>
                         </div>
@@ -76,10 +106,7 @@
                 </div>
                 <div class="box-bd">
                     <ul class="mod-art">
-                        <?php foreach ($new_list as $v){ ?>
-                            <li><span class="date"> <?= date('Y-m-d',$v['new_addTime']) ?></span><a href="http://admin.live.com/<?= $v['new_tmp'] ?>"><?= $v['news_name'] ?></a></li>
-                        <?php } ?>
-
+                        
                     </ul>
                 </div>
             </div>
