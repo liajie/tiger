@@ -11,8 +11,8 @@
         !function(t){t.loadScript(["http://szhuodong.duowan.com/feq/m_huya/yy-f2e-header-m_huya.min"])}(function(){function t(t){var e=n(t);document.write(e)}function n(t){for(var n,r="",c=0;n=t[c];c++)r+=e(n);return r}function e(t){var n=[unescape("%3Cscript%20type%3D%22text/javascript%22%20src%3D%22"),"",unescape("%22%3E%3C/script%3E")],e=new Date;return e.setSeconds(0),e.setMilliseconds(0),e=e.getTime(),t+="?t_="+e,n[1]=t,n.join("")}return{loadScript:function(n){n&&n.length&&n instanceof Array&&t(n)}}}())
     </script>
     <title>虎牙10.02-10.08一周赛事推荐</title>
-    <link href="css/global.css?20170227v1" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link href="/css/global.css?20170227v1" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery.js"></script>
 
     <script>
         var _hotwords = [];    </script>
@@ -21,7 +21,7 @@
 <body >
 
 <!-- 页头 -->
-<script src="js/header.js" charset="utf-8"></script>
+<script src="/js/header.js" charset="utf-8"></script>
 <div style="height: 50px;"></div>
 <!-- /页头 -->
 <div class="small_header clearfix">
@@ -101,12 +101,12 @@
                         生命是路，它是由一块块不起眼的沙石组成的，而不是铺金布银，平平淡淡中尽显生命之完美。
                         生命是一叶扁舟，航行于茫茫沧海之中，只有经历暴风雨的洗礼，才会迎来明天海上初升的太阳。</p>
                     <ul class="sns-list clearfix">
-                        <li><a href="http://kf.duowan.com/s/home/online-service.html?product=HUYA&source=YY"  target="_blank" ><img src="images/sns05.png" alt=""><span>客服</span></a></li>
-                        <li><a href="http://help.huya.com/"  target="_blank" ><img src="images/sns02.png" alt=""><span>帮助</span></a></li>
-                        <li><a href="http://weibo.com/90dwyy"  target="_blank" ><img src="images/sns03.png" alt=""><span>新浪微博</span></a></li>
+                        <li><a href="http://kf.duowan.com/s/home/online-service.html?product=HUYA&source=YY"  target="_blank" ><img src="/images/sns05.png" alt=""><span>客服</span></a></li>
+                        <li><a href="http://help.huya.com/"  target="_blank" ><img src="/images/sns02.png" alt=""><span>帮助</span></a></li>
+                        <li><a href="http://weibo.com/90dwyy"  target="_blank" ><img src="/images/sns03.png" alt=""><span>新浪微博</span></a></li>
                     </ul>
                     <div class="qrcode">
-                        <img src="images/qr-code.jpg" alt="" class="pic">
+                        <img src="/images/qr-code.jpg" alt="" class="pic">
                         <div class="panel">
                             <em class="title">微信公众号：<span>HUYAZHIBO</span></em>
                             <span class="txt">手机扫描二维码或输入虎牙直播微信账号来添加关注。</span>
@@ -118,9 +118,9 @@
         </div>
     </div>
 </div>
-<script src="js/news.js?20170303v1"></script>
+<script src="/js/news.js?20170303v1"></script>
 <!-- 页脚 -->
-<script type="text/javascript" src="js/ya-huya.min.js" data-fixed="true" pro="huya_web" noreport="" id="yaScript"></script>
+<script type="text/javascript" src="/js/ya-huya.min.js" data-fixed="true" pro="huya_web" noreport="" id="yaScript"></script>
 <script type="text/javascript">
     function report(obj){
         var obj = obj || {};
@@ -166,7 +166,7 @@
         pro:"huya_web"
     });
 </script>
-<script src="js/footer.js" charset="utf-8"></script>
+<script src="/js/footer.js" charset="utf-8"></script>
 <!--/ 页脚 -->
 <!--[if gt IE 6]><!-->
 <script type="text/javascript">
