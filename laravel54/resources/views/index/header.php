@@ -337,7 +337,7 @@
                             <a class="btn-exit" id="nav-loggout" href="#"><i class="hy-nav-exit-icon"></i><span><a
                                             href="login/loginout">退出</a></span></a>
                             <div class="u-info">
-                                <a class="avatar" id="J_huyaNavUserCardAvatar" href="http://i.huya.com/"
+                                <a class="avatar" id="J_huyaNavUserCardAvatar" href="?r=User/getuser"
                                    target="_blank">
                                     <img src="//huyaimg.msstatic.com/avatar/1010/03/23cfa7994ed4856dd60e476a7bee09_180_135.jpg"
                                          id="J_huyaNavUserCardAvatarImg">
