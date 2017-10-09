@@ -1,0 +1,974 @@
+/*! Project: yytv-news
+ *  Version: 1.0.0
+ *  Date: 2014-09-17 10:38:44 AM
+ *  Author: zikkeung
+ */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block
+}
+
+audio, canvas, video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0
+}
+
+[hidden] {
+	display: none
+}
+
+html {
+	font-size: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+
+button, html, input, select, textarea {
+	font-family: sans-serif
+}
+
+body {
+	margin: 0
+}
+
+a:focus {
+	outline: thin dotted
+}
+
+a:active, a:hover {
+	outline: 0
+}
+
+h1 {
+	font-size: 2em
+}
+
+h2 {
+	font-size: 1.5em
+}
+
+h3 {
+	font-size: 1.17em
+}
+
+h4 {
+	font-size: 1em
+}
+
+h5 {
+	font-size: .83em
+}
+
+h6 {
+	font-size: .67em
+}
+
+abbr[title] {
+	border-bottom: 1px dotted
+}
+
+b, strong {
+	font-weight: 700
+}
+
+dfn {
+	font-style: italic
+}
+
+hr {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0
+}
+
+mark {
+	background: #ff0;
+	color: #000
+}
+
+code, kbd, pre, samp {
+	font-family: monospace, serif;
+	_font-family: 'courier new', monospace;
+	font-size: 1em
+}
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word
+}
+
+q {
+	quotes: none
+}
+
+q:after, q:before {
+	content: '';
+	content: none
+}
+
+small {
+	font-size: 80%
+}
+
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+sup {
+	top: -.5em
+}
+
+sub {
+	bottom: -.25em
+}
+
+nav ol, nav
+ul {
+	list-style: none;
+	list-style-image: none
+}
+
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic
+}
+
+svg:not(:root) {
+	overflow: hidden
+}
+
+legend {
+	border: 0;
+	white-space: normal;
+	*margin-left: -7px
+}
+
+button, input, select, textarea {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle
+}
+
+button, input {
+	line-height: normal
+}
+
+button, select {
+	text-transform: none
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+	-webkit-appearance: button;
+	cursor: pointer;
+	*overflow: visible
+}
+
+button[disabled], html input[disabled] {
+	cursor: default
+}
+
+input[type=checkbox], input[type=radio] {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	*height: 13px;
+	*width: 13px
+}
+
+input[type=search] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+	-webkit-appearance: none
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+html {
+	text-rendering: optimizelegibility
+}
+
+body {
+	word-wrap: break-word
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle
+}
+
+em, i {
+	font-style: normal
+}
+
+menu, ol, ul {
+	list-style: none outside none
+}
+
+abbr, acronym, fieldset, iframe {
+	border: 0 none
+}
+
+article, aside, audio, blockquote, button, canvas, code, dd, details, dl, dt, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, mark, menu, nav, ol, output, p, pre, ruby, section, summary, td, textarea, th, time, ul, video {
+	margin: 0;
+	padding: 0
+}
+
+iframe {
+	display: block
+}
+
+textarea {
+	resize: vertical
+}
+
+th {
+	text-align: inherit
+}
+
+body, button, input, select, textarea {
+	font-family: Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.clearfix:after, .clearfix:before {
+	content: "";
+	display: table;
+	line-height: 0
+}
+
+.clearfix:after {
+	clear: both
+}
+
+.blank10, .blank15, .blank20, .blank5 {
+	display: block;
+	clear: both;
+	overflow: hidden
+}
+
+.blank5 {
+	height: 5px
+}
+
+.blank10 {
+	height: 10px
+}
+
+.blank15 {
+	height: 15px
+}
+
+.blank20 {
+	height: 20px
+}
+
+.fr {
+	float: right;
+	_display: inline
+}
+
+.fl {
+	float: left;
+	_display: inline
+}
+
+.show {
+	display: block
+}
+
+.hide {
+	display: none
+}
+
+.hidden {
+	display: none !important;
+	visibility: hidden
+}
+
+.left {
+	text-align: left !important
+}
+
+.right {
+	text-align: right !important
+}
+
+.center {
+	text-align: center !important
+}
+
+.indent {
+	text-indent: 2em
+}
+
+.highlight {
+	color: #F30 !important
+}
+
+.important {
+	font-weight: 700 !important
+}
+
+.no-border {
+	border: 0 none !important
+}
+
+.transparent {
+	opacity: 0;
+	filter: alpha(opacity=0)
+}
+
+.box {
+	zoom: 1;
+	position: relative;
+	margin: 0 0 20px
+}
+
+.box-hd {
+	height: 30px;
+	line-height: 30px
+}
+
+.box-hd
+.icon {
+	float: left;
+	width: 3px;
+	height: 15px;
+	margin-top: 8px;
+	margin-right: 9px;
+	background-color: #f80
+}
+
+.box-hd
+.title {
+	float: left;
+	margin: 0 10px 0 0;
+	font-size: 16px;
+	font-family: "Microsoft Yahei";
+	font-weight: 700
+}
+
+.box-hd
+.act {
+	float: right
+}
+
+.box-hd .act
+.links {
+	float: left
+}
+
+.box-hd .act .links .line, .box-hd .act .links
+a {
+	float: left;
+	margin: 0 4px;
+	font-size: 12px
+}
+
+.box-hd .act .links
+.line {
+	margin: 0 2px;
+	color: #999;
+	overflow: hidden
+}
+
+.box-hd .act
+.more {
+	margin-left: 10px
+}
+
+.box-bd {
+	*zoom: 1;
+	padding: 5px 0 0
+}
+
+.box-bd:after, .box-bd:before {
+	content: "";
+	display: table;
+	line-height: 0
+}
+
+.box-bd:after {
+	clear: both
+}
+
+.mod-page, .pagination {
+	width: 100%;
+	clear: both;
+	font-size: 0;
+	text-align: right
+}
+
+.mod-page a, .mod-page button, .mod-page input, .mod-page span, .pagination a, .pagination button, .pagination input, .pagination
+span {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	white-space: nowrap;
+	font-size: 14px
+}
+
+.mod-page a, .pagination
+a {
+	height: 22px;
+	line-height: 22px;
+	margin: 0 0 0 10px
+}
+
+.mod-page a:hover, .pagination a:hover {
+	text-decoration: none
+}
+
+.mod-page a.current, .pagination
+a.current {
+	cursor: default;
+	font-weight: 700;
+	color: #f80
+}
+
+.mod-page span, .pagination
+span {
+	line-height: 22px;
+	margin: 0 0 0 10px;
+	color: #666
+}
+
+.mod-page ins, .pagination
+ins {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	margin-left: 10px;
+	text-decoration: none
+}
+
+.mod-page ins span, .pagination ins
+span {
+	margin: 0 2px
+}
+
+.mod-page ins input, .pagination ins
+input {
+	width: 2em;
+	height: 16px;
+	line-height: 16px;
+	padding: 2px 4px;
+	margin: 0 2px;
+	border: 1px solid #D8D8D8;
+	border-radius: 3px;
+	font-size: 12px;
+	text-align: center
+}
+
+.mod-page ins button, .pagination ins
+button {
+	border: 0 none;
+	padding: 0 10px;
+	margin: 0 0 0 2px;
+	height: 22px;
+	background: #f80;
+	text-decoration: none;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 3px
+}
+
+.mod-page ins button:hover, .pagination ins button:hover {
+	background: #ff9c00
+}
+
+.mod-art
+li {
+	overflow: hidden;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 8px;
+	margin: 0 0 3px;
+	background: url(../images/icon_li.png) no-repeat 1px 12px
+}
+
+.mod-art li
+.date {
+	float: right;
+	display: inline;
+	margin-left: 10px;
+	color: #999
+}
+
+.mod-art li
+.tag {
+	margin-right: 10px;
+	color: #999
+}
+
+html {
+	overflow-y: scroll;
+	background: #fbfbfb
+}
+
+body {
+	font: 12px/1.5 Tahoma, sans-serif;
+	color: #333;
+	min-width: 1200px;
+}
+
+body
+a {
+	text-decoration: none;
+	color: #333
+}
+
+body a:hover {
+	text-decoration: underline;
+	color: #F80
+}
+
+.wrap {
+	background: #fbfbfb
+}
+
+input:focus, textarea:focus {
+	outline: 0
+}
+
+.header {
+	width: 980px;
+	margin: 0 auto 20px;
+	overflow: hidden;
+	zoom: 1;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+	height: 80px
+}
+
+.header
+h2 {
+	font-size: 24px;
+	font-family: "Microsoft Yahei";
+	font-weight: 700;
+	float: left;
+	padding-top: 30px
+}
+
+.header .header-nav {
+	float: left;
+	font-size: 16px;
+	font-family: "Microsoft Yahei";
+	position: absolute;
+	left: 110px;
+	bottom: -1px
+}
+
+.header .header-nav
+li {
+	float: left;
+	display: inline;
+	margin: 0 10px 0 0
+}
+
+.header .header-nav
+a {
+	color: #666;
+	float: left;
+	padding: 0 15px;
+	border-bottom: 2px solid transparent;
+	line-height: 54px
+}
+
+.header .header-nav .current
+a {
+	color: #f80;
+	border-bottom: 2px solid #f80
+}
+
+.main {
+	width: 980px;
+	margin: 0 auto;
+	padding-bottom: 100px
+}
+
+.col-main {
+	float: left;
+	width: 650px
+}
+
+.col-side {
+	float: right;
+	width: 280px
+}
+
+.col-side .mod-art
+a {
+	float: left;
+	max-width: 190px;
+	white-space: nowrap;
+	_white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis
+}
+
+.news-block .mod-art {
+	font-size: 14px;
+	margin: 0 0 40px
+}
+
+.news-block .mod-art
+li {
+	padding: 0;
+	height: 34px;
+	line-height: 34px;
+	margin: 0;
+	background: none
+}
+
+.news-block .mod-art
+.tag {
+	float: left
+}
+
+.news-block .mod-art
+.top {
+	line-height: 18px;
+	background: #f80;
+	color: #fff;
+	border-radius: 2px;
+	padding: 0 6px;
+	margin: 5px 0 0 8px;
+	float: left;
+	font-size: 12px
+}
+
+.news-block .mod-art
+.title {
+	float: left;
+	max-width: 450px;
+	white-space: nowrap !important;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis
+}
+
+.news-block .artcle-hd {
+	font-size: 14px
+}
+
+.news-block .artcle-hd
+h1 {
+	font-family: "Microsoft Yahei";
+	font-size: 22px;
+	margin: 0 0 5px
+}
+
+.news-block .artcle-hd
+.back {
+	display: block;
+	color: #f80;
+	margin: 0 0 20px
+}
+
+.news-block .artcle-hd .artcle-date {
+	display: block;
+	color: #999
+}
+
+.news-block .artcle-hd .artcle-date
+i {
+	background: url(../images/clock.png) no-repeat;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	zoom: 1;
+	margin: 0 7px 0 0;
+	vertical-align: -2px
+}
+
+.news-block .artcle-bd {
+	line-height: 28px;
+	font-size: 14px
+}
+
+.news-block .artcle-bd
+p {
+	margin: 15px 0
+}
+
+.contact-box .p-txt {
+	line-height: 24px;
+	color: #666;
+	margin: 0 0 15px
+}
+
+.contact-box .sns-list {
+	margin: 0 -24px 10px 0
+}
+
+.contact-box .sns-list
+li {
+	float: left;
+	display: inline;
+	margin: 0 24px 10px 0;
+	width: 50px
+}
+
+.contact-box .sns-list li
+img {
+	width: 50px;
+	height: 50px;
+	margin: 0 0 7px
+}
+
+.contact-box .sns-list li
+span {
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	overflow: hidden
+}
+
+.contact-box .qrcode
+.pic {
+	float: left;
+	width: 90px;
+	height: 90px;
+	margin-right: 15px
+}
+
+.contact-box .qrcode
+.panel {
+	overflow: hidden;
+	zoom: 1
+}
+
+.contact-box .qrcode
+.title {
+	display: block;
+	font-weight: 700;
+	padding: 8px 0
+}
+
+.contact-box .qrcode .title
+span {
+	color: #f80
+}
+
+.contact-box .qrcode
+.txt {
+	line-height: 24px;
+	color: #666
+}
+
+
+.pages-prev-next {
+	text-align:center;
+	font-size:14px;
+}
+.pages-prev-next a {
+	color:#666666;
+	display:inline-block;
+	width:76px;
+	height:27px;
+	line-height:27px;
+	border:1px solid #dddddd;
+	border-radius:3px;
+}
+.pages-prev-next a:hover {
+	color:#ff8800;
+	border:1px solid #ff8800;
+	text-decoration:none;
+}
+
+.huya-header {
+    height: 49px;
+    border-bottom: 1px solid #D7D7D7;
+    line-height: 50px;
+    -webkit-background-size: 100%;
+    background-color: #fff;
+    background-size: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+    text-align: center;
+    display: none;
+    font-size: 16px;
+}
+
+.huya-header .logo {
+    display: inline-block;
+    background-image: url(../images/logo_2017_dd9dfe8.png);
+    width: 85px;
+    height: 26px;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin-right: 4%;
+}
+
+.huya-header .nav_text {
+    display: inline-block;
+    margin: 0 3%;
+    position: relative;
+    color: #000;
+}
+
+.huya-header .nav_text:nth-child(3) {
+    margin: 0 4%;
+}
+
+.header-serarch {
+    display: inline-block;
+    background-image: url(../images/new_nav_scan_022807d.png);
+    width: 15.5px;
+    height: 16px;
+    vertical-align: middle;
+    background-size: 100% 100%;
+    margin-left: 2%;
+}
+
+.small_header {
+	height: 43px;
+	background: #f7f7f7;
+	font-size: 16px;
+	line-height: 43px;
+	border-bottom: 1px solid #d7d7d7;
+	color: #000;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 50px;
+	width: 80%;
+	padding: 0 10%;
+}
+
+.small_header a{
+	width: 33.33333333333333333333333333333333333%;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+
+.small_header a.active {
+	color: #ff9000;
+
+}
+
+.small_header a.active:after {
+	content: '';
+	position: absolute;
+	height: 3px;
+	width: 50%;
+	bottom: 0;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	background: #ff9000;
+}
+
+@media (max-width: 650px) {
+	html {
+		width: 100%;
+		min-width: 100%;
+	}
+
+	body {
+		min-width: 100%;
+		margin-top: 0!important;
+	}
+	.wrap {
+		padding-top: 0;
+	}
+	.huya-header {
+		display: none;
+	}
+	.duya-footer {
+		display: none!important;
+	}
+	.small_header {
+		display: none;
+	}
+	#duya-header {
+		display: none;
+	}
+	.wrap .header {
+		display: none;
+	}
+
+	.news-block .artcle-hd .back {
+		display: none;
+	}
+    .col-side {
+	    display: none;
+    }
+    .huya-footer {
+	    display: none;
+    }
+	.main {
+		width: 100%;
+		padding-bottom: 0;
+	}
+	.col-main {
+		width: 100%;
+	}
+    .news-block {
+	    padding: 5%;
+    }
+    .pages-prev-next {
+	    display: none;
+    }
+
+	.news-block .artcle-hd h1 {
+		text-align: left;
+	}
+
+    embed {
+	    display: none;
+    }
+}
+
+.isApp .huya-header {
+	display: none;
+}
+
+.isApp .small_header  {
+	top: 0;
+	display: none;
+}
+.isApp .wrap {
+	padding-top: 0;
+}
+
+

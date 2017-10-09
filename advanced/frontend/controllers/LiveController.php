@@ -4,18 +4,28 @@
 namespace frontend\controllers;
 
 
+use yii\db\Query;
+
 class LiveController extends CommonController
 {
     //删除频道分类
     public function actionLive_class_del()
     {
-        $reg = \Yii::$app->db->createCommand()->delete('live_class',['class_id'=>$this->data['class_id']])->execute();
-        if($reg)
+        //查询频道分类下是否尚有频道
+        $channel = (new Query())->select(['channel_id'])->from('live_channel')->where(['class_id'=>$this->data['class_id']])->one();
+        if($channel)
         {
-            $this->return = ['error'=>'200','msg'=>'删除成功'];
+            $this->return = ['error'=>'104','msg'=>"该频道分类下尚有频道存在,不可删除"];
         }else
         {
-            $this->return = ['error'=>'104','msg'=>'删除失败'];
+            $reg = \Yii::$app->db->createCommand()->delete('live_class',['class_id'=>$this->data['class_id']])->execute();
+            if($reg)
+            {
+                $this->return = ['error'=>'200','msg'=>'删除成功'];
+            }else
+            {
+                $this->return = ['error'=>'104','msg'=>'删除失败'];
+            }
         }
     }
 

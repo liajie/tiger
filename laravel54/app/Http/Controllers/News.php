@@ -26,8 +26,9 @@ class News extends Controller
         //计算偏移量
         $offset = $pa*($pa-1);
         $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id limit {$offset},{$num}");
-        print_r($reg);
-        print_r($this->data);
+        /*print_r($reg);
+        print_r($this->data);*/
+        return view('news/news_list',['reg'=>$reg]);
     }
 
 }
