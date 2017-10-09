@@ -43,22 +43,23 @@
 		<script src="/static/assets/js/respond.min.js"></script>
 		<![endif]-->
 	  <script src="/static/assets/js/jquery-1.7.2.min.js"></script>
+
+	  <script>
+          var host = 'http://admin.live.com/'
+          var http_img='http://admin.live.com'
+          function common(error) {
+              if(error=='404')
+              {
+                  alert('请先登录');
+                  location.href='/#/login';
+              }
+          }
+	  </script>
 	</head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  <script>
-  	var host = 'http://admin.live.com/'
-  	var http_img='http://admin.live.com'
-	  function common(error) {
-		  if(error=='404')
-		  {
-		      alert('请先登录');
-		      location.href='/#/login';
-		  }
-      }
-  </script>
   
   <script type="text/javascript">
 			window.jQuery || document.write("<script src='/static/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");

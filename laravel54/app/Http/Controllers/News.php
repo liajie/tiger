@@ -25,7 +25,10 @@ class News extends Controller
         $newsClass_id = isset($this->data['newsClass_id'])?$this->data['newsClass_id']:1;
         //计算偏移量
         $offset = $pa*($pa-1);
+        //列表
         $reg = DB::select("select news_id,news_name,newsClass_name,newsClass_id from live_news left join live_newsclass on live_news.news_classId=live_newsclass.newsClass_id limit {$offset},{$num}");
+        //分类
+        //$class =
         /*print_r($reg);
         print_r($this->data);*/
         return view('news/news_list',['reg'=>$reg]);
