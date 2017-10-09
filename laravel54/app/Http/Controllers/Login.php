@@ -53,6 +53,7 @@ class Login extends Controller
         {
             if (!empty($nickname)) {
                 setcookie('nickname',$nickname,time()+3600*7,'/');
+                setcookie('u_id',$success,time()+3600*7,'/');
             }
             else
             {
