@@ -10,11 +10,8 @@ class NewController extends CommonController
 {
 
     //新闻详情页
-    public function actionNews_details()
+    public function News_details($news_text = '',$title='',$news_classId = '')
     {
-        $news_text = '内容';
-        $title= '标题';
-        $news_classId = 1;
         //获取新闻分类
         $class = (new Query())->select(['*'])->from('live_newsclass')->all();
         //最近新闻
@@ -30,6 +27,7 @@ class NewController extends CommonController
             'newsClass_id'=>$news_classId,
             'new_list'=>$new_list
         ];
+
         return $this->renderPartial('news_details',$reg);
     }
 
@@ -44,7 +42,8 @@ class NewController extends CommonController
             {
                 mkdir($file_tmp,0777,true);
             }
-            file_put_contents($file_tmp.$file_name,$this->data['news_text']);
+            $data = $this->News_details($this->data['news_text'],$this->data['news_name'],$this->data['news_classId']);
+            file_put_contents($file_tmp.$file_name,$data);
             $reg = \Yii::$app->db->createCommand()
                 ->insert('live_news',[
                     'news_name'=>$this->data['news_name'],
