@@ -163,6 +163,12 @@
 										用户管理
 									</router-link>
 								</li>
+								<li>
+									<router-link to="/contribution" class="router-item">
+										<i class="icon-double-angle-right"></i>
+										频道贡献榜
+									</router-link>
+								</li>
 							</ul>
 						</li>
 
