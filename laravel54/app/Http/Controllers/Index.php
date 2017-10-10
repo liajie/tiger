@@ -27,7 +27,7 @@ class Index extends Controller
         }else
         {
             $user = false;
-            $notice_s = [];
+            $notice_id_d = [];
         }
         //$game_classify = DB::select();
         return view('index/index',['news_list'=>$news_list,'notice_list'=>$notice_list,'user'=>$user,'notice_id_d_s'=>$notice_id_d]);
