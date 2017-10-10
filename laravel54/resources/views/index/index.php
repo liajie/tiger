@@ -177,8 +177,6 @@
 <!-- S 通用头部 -->
 <div class="duya-header" id="duya-header">
 
-
-
 </div>
 <script data-fixed="true">
     $.ajax({
@@ -1610,15 +1608,24 @@
                             <a class="preview-pic-link clickstat" >
                                 <img  src="<?= $v['notice_images']?>" onerror="this.onerror=null; this.src='images/195x70.jpg';" alt="<?= $v['notice_title'] ?>">
                             </a>
+
+                            <?php if(in_array($v['notice_id'],$notice_id_d_s)){ ?>
+                            <a title="点击取消预订" eid_desc="点击/节目/取消预约" eid="click/program/cancel" data-event-id="3200" class="preview-btn clickstat">
+                                <span class="preview-btn-icon"></span>
+                                <span class="preview-btn-text">已预订</span>
+                            </a>
+                            <?php } else { ?>
                             <a class="preview-btn clickstat"  notice_id_d='<?= $v['notice_id'] ?>' title="点击预订"  >
                                 <span class="preview-btn-icon"></span>
                                 <span class="preview-btn-text">预订</span>
                             </a>
+                            <?php } ?>
                         </div>
                     </div>
                                         <textarea class="preview-digest-textarea"><?= $v['notice_text'] ?></textarea>
                                     </li>
                                     <?php } ?>
+                                    <!--节目预告修改-->
                                     <script>
                                     $('.preview-list').delegate('.preview-main','hover',function()
                                     {
@@ -1632,6 +1639,13 @@
                                             data:{notice_id_d:$(this).attr('notice_id_d')},
                                             success:function(e)
                                             {
+                                                if(e=='取消预订')
+                                                {
+                                                    $('.preview-btn-text').html('预订')
+                                                }else
+                                                {
+                                                    $('.preview-btn-text').html('已预订')
+                                                }
                                                 alert(e)
                                             }
                                         })

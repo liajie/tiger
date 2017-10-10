@@ -1,5 +1,5 @@
 <?php
-if (!empty($_COOKIE['users'])) {
+if (isset($_COOKIE['users'])) {
     $users = unserialize($_COOKIE['users']);
 }
 
@@ -152,13 +152,13 @@ if (!empty($_COOKIE['users'])) {
                                                         <label for="exampleInputEmail1">用户名</label>
                                                         <input type="text" class="form-control"
                                                                placeholder="手机号/邮箱/手机号" style="width:300px"
-                                                               id="username">
+                                                               id="username" name="username">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">密码</label>
                                                         <input type="password" class="form-control" placeholder="密码"
-                                                               style="width:300px" id="pwd">
-                                                        <input type="hidden" value="<?= csrf_token() ?>" id='_token'>
+                                                               style="width:300px" id="pwd" name="pwd">
+                                                        <input type="hidden" value="<?= csrf_token() ?>" id='_token' name="_token">
                                                     </div>
                                                     <div class="checkbox">
                                                         <label>
@@ -232,7 +232,7 @@ if (!empty($_COOKIE['users'])) {
                                     'X-XSRF-TOKEN': _token
                                 },
                                 type: "POST",
-                                url: "login/login",
+                                url: "?r=login/login",
                                 data: {
                                     username: username,
                                     pwd: pwd,
@@ -393,7 +393,7 @@ if (!empty($_COOKIE['users'])) {
                                     <ul class="type">
                                         <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">
                                             <?php if (!empty($_COOKIE['users'])): ?>
-                                        <?php echo $users['jin'] ?>
+                                        <?php print_r($users);die; echo $users['jin'] ?>
                                         
                                     <?php endif ?>
                                         </em></li>

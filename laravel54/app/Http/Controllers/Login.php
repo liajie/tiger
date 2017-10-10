@@ -46,7 +46,7 @@ class Login extends Controller
     public function login()
     {
         $data = $_POST;
-        $users = DB::select('select * from user where password= :pwd and username = :username or tel= :tel ', ['pwd'=>$data['pwd'],'username'=>$data['username'],'tel'=>$data['username']]);
+        $users = DB::select('select * from user where password= :pwd and username = :username or tel= :tel limit 1', ['pwd'=>$data['pwd'],'username'=>$data['username'],'tel'=>$data['username']]);
         $data =array();
           foreach ($users as $user) {
              $data['u_id'] =  $user->u_id;
@@ -59,6 +59,8 @@ class Login extends Controller
              $data['home'] =  $user->home;
              $data['mynum'] =  $user->mynum;
              $data['tel'] =  $user->tel;
+             $data['jin'] =  $user->jin;
+             $data['yin'] =  $user->yin;
              $data['user_addTime'] =  date("Y-m-d H:i:s",$user->user_addTime);
         }
         $money = DB::select('select * from money where u_id= :u_id ', ['u_id'=>$data['u_id']]);
@@ -85,6 +87,7 @@ class Login extends Controller
         {
             $data['error']=0;
         }
+
       echo json_encode($data);
 
     }

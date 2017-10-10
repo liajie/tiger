@@ -14,8 +14,23 @@ class Index extends Controller
         $news_list = $this->news_list(6);
         //预订列表
         $notice_list = $this->notice_list();
+        $data = isset($_COOKIE['users'])?$_COOKIE['users']:false;
+        if($data)
+        {
+            $user = unserialize($data);
+            $notice_s = DB::select('select notice_id_d from live_noticeuser where notice_user_id=?',[$user['u_id']]);
+            $notice_id_d = [];
+            foreach ($notice_s as $v)
+            {
+                $notice_id_d[] = $v->notice_id_d;
+            }
+        }else
+        {
+            $user = false;
+            $notice_s = [];
+        }
         //$game_classify = DB::select();
-        return view('index/index',['news_list'=>$news_list,'notice_list'=>$notice_list]);
+        return view('index/index',['news_list'=>$news_list,'notice_list'=>$notice_list,'user'=>$user,'notice_id_d_s'=>$notice_id_d]);
     }
 
     //预订列表

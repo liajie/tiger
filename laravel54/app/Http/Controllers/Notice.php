@@ -25,15 +25,23 @@ class Notice extends Controller
         //获取用户信息
         $users = isset($_COOKIE['users'])?$_COOKIE['users']:false;
         if(!$users)
-        { $users_id = 3 ; }
+        {
+            die('请登录');
+        }
         else
         {
-            die('Notice/noticeuser_add请继续调试');
-        }
-        $reg = DB::insert("insert into live_noticeuser (notice_id_d,notice_user_id) VALUES (?,?)",[$this->data['notice_id_d'],$users_id]);
-        if($reg)
-        {
-            die('预订成功');
+            $users = unserialize($users);
+            $users_id = $users['u_id'];
+            $reg = DB::select('select * from live_noticeuser where notice_user_id=? and notice_id_d=?',[$users_id,$this->data['notice_id_d']]);
+            if($reg)
+            {
+                DB::delete('delete from live_noticeuser where notice_user_id=? and notice_id_d=?',[$users_id,$this->data['notice_id_d']]);
+                die('取消预订');
+            }else
+            {
+                DB::insert("insert into live_noticeuser (notice_id_d,notice_user_id) VALUES (?,?)",[$this->data['notice_id_d'],$users_id]);
+                die('预订成功');
+            }
         }
     }
 
