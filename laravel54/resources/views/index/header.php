@@ -147,7 +147,7 @@ if (!empty($_COOKIE['users'])) {
                                             <h3>帐号登录</h3>
 
                                             <div class="login-view" id="J_loginView">
-                                                <form method="post" action='index.php?r=login/login' id="login_sub">
+                                                
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">用户名</label>
                                                         <input type="text" class="form-control"
@@ -165,9 +165,9 @@ if (!empty($_COOKIE['users'])) {
                                                             <input type="checkbox" value="1" id="check">记住密码
                                                         </label>
                                                     </div>
-                                                    <input type="submit" class="btn btn-default" value="登录" id="subm">
+                                                    <button id="subm" type="button" class="btn btn-success">登录</button>
                                             </div>
-                                            </form>
+                                           
 
                                         </div>
                                     </div>
