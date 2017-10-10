@@ -11,6 +11,25 @@
     <link rel="stylesheet" href="http://assets.dwstatic.com/project/yytv/center/2.9.2/css/admin.css">
     <style type="text/css">
         .main-col{*padding-bottom: 140px;}
+        .login-box {
+            display: none;
+        }
+
+        #tab-unit {
+            display: block;
+        }
+
+        #qq {
+            display: none;
+        }
+
+        #login_un {
+            display: block;
+        }
+
+        #touxiang {
+            display: block;
+        }
     </style>
     <script type="text/javascript" src="http://i.huya.com/base/js/jquery-1.7.2.min.js"></script><link rel="stylesheet" type="text/css" href="http://a.msstatic.com/huya/icenter/2.3/css/author_info.css?20160314V1">
     <script type="text/javascript">
@@ -477,8 +496,8 @@
                             </span>
                         </span>
                     <span class="level" style="background-position:0px -19px"></span>
-                    <span class="hover_mask" id="hoverMask" style="display: none;" data-url="http://i.huya.com/index.php?m=ProfileSetting">
-                            <i>更换头像</i>
+                    <span class="hover_mask" id="hoverMask" style="display: none;" data-url="javascript:vido(0)">
+                            <i id="Mask">更换头像</i>
                         </span>
                 </div>
                 <div class="user-data">
@@ -490,7 +509,9 @@
                         <a href="javascript:void(0);" id="btnNickSure" class="btn" style="background: #f80;margin-top:5px;margin-left:5px;border-radius: 5px;">确定</a>
                         <a href="javascript:void(0);" id="btnNickQuit" class="btn" style="background: #A1ADB9;margin-top:5px;margin-right:5px;border-radius: 5px;">取消</a>
                     </div>
+
                     <script>
+
                         $(document).ready(function(){
                             //修改昵称
                             $("#changeNickA").on("click",function(){

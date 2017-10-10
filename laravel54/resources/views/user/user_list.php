@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="http://assets.dwstatic.com/project/yytv/center/2.9.2/css/admin.css">
     <style type="text/css">
         .main-col{*padding-bottom: 140px;}
+        .img_hover{
+            display: none;}
     </style>
     <script src="//hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f"></script><script type="text/javascript" src="http://i.huya.com/base/js/jquery-1.7.2.min.js"></script>
   
@@ -491,9 +493,14 @@
             <div class="mod mod-user-center">
                 <img style="width:120px;height:120px;" class="user_icon" src="http://huyaimg.msstatic.com/avatar/1036/c9/81b3c8628d849cef72a0a91e26acbf_180_135.jpg?0" alt="头像">
 
-                <img class="img_hover" src="http://a.msstatic.com/huya/icenter/2.4/img/header_hover.png" alt="上传图像" style="display: none;">
+                <img class="img_hover"  src="http://a.msstatic.com/huya/icenter/2.4/img/header_hover.png" alt="上传图像">
+<!--李超飞-->
+
                 <form id="img_submit" enctype="multipart/form-data" method="post" action="http://i.huya.com/index.php?m=Home&amp;do=ajaxUlogo">
-                    <div id="fileImg" class="uploadify" style="height: 120px; width: 120px;"><object id="SWFUpload_0" type="application/x-shockwave-flash" data="base/uploadify/uploadify.swf?preventswfcaching=1507510387638" class="swfupload" style="position: absolute; z-index: 1;" width="120" height="120"><param name="wmode" value="transparent"><param name="movie" value="base/uploadify/uploadify.swf?preventswfcaching=1507510387638"><param name="quality" value="high"><param name="menu" value="false"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_0&amp;uploadURL=%2Findex.php%3Fm%3DCaptcha%26do%3DsaveImg&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=30&amp;params=&amp;filePostName=avatar&amp;fileTypes=*.gif%3B%20*.jpg%3B%20*.png%3B*.jpeg&amp;fileTypesDescription=Image%20Files&amp;fileSizeLimit=1MB&amp;fileUploadLimit=0&amp;fileQueueLimit=999&amp;debugEnabled=false&amp;buttonImageURL=%2F&amp;buttonWidth=120&amp;buttonHeight=120&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2016pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object><div id="fileImg-button" class="uploadify-button " style="height: 120px; line-height: 120px; width: 120px;"><span class="uploadify-button-text">上传图片</span></div></div><div id="fileImg-queue" class="uploadify-queue"></div>
+                    <div id="fileImg" class="uploadify" style="height: 120px; width: 120px;"><object id="" type="application/x-shockwave-flash" data="base/uploadify/uploadify.swf?preventswfcaching=1507510387638" class="swfupload" style="position: absolute; z-index: 1;" width="120" height="120"><param name="wmode" value="transparent"><param name="movie" value="base/uploadify/uploadify.swf?preventswfcaching=1507510387638"><param name="quality" value="high"><param name="menu" value="false"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_0&amp;uploadURL=%2Findex.php%3Fm%3DCaptcha%26do%3DsaveImg&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=30&amp;params=&amp;filePostName=avatar&amp;fileTypes=*.gif%3B%20*.jpg%3B%20*.png%3B*.jpeg&amp;fileTypesDescription=Image%20Files&amp;fileSizeLimit=1MB&amp;fileUploadLimit=0&amp;fileQueueLimit=999&amp;debugEnabled=false&amp;buttonImageURL=%2F&amp;buttonWidth=120&amp;buttonHeight=120&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2016pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object>
+                    <div class="img_up" style="height: 120px; line-height: 120px; width: 120px;"><span class="uploadify-button-text">上传图片</span></div>
+
+                    </div><div id="fileImg-queue" class="uploadify-queue"></div>
                     <input name="uid" value="1350807054" type="hidden">
                     <input name="w" id="img_width" value="" type="hidden">
                     <input name="h" id="img_height" value="" type="hidden">
@@ -505,7 +512,17 @@
                 <div class="user_info">
                     <h2 style="font-size: 25px;" class="uesr_n"><span class="sp"><?=$users['nickname']?></span> </h2>
                     <span class="user_sex user_sex-male"></span>
-
+                    <script>
+                        $(document).on("mouseover",".swfupload",function () {
+                           $(".img_hover").show(); 
+                        })
+                        $(document).on("mouseout",".swfupload",function () {
+                           $(".img_hover").hide(); 
+                        })
+                         $(document).on("click",".swfupload",function () {
+                           
+                        })
+                    </script>
                     <!-- <p class="yy_num"><span>YY:</span><span id="YY">1492160058</span></p> -->
                     <!-- 非第三方登陆，显示修改昵称、密码 -->
                     <div class="change">
