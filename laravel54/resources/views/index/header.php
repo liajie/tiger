@@ -339,7 +339,7 @@ if (isset($_COOKIE['users'])) {
                     echo "style='display:none;'";
                 }
                 ?> id="touxiang">
-                    <a class="nav-user-title" href="/http://i.huya.com/" target="_blank">
+                    <a class="nav-user-title" href="javascript:vido(0)" >
                         <img id="login-userAvatar" src="/images/10001.jpg" alt="头像"/>
                         <span id="login-username"></span>
                         <i></i>
@@ -365,7 +365,8 @@ if (isset($_COOKIE['users'])) {
 
                                         ?></span><i class="gender gender1"></i><i class="level-icon level-icon1"></i>
                                 </p>
-                                <p class="user-sign" id="J_huyaNavUserCardSign"><a href="#" target="_blank" class="edit_sign"><span id="sign">
+                                <p class="user-sign" id="J_huyaNavUserCardSign"><a href="javascript:vido(0)"  class="edit_sign">
+                                        <span id="sign">
                                     <?php if (!empty($_COOKIE['users'])): ?>
                                         <?php echo $users['sign'] ?>
                                         
@@ -458,7 +459,7 @@ if (isset($_COOKIE['users'])) {
                             <div class="u-links">
                                 <ul>
                                     <li class="links-i">
-                                        <a href="http://i.huya.com/" target="_blank" class="new-clickstat"
+                                        <a href="?r=User/getuser"  class="new-clickstat"
                                            report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/entrance1&quot;}">
                                             <i></i>
                                             <p>个人中心</p>
