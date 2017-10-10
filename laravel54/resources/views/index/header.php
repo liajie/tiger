@@ -393,7 +393,7 @@ if (isset($_COOKIE['users'])) {
                                     <ul class="type">
                                         <li><i class="gold-bean"></i><em id="J_huyaNavUserCardAssetsGb">
                                             <?php if (!empty($_COOKIE['users'])): ?>
-                                        <?php print_r($users);die; echo $users['jin'] ?>
+                                        <?php echo $users['jin'] ?>
                                         
                                     <?php endif ?>
                                         </em></li>
