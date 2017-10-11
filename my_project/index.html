@@ -50,9 +50,17 @@
 	  <script src="/static/ueditor1_4_3_3-utf8/lang/zh-cn/zh-cn.js"></script>
 	  <!--编辑器结束-->
 
+      <!--引入echarts结束-->
+      <!--<script src="static/echarts.js"></script>-->
+      <!--引入echarts结束-->
+
+      <!--引入layui开始-->
+      <script src="/static/laydate/laydate.js"></script>
+      <!--引入layui结束-->
+
 	  <script>
-      var host = 'http://www.yii.com/'
-      var http_img='http://www.yii.com'
+          var host = 'http://admin.live.com/'
+          var http_img='http://admin.live.com'
       function common(error) {
           if(error=='404')
           {
@@ -67,8 +75,10 @@
     <!-- built files will be auto injected -->
   </body>
   <script>
-  	var host = 'http://www.yii.com/'
-  	var http_img='http://www.yii.com'
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#date_where' //指定元素
+    });
 	  function common(error) {
 		  if(error=='404')
 		  {
@@ -76,6 +86,7 @@
 		      location.href='/#/login';
 		  }
       }
+
   </script>
 
   <script type="text/javascript">
@@ -97,9 +108,9 @@
 		<script src="/static/assets/js/jquery.slimscroll.min.js"></script>
 		<script src="/static/assets/js/jquery.easy-pie-chart.min.js"></script>
 		<script src="/static/assets/js/jquery.sparkline.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="/static/assets/js/flot/jquery.flot.resize.min.js"></script>
+		<!--<script src="/static/assets/js/flot/jquery.flot.min.js"></script>-->
+		<!--<script src="/static/assets/js/flot/jquery.flot.pie.min.js"></script>-->
+		<!--<script src="/static/assets/js/flot/jquery.flot.resize.min.js"></script>-->
 
 		<!-- ace scripts -->
 
@@ -107,8 +118,7 @@
 		<script src="/static/assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
-
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			jQuery(function($) {
 				$('.easy-pie-chart.percentage').each(function(){
 					var $box = $(this).closest('.infobox');
@@ -302,6 +312,6 @@
 				
 			
 			})
-		</script>
+		</script>-->
 
 </html>

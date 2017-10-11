@@ -10,14 +10,18 @@ import Vue from 'vue'
 
 import App from './App'
 import router from './router'
+//全局引入 echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = true
+
 //创建根实例
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
 })
 
 

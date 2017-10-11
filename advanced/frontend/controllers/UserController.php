@@ -4,8 +4,56 @@
 namespace frontend\controllers;
 
 
+
+use yii\db\Query;
+
 class UserController extends CommonController
 {
+
+    //读取用户注册信息
+    public function actionUser_echarts()
+    {
+        if(!empty($this->data['home']))
+        {
+            $time = empty(trim($this->data['user_addTime']))?date('Y-m-d H:i:s',time()):$this->data['user_addTime'];
+            $date = strtotime(date('Y-m-d',strtotime($time)));
+            $small = $date+3600*24*7;
+            $where = "home like '%{$this->data['home']}%' and user_addTime<{$small} and user_addTime>{$date}";
+            $select = ['u_id','user_addTime'];
+            $data = (new Query())->select($select)
+                ->where($where)
+                ->from('user')
+                ->all();
+            $reg = [];
+            for ($i=0;$i<7;$i++)
+            {
+                $date_key = date('d',$date+3600*24*$i);
+                $reg[$date_key]['num'] = 0;
+                $reg[$date_key]['home'] = date('Y-m-d',$date+3600*24*$i);;
+            }
+            foreach ($data as $k=>$v)
+            {
+                $key = date('d',$v['user_addTime']);
+                $reg[$key]['num'] = isset($reg[$key]['num'])?$reg[$key]['num']+1:0;
+                $reg[$key]['home'] = date('Y-m-d',$v['user_addTime']);
+            }
+        }else
+        {
+            $select = ["count(u_id) as num,home"];
+            $reg = (new Query())->select($select)
+                ->groupBy('home')
+                ->from('user')
+                ->all();
+        }
+        if($reg)
+        {
+            $this->return = ['error'=>'200','msg'=>$reg];
+        }else
+        {
+            $this->return = ['error'=>'101','msg'=>'null'];
+        }
+    }
+
     //用户列表获取
     public function actionUser_list()
     {

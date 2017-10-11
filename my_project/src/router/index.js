@@ -15,6 +15,7 @@ import tables from '@/components/tables/tables'
 import jqgrid from '@/components/tables/jqgrid'
 import news_list from '@/components/tables/news_list'
 import money from '@/components/tables/money'
+import user_echarts from '@/components/tables/user_echarts'
 //表单
 import form_elements from '@/components/form/form_elements'
 import form_wizard from '@/components/form/form_wizard'
@@ -54,6 +55,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+  		//用户柱状图
+  		path:'/user_echarts',
+		name:'user_echarts',
+		component:user_echarts
+	},
   	{
   		path:'/news_list',
 		name:'news_list',
