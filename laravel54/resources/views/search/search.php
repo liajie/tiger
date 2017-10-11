@@ -22,6 +22,7 @@
     <link type="text/css" rel="stylesheet" href="css/pages_modules_796de8d.css">
     <link type="text/css" rel="stylesheet" href="css/auto_combine_17c76_a847427.css">
     <script src="js/jquery.js"></script>
+    <script src="js/Vue.js"></script>
     <!--HEAD_END-->
     <script data-fixed="true">
         var APP_URL = "http://www.huya.com/";
@@ -62,7 +63,7 @@
 
     <div class="search-header">
         <div class="search-nav clearfix" id="js-search-nav">
-            <span data-type="all" class="current clickstat" eid="click/search/zhtab" eid_desc="点击/搜索/直播tab点击量">综合</span>
+            <span data-type="all" class="current clickstat" eid="click/search/zhtab" eid_desc="点击/搜索/直播tab点击量" >综合</span>
             <span data-type="live" class="clickstat" eid="click/search/livetab" eid_desc="点击/搜索/直播tab点击量">直播</span>
             <span data-type="host" class="clickstat" eid="click/search/anchortab" eid_desc="点击/搜索/主播tab点击量">主播</span>
             <span data-type="video" class="clickstat" eid="click/search/vediotab" eid_desc="点击/搜索/视频tab点击量">视频</span>
@@ -71,287 +72,130 @@
         <div class="find-result">找到，相关内容共-个</div>
     </div>
 
-    <div class="search-main clearfix" id="js-search-main">
-
+    <!--<div class="search-main clearfix" id="js-search-main">
     </div>
+    <i class="icon-loading"></i>
+        <em>加载中...</em>-->
 
     <div class="more-loading">
-        <i class="icon-loading"></i>
-        <em>加载中...</em>
-    </div>
-</div>
-<script type="text/html" id="js-emptyDom">
-    <div class="search-box">
-        <div class="box-hd clearfix">
-            <h3 class="title">推荐直播</h3>
-        </div>
-        <div class="box-bd">
-            <ul class="search-empty-list clearfix searchbox-list">
-                <li class="game-live-item" gid="2336">
-                    <a href="http://www.huya.com/161748674" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/1710e8907ff9ae34ce9184af8e2d3a28af3a6b84f120?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="星辉-大锤哥的直播" title="星辉-大锤哥的直播">
-                        <em class="tag tag-recommend">白金推荐</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                    </a>
-                    <a href="http://www.huya.com/161748674" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'
-                       title="挑战8h青铜—王者，输送iphone8" target="_blank">挑战8h青铜—王者，输送iphone8</a>
-                    <span class="txt">
+        <div class="search-box">
+            <div class="box-hd clearfix">
+                <h3 class="title">推荐直播</h3>
+            </div>
+            <div class="box-bd" id="app">
+                <input type="button" value="测试" v-on:click="load_d">
+                <ul class="search-empty-list clearfix searchbox-list">
+                    <?php foreach ($live_list as $v){ ?>
+                    <li class="game-live-item" gid="2336">
+                        <a href="http://www.huya.com/161748674" class="video-info new-clickstat" target="_blank"
+                           report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'>
+                            <img class="pic"
+                                 data-original="//screenshot.msstatic.com/yysnapshot/1710e8907ff9ae34ce9184af8e2d3a28af3a6b84f120?imageview/4/0/w/338/h/190/blur/1"
+                                 src="<?= $v['channel_images'] ?>" onerror="this.onerror=null; this.src='<?= $v['channel_images'] ?>';"
+                                 alt="<?= $v['username'] ?>" title="">
+                            <em class="tag tag-recommend">白金推荐</em>
+                            <div class="item-mask"></div>
+                            <i class="btn-link__hover_i"></i>
+                        </a>
+                        <a href="/<?= $v['channel_id']?> " class="title new-clickstat"
+                           report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'
+                           title="挑战8h青铜—王者，输送iphone8" target="_blank"><?= $v['sign']?> </a>
+                        <span class="txt">
         <span class="avatar fl">
             <img data-original="//huyaimg.msstatic.com/avatar/1035/7d/9c4ebef7e55c51562e08ef3424d62f_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="星辉-大锤哥"
-                 title="星辉-大锤哥">
-            <i class="nick" title="星辉-大锤哥">星辉-大锤哥</i>
+                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="<?= $v['username'] ?>"
+                 title="<?= $v['username'] ?>">
+            <i class="nick" title="<?= $v['username'] ?>"><?= $v['username'] ?></i>
         </span>
                 <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/wzry"
                                               title="王者荣耀">王者荣耀</a></span>
                 <span class="num"><i class="num-icon"></i><i class="js-num">48.7万</i></span>
     </span>
-                </li>
+                    </li>
+                    <?php } ?>
 
 
-                <li class="game-live-item" gid="1964">
-                    <a href="http://www.huya.com/chuhe" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1964","ayyuid":"294636272"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/17107c92a112ea96319e8b291e75ac963f516dd2cc20?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="Style丶楚河-90327的直播" title="Style丶楚河-90327的直播">
-                        <em class="tag tag-recommend">超级明星</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                        <em class="tag tag-blue">蓝光</em> </a>
-                    <a href="http://www.huya.com/chuhe" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1964","ayyuid":"294636272"}'
-                       title="最精彩的游戏直播~" target="_blank">最精彩的游戏直播~</a>
-                    <span class="txt">
+                    <li class="game-live-item" gid="2336" v-for="li in ul">
+                        <a href="http://www.huya.com/161748674" class="video-info new-clickstat" target="_blank"
+                           report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'>
+                            <img class="pic"
+                                 data-original="//screenshot.msstatic.com/yysnapshot/1710e8907ff9ae34ce9184af8e2d3a28af3a6b84f120?imageview/4/0/w/338/h/190/blur/1"
+                                 src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
+                                 alt="星辉-大锤哥的直播" title="星辉-大锤哥的直播">
+                            <em class="tag tag-recommend">白金推荐</em>
+                            <div class="item-mask"></div>
+                            <i class="btn-link__hover_i"></i>
+                        </a>
+                        <a href=" " class="title new-clickstat"
+                           report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'
+                           title="挑战8h青铜—王者，输送iphone8" target="_blank">挑战8h青铜—王者，输送iphone8</a>
+                        <span class="txt">
         <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1086/bf/fd6f69d69c0015eaface1f6024869e_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="Style丶楚河-90327"
-                 title="Style丶楚河-90327">
-            <i class="nick" title="Style丶楚河-90327">Style丶楚河-90327</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/ZJGAME" title="主机游戏">主机游戏</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">47.1万</i></span>
-    </span>
-                </li>
-
-
-                <li class="game-live-item" gid="2793">
-                    <a href="http://www.huya.com/miss" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2793","ayyuid":"1466346678"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/171029809d0a824af2d1711cc8be6aa090accd0844de?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="Miss大小姐的直播" title="Miss大小姐的直播">
-                        <em class="tag tag-recommend">超级明星</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                        <em class="tag tag-blue">蓝光</em> </a>
-                    <a href="http://www.huya.com/miss" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2793","ayyuid":"1466346678"}'
-                       title="我miss，今天，杀5个，下注" target="_blank">我miss，今天，杀5个，下注</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1083/32/a922f67d41235e26b57daef0b043f5_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="Miss大小姐"
-                 title="Miss大小姐">
-            <i class="nick" title="Miss大小姐">Miss大小姐</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/2793"
-                                              title="绝地求生">绝地求生</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">45.2万</i></span>
-    </span>
-                </li>
-
-
-                <li class="game-live-item" gid="2336">
-                    <a href="http://www.huya.com/guying" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"1757672727"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/17105c036eb4eb05a480b3048324a735b33cc22a308e?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="厌世小孤影的直播" title="厌世小孤影的直播">
-                        <em class="tag tag-recommend">大神推荐</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                    </a>
-                    <a href="http://www.huya.com/guying" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"1757672727"}'
-                       title="空白空白空白" target="_blank">空白空白空白</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1063/27/69fb3230202bffd72a9052f340f1a9_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="厌世小孤影"
-                 title="厌世小孤影">
-            <i class="nick" title="厌世小孤影">厌世小孤影</i>
+            <img data-original="//huyaimg.msstatic.com/avatar/1035/7d/9c4ebef7e55c51562e08ef3424d62f_180_135.jpg"
+                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="星辉-大锤哥"
+                 title="星辉-大锤哥">
+            <i class="nick" title="星辉-大锤哥">{{li.username}}</i>
         </span>
                 <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/wzry"
-                                              title="王者荣耀">王者荣耀</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">39.7万</i></span>
+                                              title="王者荣耀">{{li.channel_name}}</a></span>
+                <span class="num"><i class="num-icon"></i><i class="js-num">48.7万</i></span>
     </span>
-                </li>
-
-
-                <li class="game-live-item" gid="1">
-                    <a href="http://www.huya.com/s7" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"1346609715"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/1710ac6a61f08a1e8e0d3b698fe4e3b85e3b1091c36c?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="S7英雄联盟全球总决赛的直播" title="S7英雄联盟全球总决赛的直播">
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                        <em class="tag tag-blue">蓝光</em> </a>
-                    <a href="http://www.huya.com/s7" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"1346609715"}'
-                       title="S7全球总决赛10月8日重播" target="_blank">S7全球总决赛10月8日重播</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1042/6f/3626ef611e990cbbcefab8e1bbc561_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="S7英雄联盟全球总决赛"
-                 title="S7英雄联盟全球总决赛">
-            <i class="nick" title="S7英雄联盟全球总决赛">S7英雄联盟全球总决赛</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/lol"
-                                              title="英雄联盟">英雄联盟</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">40.2万</i></span>
-    </span>
-                </li>
-
-
-                <li class="game-live-item" gid="1">
-                    <a href="http://www.huya.com/ximen" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"477393888"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/1710998093a80b28883e29f136ffa0c026822de65442?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="正恒丶西门的直播" title="正恒丶西门的直播">
-                        <em class="tag tag-recommend">超级明星</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                    </a>
-                    <a href="http://www.huya.com/ximen" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"477393888"}'
-                       title="打不死的蒙多五日炎烧大龙！" target="_blank">打不死的蒙多五日炎烧大龙！</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1029/21/77aed1c053f4a4938ffaf9b618aa06_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="正恒丶西门"
-                 title="正恒丶西门">
-            <i class="nick" title="正恒丶西门">正恒丶西门</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/lol"
-                                              title="英雄联盟">英雄联盟</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">39.4万</i></span>
-    </span>
-                </li>
-
-
-                <li class="game-live-item" gid="1">
-                    <a href="http://www.huya.com/90888dopa" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"1028671619"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/17108fe6bf6ff846246a8d07c8b1fdf941b705f47378?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="Dopa的直播" title="Dopa的直播">
-                        <em class="tag tag-recommend">超级明星</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                        <em class="tag tag-blue">蓝光</em> </a>
-                    <a href="http://www.huya.com/90888dopa" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"1","ayyuid":"1028671619"}'
-                       title="Dopa 冲第一 （排行5）" target="_blank">Dopa 冲第一 （排行5）</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1044/ba/5c36cf488dca53f40e42f8263e35c8_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="Dopa"
-                 title="Dopa">
-            <i class="nick" title="Dopa">Dopa</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/lol"
-                                              title="英雄联盟">英雄联盟</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">35.5万</i></span>
-    </span>
-                </li>
-
-
-                <li class="game-live-item" gid="2336">
-                    <a href="http://www.huya.com/1871590298" class="video-info new-clickstat" target="_blank"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"1648744803"}'>
-                        <img class="pic"
-                             data-original="//screenshot.msstatic.com/yysnapshot/17102d881b982f8e3ae2f37e21bd2e1bef183a94b64a?imageview/4/0/w/338/h/190/blur/1"
-                             src="images/338x190.jpg" onerror="this.onerror=null; this.src='images/338x190.jpg';"
-                             alt="渝万-童子的直播" title="渝万-童子的直播">
-                        <em class="tag tag-recommend">大神推荐</em>
-                        <div class="item-mask"></div>
-                        <i class="btn-link__hover_i"></i>
-                    </a>
-                    <a href="http://www.huya.com/1871590298" class="title new-clickstat"
-                       report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"1648744803"}'
-                       title="第一赵云，目前115连胜！" target="_blank">第一赵云，目前115连胜！</a>
-                    <span class="txt">
-        <span class="avatar fl">
-            <img data-original="//huyaimg.msstatic.com/avatar/1085/35/39f2d1ae5b3dbb853dfe2f4ff79ebb_180_135.jpg"
-                 src="images/84x84.jpg" onerror="this.onerror=null; this.src='images/84x84.jpg';" alt="渝万-童子"
-                 title="渝万-童子">
-            <i class="nick" title="渝万-童子">渝万-童子</i>
-        </span>
-                <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/wzry"
-                                              title="王者荣耀">王者荣耀</a></span>
-                <span class="num"><i class="num-icon"></i><i class="js-num">28.1万</i></span>
-    </span>
-                </li>
-
-
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</script>
-<script src="js/jq_ud_mod_4de7709.js" data-fixed="true"></script>
-<script src="js/huyahiidoweb_err_monitor-min.js" id="huyahiido_err_monitor" act="webhuyaerror" pageview="search"
-        data-fixed="true"></script>
-<script src="js/headerFunction_e5e7632.js" data-fixed="true"></script>
-<script src="js/jquery.lazyload_769f44a.js" data-fixed="true"></script>
-<script type="text/javascript" charset="utf-8" src="js/auto_combine_88b83_2ac8873.js"></script>
+</div>
 <script>
-    require("app/search");
+    var pa = 1;
+    new Vue({
+        el:'#app',
+        data:
+        {
+            ul:{},
+        },
+        created()
+        {
+            load(this)
+        },
+        methods:
+        {
+            load_d()
+            {
+                alert(1)
+                load(this)
+            }
+        }
+    })
+
+
+
+    //加载方法
+    function load(thi) {
+        pa = parseInt(pa)+1
+        console.log(pa)
+        $.ajax({
+            dataType:'json',
+            url:'/?r=search/search_find',
+            data:{pa:pa,name:$('#name_hidden').val()},
+            success:function (e) {
+                if(e.error=='200') {
+                    $.extend(thi.ul,e.msg);
+                }
+                console.log(thi.ul)
+            }
+        })
+    }
 </script>
+
 <!--BODY_END-->
 <!-- S 页面公用功能 -->
 
 <!-- S 后台推送消息 -->
 <!--[if lte IE 7]>
-<script type='text/javascript' src='//www.huya.com/base/js/push/json3.min.js'></script>
 <![endif]-->
 <!--[if lte IE 9]>
-<script type='text/javascript' src='//www.huya.com/base/js/push/jquery.xdomainrequest.min.js'></script>
-<![endif]-->
-<script data-fixed="true">
-    var PUSH_PROXY_URL = "//channelproxy.huya.com/";
-    var WEB_PUSH_URL = "webpush.huya.com";
-    var PUSH_ENABLE = true;//推送开关
-    var WEB_PUSH_TLS_ENABLE = true;//是否使用TLS
-    var matchNoticeData = [];//赛事直播间预告数据
-</script>
-<script type='text/javascript' src='js/push-min.js?t=20170818'></script>
-<script type='text/javascript' src='js/push.func-min.js?t=20161207'></script><!-- E 后台推送消息 -->    <!-- E 页面公用功能 -->
-<script type="text/javascript" src="js/ya-huya.min.js" data-fixed="true" pro="huya_web" noreport=""
-        id="yaScript"></script>
-<script data-fixed="true">
-    zhReport({
-        rso: parseQueryString(location.href)['rso'] || parseQueryString(location.href)['from'] || "",
-        rso_desc: parseQueryString(location.href)['rso_desc'] || "",
-        eid: "pageview/search",
-        eid_desc: "pageview/搜索页"
-    });
-</script>
-<!-- S 通用底部 -->
+<![endif]--><!-- S 通用底部 -->
 <div class="huya-footer">
     <div class="huya-footer__hd">
         <dl class="huya-footer_friend">
@@ -468,18 +312,6 @@
     </div>
 </div>
 <!-- S 通用底部 -->
-<script data-fixed="true">
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-    $('#search-bar-input').val($('#name_hidden').val())
-</script>
-
-
 <!-- E 通用底部 -->
 </body>
 </html>

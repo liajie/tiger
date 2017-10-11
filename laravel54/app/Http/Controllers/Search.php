@@ -19,11 +19,18 @@ class Search extends Controller
     //直播频道查询
     public function search_find()
     {
-        $reg = DB::select("select channel_id,channel_images,channel_name,username,sign from live_channel left join user on live_channel.user_id=user.u_id where channel_name like '%{$this->data['name']}%'");
+        $pa = isset($this->data['pa'])?$this->data['pa']:1;
+        $num = ($pa-1)*2;
+        $reg = DB::select("select channel_id,channel_images,channel_name,username,sign from live_channel left join user on live_channel.user_id=user.u_id where channel_name like '%{$this->data['name']}%' limit $num,2");
         $live_list = json_decode(json_encode($reg),true);
-
-        $data = ['live_list'=>$live_list,'name'=>$this->data['name']];
-        return view('search/search',$data);
+        if($pa>1)
+        {
+            echo json_encode(['error'=>'200','msg'=>$live_list]);
+        }else
+        {
+            $data = ['live_list'=>$live_list,'name'=>$this->data['name']];
+            return view('search/search',$data);
+        }
     }
 
 }
