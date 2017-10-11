@@ -33,7 +33,7 @@
                     <option value="西北">西北地区</option>
                     <option value="西南">西南地区</option>
                 </select>
-                <input type="date" class="layui-input" id="date_where">
+                <input type="date" class="layui-input" id="date_where" v-on:change="province_change">
                 <div id="main_echarts" style="width: 800px;height:400px;"></div>
             </div>
         </div>
@@ -43,7 +43,6 @@
 <script>
 
     export default {
-        name: 'user_echarts',
         data () {
             return {
                 message: '',
@@ -53,8 +52,7 @@
                 where: Object(),
                 title_date: '用户时间echarts统计',
                 date_val: [],
-                date_num: []
-
+                date_num: [],
             }
         },
         created()
@@ -98,7 +96,6 @@
             //时间查询
         }
     }
-
 
     //统计用户注册信息
     function user_echarts(thi) {

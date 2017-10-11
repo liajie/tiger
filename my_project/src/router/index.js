@@ -51,203 +51,212 @@ import login from '@/components/login'
 import contribution from '@/components/contribution'
 
 
+import hello from '@/components/Hello'
+
+
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-  	{
-  		//用户柱状图
-  		path:'/user_echarts',
-		name:'user_echarts',
-		component:user_echarts
-	},
-  	{
-  		path:'/news_list',
-		name:'news_list',
-		component:news_list
-	},{
-  		path:'/money',
-		name:'money',
-		component:money
-	},
-  	{
-  		path:'/form_new_add',
-		name:'form_new_add',
-		component:form_new_add
-	},
-  	{
-  		//频道分类添加
-  		path:'/form_class_add',
-  		name:'form_class_add',
-  		component:form_class_add
-  	},
-    {
-    	//首页
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-    	//登录页面
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
-    	//文字排版
-    	path:'/typography',
-    	name:'typography',
-    	component:typography
-    },
-    {
-    	//组件
-    	path:'/elements',
-    	name:'elements',
-    	component:elements
-    },
-    {
-    	//按钮 图表
-    	path:'/buttons',
-    	name:'buttons',
-    	component:buttons
-    },
-    {
-    	//树菜单
-    	path:'/treeview',
-    	name:'treeview',
-    	component:treeview
-    },
-    {
-    	//jQuery UI
-    	path:'/jquery_ui',
-    	name:'jquery_ui',
-    	component:jquery_ui
-    },
-    {
-    	//可拖拽列表
-    	path:'/nestable_list',
-    	name:'nestable_list',
-    	component:nestable_list
-    },
-    {
-    	//简单动态
-    	path:'/tables',
-    	name:'tables',
-    	component:tables
-    },
-    {
-    	//jqGrid plugin
-    	path:'/jqgrid',
-    	name:'jqgrid',
-    	component:jqgrid
-    },
-    {
-    	//表单组件
-    	path:'/form_elements',
-    	name:'form_elements',
-    	component:form_elements
-    },
-    {
-    	//向导提示 验证
-    	path:'/form_wizard',
-    	name:'form_wizard',
-    	component:form_wizard
-    },
-    {
-    	//编辑器
-    	path:'/wysiwyg',
-    	name:'wysiwyg',
-    	component:wysiwyg
-    },
-    {
-    	//文件上传
-    	path:'/dropzone',
-    	name:'dropzone',
-    	component:dropzone
-    },
-    {
-    	//插件
-    	path:'/widgets',
-    	name:'widgets',
-    	component:widgets
-    },
-    {
-    	//日历
-    	path:'/calendar',
-    	name:'calendar',
-    	component:calendar
-    },
-    {
-    	//相册
-    	path:'/gallery',
-    	name:'gallery',
-    	component:gallery
-    },
-    {
-    	//用户信息
-    	path:'/profile',
-    	name:'profile',
-    	component:profile
-    },
-    {
-    	//收件箱
-    	path:'/inbox',
-    	name:'inbox',
-    	component:inbox
-    },
-    {
-    	//售价单
-    	path:'/pricing',
-    	name:'pricing',
-    	component:pricing
-    },
-    {
-    	//购物车
-    	path:'/invoice',
-    	name:'invoice',
-    	component:invoice
-    },
-    {
-    	//时间轴
-    	path:'/timeline',
-    	name:'timeline',
-    	component:timeline
-    },
-    {
-    	//帮助
-    	path:'/faq',
-    	name:'faq',
-    	component:faq
-    },
-    {
-    	//404错误页面
-    	path:'/error_s',
-    	name:'error_s',
-    	component:error_s
-    },
-    {
-    	//500错误页面
-    	path:'/error_w',
-    	name:'error_w',
-    	component:error_w
-    },
-    {
-    	//网格
-    	path:'/grid',
-    	name:'grid',
-    	component:grid
-    },
-    {
-    	//空白页面
-    	path:'/blank',
-    	name:'blank',
-    	component:blank
-    },
-    {
-        //空白页面
-        path:'/contribution',
-        name:'contribution',
-        component:contribution
-    }
-  ]
+    routes: [
+        {
+            //测试文档
+            path: '/hello',
+            name: 'hello',
+            component: hello
+        },
+        {
+            //用户柱状图
+            path: '/user_echarts',
+            name: 'user_echarts',
+            component: user_echarts
+        },
+        {
+            path: '/news_list',
+            name: 'news_list',
+            component: news_list
+        }, {
+            path: '/money',
+            name: 'money',
+            component: money
+        },
+        {
+            path: '/form_new_add',
+            name: 'form_new_add',
+            component: form_new_add
+        },
+        {
+            //频道分类添加
+            path: '/form_class_add',
+            name: 'form_class_add',
+            component: form_class_add
+        },
+        {
+            //首页
+            path: '/',
+            name: 'Hello',
+            component: Hello
+        },
+        {
+            //登录页面
+            path: '/login',
+            name: 'login',
+            component: login
+        },
+        {
+            //文字排版
+            path: '/typography',
+            name: 'typography',
+            component: typography
+        },
+        {
+            //组件
+            path: '/elements',
+            name: 'elements',
+            component: elements
+        },
+        {
+            //按钮 图表
+            path: '/buttons',
+            name: 'buttons',
+            component: buttons
+        },
+        {
+            //树菜单
+            path: '/treeview',
+            name: 'treeview',
+            component: treeview
+        },
+        {
+            //jQuery UI
+            path: '/jquery_ui',
+            name: 'jquery_ui',
+            component: jquery_ui
+        },
+        {
+            //可拖拽列表
+            path: '/nestable_list',
+            name: 'nestable_list',
+            component: nestable_list
+        },
+        {
+            //简单动态
+            path: '/tables',
+            name: 'tables',
+            component: tables
+        },
+        {
+            //jqGrid plugin
+            path: '/jqgrid',
+            name: 'jqgrid',
+            component: jqgrid
+        },
+        {
+            //表单组件
+            path: '/form_elements',
+            name: 'form_elements',
+            component: form_elements
+        },
+        {
+            //向导提示 验证
+            path: '/form_wizard',
+            name: 'form_wizard',
+            component: form_wizard
+        },
+        {
+            //编辑器
+            path: '/wysiwyg',
+            name: 'wysiwyg',
+            component: wysiwyg
+        },
+        {
+            //文件上传
+            path: '/dropzone',
+            name: 'dropzone',
+            component: dropzone
+        },
+        {
+            //插件
+            path: '/widgets',
+            name: 'widgets',
+            component: widgets
+        },
+        {
+            //日历
+            path: '/calendar',
+            name: 'calendar',
+            component: calendar
+        },
+        {
+            //相册
+            path: '/gallery',
+            name: 'gallery',
+            component: gallery
+        },
+        {
+            //用户信息
+            path: '/profile',
+            name: 'profile',
+            component: profile
+        },
+        {
+            //收件箱
+            path: '/inbox',
+            name: 'inbox',
+            component: inbox
+        },
+        {
+            //售价单
+            path: '/pricing',
+            name: 'pricing',
+            component: pricing
+        },
+        {
+            //购物车
+            path: '/invoice',
+            name: 'invoice',
+            component: invoice
+        },
+        {
+            //时间轴
+            path: '/timeline',
+            name: 'timeline',
+            component: timeline
+        },
+        {
+            //帮助
+            path: '/faq',
+            name: 'faq',
+            component: faq
+        },
+        {
+            //404错误页面
+            path: '/error_s',
+            name: 'error_s',
+            component: error_s
+        },
+        {
+            //500错误页面
+            path: '/error_w',
+            name: 'error_w',
+            component: error_w
+        },
+        {
+            //网格
+            path: '/grid',
+            name: 'grid',
+            component: grid
+        },
+        {
+            //空白页面
+            path: '/blank',
+            name: 'blank',
+            component: blank
+        },
+        {
+            //空白页面
+            path: '/contribution',
+            name: 'contribution',
+            component: contribution
+        }
+    ]
 })

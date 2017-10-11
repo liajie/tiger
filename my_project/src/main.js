@@ -7,6 +7,7 @@
 //import Arshow from './components/Show'
 
 import Vue from 'vue'
+Vue.config.productionTip = true
 
 import App from './App'
 import router from './router'
@@ -14,7 +15,9 @@ import router from './router'
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 
-Vue.config.productionTip = true
+//全局引入日期
+/*import myDatepicker from 'vue-datepicker'
+Vue.prototype.$myDatepicker = myDatepicker*/
 
 //创建根实例
 new Vue({
