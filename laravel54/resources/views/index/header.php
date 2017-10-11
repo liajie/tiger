@@ -138,7 +138,7 @@ if (isset($_COOKIE['users'])) {
             </div>
 
             <!-- 登录注册遮罩层 Start-->
-            <div class="login-box">
+            <div class="login-box" style="display: none;">
                 <div class="login">
                     <div class="login-main">
                         <div class="login-hd">
