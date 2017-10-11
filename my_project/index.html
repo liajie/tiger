@@ -44,25 +44,31 @@
 		<![endif]-->
 	  <script src="/static/assets/js/jquery-1.7.2.min.js"></script>
 
+	  <!--编辑器开始-->
+	  <script src='/static/ueditor1_4_3_3-utf8/ueditor.config.js'></script>
+	  <script src='/static/ueditor1_4_3_3-utf8/ueditor.all.min.js'></script>
+	  <script src="/static/ueditor1_4_3_3-utf8/lang/zh-cn/zh-cn.js"></script>
+	  <!--编辑器结束-->
+
 	  <script>
-          var host = 'http://admin.live.com/'
-          var http_img='http://admin.live.com'
-          function common(error) {
-              if(error=='404')
-              {
-                  alert('请先登录');
-                  location.href='/#/login';
-              }
+      var host = 'http://www.yii.com/'
+      var http_img='http://www.yii.com'
+      function common(error) {
+          if(error=='404')
+          {
+              alert('请先登录');
+              location.href='/#/login';
           }
-	  </script>
+      }
+  </script>
 	</head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
   <script>
-  	var host = 'http://admin.live.com/'
-  	var http_img='http://admin.live.com'
+  	var host = 'http://www.yii.com/'
+  	var http_img='http://www.yii.com'
 	  function common(error) {
 		  if(error=='404')
 		  {

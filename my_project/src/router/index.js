@@ -14,6 +14,7 @@ import nestable_list from '@/components/ui/nestable_list'
 import tables from '@/components/tables/tables'
 import jqgrid from '@/components/tables/jqgrid'
 import news_list from '@/components/tables/news_list'
+import money from '@/components/tables/money'
 //表单
 import form_elements from '@/components/form/form_elements'
 import form_wizard from '@/components/form/form_wizard'
@@ -57,6 +58,10 @@ export default new Router({
   		path:'/news_list',
 		name:'news_list',
 		component:news_list
+	},{
+  		path:'/money',
+		name:'money',
+		component:money
 	},
   	{
   		path:'/form_new_add',

@@ -32,7 +32,7 @@
                                 class="btn btn-sm btn-yellow">
 													3
 													<input type="radio" value="3"></label></span></span></span></h4>
-                    <div class="wysiwyg-toolbar btn-toolbar center wysiwyg-style2">
+                    <!--<div class="wysiwyg-toolbar btn-toolbar center wysiwyg-style2">
                         <div class="btn-group"><a title="" data-toggle="dropdown" data-original-title="Font"
                                                   class="btn btn-sm  dropdown-toggle"><i class="icon-font"></i><i
                                 class="icon-angle-down icon-on-right"></i></a>
@@ -223,8 +223,11 @@
                                                                                                                data-original-title="Redo (Ctrl/Cmd+Y)"
                                                                                                                class="btn btn-sm btn-grey"><i
                                 class="icon-repeat"></i></a></div>
-                    </div>
-                    <div contenteditable="true" id="editor1" class="wysiwyg-editor">
+                    </div>-->
+                    <!--<div contenteditable="true" id="editor1" class="wysiwyg-editor">
+                    </div>-->
+                    <div id="editor" class="wysiwyg-editor">
+
                     </div>
                     <div class="widget-toolbox padding-4 clearfix">
                         <div class="btn-group pull-left">
@@ -267,6 +270,9 @@
         },
         created()
         {
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor');
             class_find(this)
         },
         methods:
@@ -274,12 +280,12 @@
             //清空
             clear_news()
             {
-                $('#editor1').html('')
+                $('#editor').html('')
             },
             //保存新闻
             save_news()
             {
-                var news_text = $('#editor1').html()
+                var news_text = $('#editor').html()
                 var news_classId = $('#form-field-select-1').val()
                 var news_name = $('#news_name').val()
                 $.ajax({
@@ -292,7 +298,7 @@
                         alert(e.msg)
                         if(e.error=='200')
                         {
-                            $('#editor1').html('')
+                            $('#editor').html('')
                         }
                     }
                 })
@@ -319,6 +325,7 @@
             }
         })
     }
+
 </script>
 
 <style>
