@@ -177,7 +177,12 @@
 									</router-link>
 								</li>
 
-
+								<li>
+									<router-link to="/user_" class="router-item">
+										<i class="icon-double-angle-right"></i>
+										用户柱状图
+									</router-link>
+								</li>
 
 							</ul>
 						</li>
