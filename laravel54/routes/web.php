@@ -14,7 +14,7 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+//file_put_contents('file.txt',json_encode($_FILES));
 
 $ROUTES= isset($_GET['r' ])?$_GET['r' ]:false;
 if($ROUTES)
