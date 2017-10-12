@@ -15,7 +15,6 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Keywords" content="热门游戏直播，高清游戏直播，电竞赛事直播，游戏直播，美食直播，娱乐直播，lol直播，dota2直播，美女直播，虎牙直播"/>
     <meta name="Description"
           content="虎牙直播-中国第一直播网站，提供高清、流畅的视频直播，包括lol直播、dota2直播、cf直播等游戏直播，还提供美食直播、娱乐直播、美女直播等多种直播内容，最全、最精彩的直播内容尽在虎牙直播。"/>
 
@@ -23,11 +22,15 @@
     <link type="text/css" rel="stylesheet" href="css/auto_combine_17c76_a847427.css">
     <script src="js/jquery.js"></script>
     <script src="js/Vue.js"></script>
+    <!--瀑布流加载 begin-->
+    <!--<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/jQueryColor.js"></script>-->
+    <!--这个插件是瀑布流主插件函数必须-->
+    <!--<script type="text/javascript" src="js/jquery.masonry.min.js"></script>-->
+    <!--这个插件只是为了扩展jquery的animate函数动态效果可有可无-->
+    <!--<script type="text/javascript" src="js/jQeasing.js"></script>-->
+    <!--瀑布流加载 out-->
     <!--HEAD_END-->
-    <script data-fixed="true">
-        var APP_URL = "http://www.huya.com/";
-        var cacheTime = 1507726800;
-    </script>
 </head>
 <body>
 <script data-fixed="true">var w = document.body.clientWidth;
@@ -83,16 +86,11 @@
                 <h3 class="title">推荐直播</h3>
             </div>
             <div class="box-bd" id="app">
-                <input type="button" value="测试" v-on:click="load_d">
-                <ul class="search-empty-list clearfix searchbox-list">
+                <ul class="search-empty-list clearfix searchbox-list" id="box_father">
                     <?php foreach ($live_list as $v){ ?>
-                    <li class="game-live-item" gid="2336">
-                        <a href="http://www.huya.com/161748674" class="video-info new-clickstat" target="_blank"
-                           report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'>
-                            <img class="pic"
-                                 data-original="//screenshot.msstatic.com/yysnapshot/1710e8907ff9ae34ce9184af8e2d3a28af3a6b84f120?imageview/4/0/w/338/h/190/blur/1"
-                                 src="<?= $v['channel_images'] ?>" onerror="this.onerror=null; this.src='<?= $v['channel_images'] ?>';"
-                                 alt="<?= $v['username'] ?>" title="">
+                    <li class="game-live-item box_son" gid="2336">
+                        <a href="<?= $v['channel_id']?>" class="video-info new-clickstat" target="_blank">
+                            <img class="pic ldjz" src="images/338x190.jpg" data-src='<?= $v['channel_images'] ?>' alt="<?= $v['username'] ?>" title="">
                             <em class="tag tag-recommend">白金推荐</em>
                             <div class="item-mask"></div>
                             <i class="btn-link__hover_i"></i>
@@ -108,14 +106,13 @@
             <i class="nick" title="<?= $v['username'] ?>"><?= $v['username'] ?></i>
         </span>
                 <span class="game-type fr"><a target="_blank" href="http://www.huya.com/g/wzry"
-                                              title="王者荣耀">王者荣耀</a></span>
+                                              title="<?= $v['channel_name'] ?>"><?= $v['channel_name'] ?></a></span>
                 <span class="num"><i class="num-icon"></i><i class="js-num">48.7万</i></span>
     </span>
                     </li>
                     <?php } ?>
 
-
-                    <li class="game-live-item" gid="2336" v-for="li in ul">
+                    <!--<li class="game-live-item" gid="2336" v-for="li in ul">
                         <a href="http://www.huya.com/161748674" class="video-info new-clickstat" target="_blank"
                            report='{"eid":"click/position","position":"search/综合/推荐直播/1","game_id":"2336","ayyuid":"12837293"}'>
                             <img class="pic"
@@ -140,12 +137,18 @@
                                               title="王者荣耀">{{li.channel_name}}</a></span>
                 <span class="num"><i class="num-icon"></i><i class="js-num">48.7万</i></span>
     </span>
-                    </li>
+                    </li>-->
+
                 </ul>
             </div>
+            <!--<span id="imloading">没有了</span>-->
         </div>
     </div>
 </div>
+<!--懒惰加载-->
+<script src="/ldjz.js"></script>
+<!--瀑布加载-->
+<script src="/pbjz.js"></script>
 <script>
     var pa = 1;
     new Vue({
@@ -160,11 +163,6 @@
         },
         methods:
         {
-            load_d()
-            {
-                alert(1)
-                load(this)
-            }
         }
     })
 
