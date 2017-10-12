@@ -677,9 +677,14 @@
 <!-- 修改头像 -->
 <div id="the_img">
     <div class="box_top" style="cursor: move;">
-        <span style="font-size:16px;font-weight:bloder;">修改头像</span>
+        <span style="font-size:16px;font-weight:2px;">修改头像</span>
         <a href="javascript:void(0);" class="close">关闭</a>
     </div>
+
+
+
+
+
     <!-- 图片裁剪 -->
     <div id="img_cut">
         <div class="cut_left">
