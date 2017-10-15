@@ -12,6 +12,7 @@ class User extends Controller
 			echo "<script>alert('请先登录');location.href='/'</script>";
 		}
 	}
+
 	public function getuser()
 	{
 		$u_id = $_COOKIE['u_id'];

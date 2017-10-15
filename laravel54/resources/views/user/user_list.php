@@ -126,10 +126,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a menu="noble" href="http://i.huya.com/index.php?m=NobleSys">
+                                <a menu="noble" href="javascript:" onclick="stopup()" id="stop" >
                                     <span class="icon icon-noble"></span>
                                     <span class="title">
-                                    我的贵族
+                                    大文件上传
                                 </span>
                                 </a>
                             </li>
@@ -456,6 +456,11 @@
 
         </div>
     </div>
+
+    <!--大文件上传开始-->
+    <script src="ddxc.js"></script>
+    <!--大文件上传结束-->
+
     <div class="main-col">
         <div class="scroll-content">
             <div class="mod mod-user-center">
@@ -632,6 +637,43 @@
                 <a class="result" href="http://i.huya.com//index.php?m=ProfileInfo"></a>
             </div>
         </div>
+
+
+        <!--大文件上传-->
+        <link rel="stylesheet" type="text/css" href="asset/webuploader.css" />
+        <link rel="stylesheet" type="text/css" href="asset/style.css" />
+        <div id="wrapper">
+            <div id="container">
+                <!--头部，相册选择和格式选择-->
+
+                <div id="uploader">
+                    <div class="queueList">
+                        <div id="dndArea" class="placeholder">
+                            <div id="filePicker"></div>
+                            <p>或将照片拖到这里，单次最多可选300张</p>
+                        </div>
+                    </div>
+                    <div class="statusBar" style="display:none;">
+                        <div class="progress">
+                            <span class="text">0%</span>
+                            <span class="percentage"></span>
+                        </div><div class="info"></div>
+                        <div class="btns">
+                            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="asset/jquery.js"></script>
+        <script type="text/javascript" src="asset/webuploader.js"></script>
+        <script type="text/javascript" src="asset/upload.js"></script>
+        <!--大文件结束-->
+
+        <progress value="0" max="10" id="prouploadfile"></progress>
+
+        <span id="persent">0%</span>
+        <br />
     </div>
 
 </div>

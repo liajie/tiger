@@ -3,10 +3,62 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Dysms\api_demo\SmsDemo;
+use Illuminate\Http\Request;
+use Illuminate\Mongodb\M;
 use Illuminate\Support\Facades\DB;
 
 class Login extends Controller
 {
+
+    //找回密码
+    public function loginpassword_forget(Request $request)
+    {
+        $data = $request->input();
+        $Reg = DB::select("select u_id,username,tel,password from user where username=? limit 1",[$data['username']]);
+        if($Reg)
+        {
+            $Reg = array_pop($Reg);
+            //引入阿里短信
+            $SmsDemo = new SmsDemo();
+            $response = $SmsDemo->sendSms(
+                "降省心", // 短信签名
+                "SMS_103885015", // 短信模板编号
+                $Reg->tel, // 短信接收者
+                Array(  // 短信模板中字段的值
+                    "code"=>$Reg->password,
+                    "product"=>"dsd"
+                ),
+                "111"
+            );
+            if($response->Message=='OK')
+            {
+                $Sms_Log = [
+                    'phoneNumbers'=>$Reg->tel,
+                    'User_Id'=>$Reg->u_id,
+                    'UserName'=>$Reg->username,
+                    'RequestId'=>$response->RequestId,
+                    'BizId'=>$response->BizId,
+                    'Message'=>$response->Message,
+                    'Code'=>$response->Code,
+                    'Send_Time'=>date('Y-m-d H:i:s',time())
+                ];
+            }else
+            {
+                $Sms_Log = [
+                    'phoneNumbers'=>$Reg->tel,
+                    'User_Id'=>$Reg->u_id,
+                    'UserName'=>$Reg->username,
+                    'Event'=>'短信发送失败',
+                    'Send_Time'=>date('Y-m-d H:i:s',time())
+                ];
+            }
+            $M = new M('user_log');
+            $M->insert($Sms_Log);
+            echo json_encode(['error'=>'200','msg'=>'密码已发送至手机']);
+        }
+    }
+
     public function disanfang()
     {
     	

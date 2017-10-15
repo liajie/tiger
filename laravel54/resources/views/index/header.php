@@ -5,6 +5,11 @@ if (isset($_COOKIE['users'])) {
 
 ?>
 
+<style>
+    .error{
+        color:red;
+    }
+</style>
 <div class="duya-header-wrap clearfix">
     <div class="duya-header-bd clearfix">
         <h1 id="duya-header-logo" title="虎牙直播-虎牙TV-中国领先的互动直播平台">
@@ -129,7 +134,7 @@ if (isset($_COOKIE['users'])) {
                 <div class="hy-nav-title">
                     <i class="hy-nav-icon hy-nav-login-icon"></i>
                     <div class="un-login-btn">
-                        <a class="clickstat" id="login" href="#" eid_desc="点击/导航/登录">登录</a>
+                        <a class="clickstat" id="login" href="javascript:" eid_desc="点击/导航/登录">登录</a>
                         <i>|</i>
                         <a class="clickstat" id="add_login" href="#" eid="click/navi/login"
                            eid_desc="点击/导航/注册">注册</a>
@@ -147,9 +152,20 @@ if (isset($_COOKIE['users'])) {
                             <a class="tab-btn" id="disanfang">第三方</a>
                             <i class="line J_line" style="left: 0px;"></i>
                         </div>
+                        <script>
+                            $.validator.setDefaults({
+                                submitHandler: function() {
+                                    alert("提交事件!");
+                                }
+                            });
+                            $().ready(function() {
+                                $("#commentForm").validate();
+                            });
+                        </script>
                         <div class="login-bd">
                             <div class="login-content">
                                 <div class="tab-unit" id="tab-unit">
+                                    <form id="commentForm">
                                     <div id="login-tab">
                                         <h3>帐号登录</h3>
 
@@ -159,32 +175,51 @@ if (isset($_COOKIE['users'])) {
                                                 <label for="exampleInputEmail1">用户名</label>
                                                 <input type="text" class="form-control"
                                                        placeholder="手机号/邮箱/手机号" style="width:300px"
-                                                       id="username" name="username">
+                                                       id="username" name="username" minlength="2" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">密码</label>
                                                 <input type="password" class="form-control" placeholder="密码"
-                                                       style="width:300px" id="pwd" name="pwd">
+                                                       style="width:300px" id="pwd" name="pwd" minlength="4" maxlength="20">
                                                 <input type="hidden" value="<?= csrf_token() ?>" id='_token'
                                                        name="_token">
                                             </div>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="1" id="check">记住密码
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="javascript:" id="LoginPassword_Forget">忘记密码?</a>
                                                 </label>
                                             </div>
                                             <button id="subm" type="button" class="btn btn-success">登录</button>
                                         </div>
 
-
                                     </div>
+                                    </form>
                                 </div>
+                                <script>
+                                    $('#LoginPassword_Forget').click(function () {
+                                        $.ajax({
+                                            dataType:'json',
+                                            url:'/?r=login/loginpassword_forget',
+                                            data:{username:$('#username').val()},
+                                            success:function (e) {
+                                                if(e.error=="200")
+                                                {
+                                                    alert(e.msg)
+                                                }
+                                                console.log(e)
+                                            }
+                                        })
+                                    })
+                                </script>
                                 <div class="tab-unit" id="zhuce">
                                     <h3>注册</h3>
 
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="用户名"
                                                style="width:300px" id="zhuce_user">
+                                        <span>123</span>
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="手机号"
@@ -210,6 +245,9 @@ if (isset($_COOKIE['users'])) {
                     </div>
 
                 </div>
+                <script>
+
+                </script>
                 <a class="login-close" id="js-login-close" title="关闭"></a>
                 <p class="login-wran-tip">使用即为同意</p>
             </div>
@@ -475,10 +513,10 @@ if (isset($_COOKIE['users'])) {
                                     </a>
                                 </li>
                                 <li class="links-noble">
-                                    <a href="http://i.huya.com/index.php?m=NobleSys" target="_blank"
+                                    <a href="javascript:"
                                        report="{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;header/usercard/entrance2&quot;}">
                                         <i></i>
-                                        <p>我的贵族</p>
+                                        <p>大文件上传</p>
                                     </a>
                                 </li>
                                 <li class="links-play">
