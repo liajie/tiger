@@ -637,11 +637,15 @@
                 <a class="result" href="http://i.huya.com//index.php?m=ProfileInfo"></a>
             </div>
         </div>
+        <!--阿里云OSS上传开始-->
+        <a href="javascript:" onclick="window.open('http://www.live.com/?r=login/upload',null,'height=300,width=650,toolbar=no, status=no,menubar=no,scrollbars=yes')"><h3>使用阿里云OSS对象存储,上传文件</h3></a>
+        <!--阿里云OSS上传结束-->
 
-
-        <!--大文件上传-->
+        <br>
+        <!--大文件上传开始-->
         <link rel="stylesheet" type="text/css" href="asset/webuploader.css" />
         <link rel="stylesheet" type="text/css" href="asset/style.css" />
+        <h3>断点续传:</h3>
         <div id="wrapper">
             <div id="container">
                 <!--头部，相册选择和格式选择-->
@@ -1904,7 +1908,6 @@
     <!-- <script src="http://assets.dwstatic.com/b=project/yytv/center/2.4/js&f=lego.popupbox.js"></script>
     <script src="http://a.msstatic.com/huya/icenter/2.5/js/guizutequan.js"></script> -->
     <!-- 贵族续费end -->
-    <script type="text/javascript" src="//a.msstatic.com/huya/icenter/main/js/new_home__f9590e0.js"></script>
     <!-- end -->
     <!-- 第三方登陆修改密码 -->
     <!-- 第三方登陆修改密码 -->

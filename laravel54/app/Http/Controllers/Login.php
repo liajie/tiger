@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Alioss\Oss;
 use Illuminate\Dysms\api_demo\SmsDemo;
 use Illuminate\Http\Request;
 use Illuminate\Mongodb\M;
@@ -10,6 +11,37 @@ use Illuminate\Support\Facades\DB;
 
 class Login extends Controller
 {
+
+    //阿里云OSS授权
+    public function Response()
+    {
+        $oss = new Oss();
+        echo $oss->Response();
+    }
+
+    //阿里文件上传页
+    public function upload()
+    {
+        return view('login/upload');
+    }
+
+    //阿里文件上传成功记录日志
+    public function ossLog(Request $request)
+    {
+        $data = $request->input();
+        unset($data['r']);
+        $data['u_id'] = $_COOKIE['u_id'];
+        $data['fileTime'] = date('Y-m-d H:i:s',time());
+        $M = new M('file_log');
+        $reg = $M->insert($data);
+        if($reg['ok'])
+        {
+            echo json_encode(['error'=>'200','msg'=>'上传日志生成']);
+        }else
+        {
+            echo json_encode(['error'=>'404']);
+        }
+    }
 
     //找回密码
     public function loginpassword_forget(Request $request)
