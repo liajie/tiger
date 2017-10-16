@@ -5,10 +5,25 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Mongodb\M;
 use Illuminate\Support\Facades\DB;
 
 class Live extends Controller
 {
+    //直播页面
+    public function live()
+    {
+        return view('live/live');
+    }
+
+    //聊天记录入库
+    public function liveNewsMongodb(Request $request)
+    {
+        $data = $request->input();
+        $reg = ['uid'=>$data['uid'],'data'=>$data['data'],'addTime'=>date('Y-m-d H:i:s',time())];
+        $m = new M('newsLog');
+        $m->insert($reg);
+    }
 
     //直播列表
     public function live_list()
